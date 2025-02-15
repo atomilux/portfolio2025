@@ -1,0 +1,262 @@
+/* ================== SKILLSET ==================  */
+
+#skillset {
+
+	position:absolute;
+	top:0;
+	height:500px;
+	overflow-y:scroll;
+
+	width:70vw;
+
+	transition:all 0.5s ease-in-out;
+	background:rgba(0,0,0,1);
+	border:1px solid #333;
+	margin:4vw 0 0 0;
+	padding:2vw 0 0 0;
+	
+}
+
+.skills_fuelBars {
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.port_item_stats {
+	display:block;
+	text-align:center;
+}
+
+.skill_bar_vertical {
+	width:1px;
+	height:20px;
+	display:flex;
+	justify-content:center;
+	align-items:flex-end;
+}
+.skill_bar_vertical_fuel {
+	width:1px;
+}
+
+.skill_bar_horizontal {
+	width:50%;
+	height:1px;
+	display:flex;
+	justify-content:flex-start;
+	align-items:baseline;
+
+}
+
+.skill_bar_horizontal_fuel {
+	height:1px;
+}
+
+.skills_content {
+	display: flex;
+	justify-content: flex-start;
+	width: 80vw;
+	margin-left: 4vw;
+}
+
+.skills_title { 
+	font-size:4vw;
+	padding:2vw 0 0 0;
+	text-align:center;
+}
+
+.skills_desc {
+	font-size: 1.7vw;
+	line-height:3vw;
+}
+
+.skills_link {
+	display:flex;
+	margin-top:1vw;
+}
+
+.skills_link a {
+	color:white;
+	text-decoration:none;
+}
+
+.skills_link a:hover {
+	text-decoration:underline;
+}
+
+.acrobat_icon {
+	width:1.5vw;
+	padding-right:.5vw;
+}
+
+.skills .col1 {
+	padding:2% 2% 2% 10%;
+	width:30%;
+	text-align:left;
+}
+
+.skills .col2 {
+	padding:2%;
+	width:80%;
+}
+
+.skill_row {
+	width:50%;
+	display:flex;
+	font-size:1.2vw;
+	align-items:center;
+	height:4vw;
+}
+
+.skill_row_title {
+	width:30%;
+	text-align:right;
+	padding:1%;
+	line-height:1.5vw;
+}
+
+.skill_row_fuelBar {
+	width:40%;
+	padding: 0 0 0 1vw;
+}
+
+
+.skill_title {
+	height:8%;
+	text-align:right;		
+}
+
+.skill_item {
+	height:8%;
+	display:flex;
+	align-items:center;
+	text-align:right;
+}
+
+.type_skills_marketing { 
+	background:var(--color_skills_marketing); 
+	box-shadow:0px 0px 7px 7px rgba(110,206,246,.25); 
+}
+.type_skills_uiux 		{ 
+	background:var(--color_skills_uiux);
+	box-shadow:0px 0px 7px 7px rgba(140,0,225,.25);
+}
+.type_skills_webDev 	{ 
+	background:var(--color_skills_webDev);
+	box-shadow:0px 0px 7px 7px rgba(255,0,225,.25);
+}
+.type_skills_gameDev 	{ 
+	background:var(--color_skills_gameDev);
+	box-shadow:0px 0px 7px 7px rgba(255,0,0,.25);
+}
+
+.skill_bar_vertical_fuel.type_skills_marketing {
+	box-shadow:0px 0px 4px 4px rgba(110,206,246,.25); 
+}
+.skill_bar_vertical_fuel.type_skills_uiux 		{ 
+	box-shadow:0px 0px 4px 4px rgba(140,0,225,.25);
+}
+.skill_bar_vertical_fuel.type_skills_webDev 	{ 
+	box-shadow:0px 0px 4px 4px rgba(255,0,225,.25);
+}
+.skill_bar_vertical_fuel.type_skills_gameDev 	{ 
+	box-shadow:0px 0px 4px 4px rgba(255,0,0,.25);
+}
+
+.bar_height1 { height: 10%; }
+.bar_height2 { height: 20%; }
+.bar_height3 { height: 30%; }
+.bar_height4 { height: 40%; }
+.bar_height5 { height: 50%; }
+.bar_height6 { height: 60%; }
+.bar_height7 { height: 70%; }
+.bar_height8 { height: 80%; }
+.bar_height9 { height: 90%; }
+.bar_height10 { height: 100%; }
+
+.bar_width1 { width: 10%; }
+.bar_width2 { width: 20%; }
+.bar_width3 { width: 30%; }
+.bar_width4 { width: 40%; }
+.bar_width5 { width: 50%; }
+.bar_width6 { width: 60%; }
+.bar_width7 { width: 70%; }
+.bar_width8 { width: 80%; }
+.bar_width9 { width: 90%; }
+.bar_width10 { width: 100%; }
+
+
+/* ----------- MOBILE ------------ */
+@media only screen and (max-width: 420px) {
+
+	/* ------- SKILLS TAB -------- */
+	.content_subnav_item {
+		font-size:6vw;
+	}
+
+	.skills_desc {
+		font-size:4vw;
+		line-height:7vw;
+		padding-top:4vw;
+	}
+
+	.skills .col1 {
+		width:100%;
+		padding:0;
+	}
+
+	.skills .col2 {
+		width:100%;
+	}
+
+	.skills_content {
+		display:block;
+	}
+
+	.skills_link {
+		text-align:center;
+		justify-content:center;
+		padding:3vw 0 3vw 0;
+	}
+
+	.acrobat_icon {
+		width:4vw;
+		padding-right:2vw;
+	}
+
+	
+
+	.skill_row_title {
+		line-height:4vw;
+	}
+
+	.skill_row_fuelBar {
+		width:70%;
+	}
+
+
+	/* ------- PORTFOLIO TAB -------- */
+
+	.port_item {
+		width:100%;
+	}
+
+	.port_item_small {
+		text-align:center;
+	}
+
+	.port_thumbnail {
+		width:80vw;
+		height:80vw;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	.port_item_title {
+		font-size:6vw;
+	}
+
+	.port_item_stat {
+    width: 2.5vw;
+	}
+
+}

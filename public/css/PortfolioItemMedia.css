@@ -1,0 +1,18 @@
+/* ================== PORTFOLIO ITEM MEDIA ==================  */
+
+#portItem_media {
+	display: flex;
+	flex-direction: column;
+	top:25vw;
+	left:11vw;
+	width:75%;
+	
+}
+
+.portItem_image {
+	padding-bottom:2vw;
+}
+
+.portItem_image img {
+	border:1px solid rgb(66, 66, 66);
+}

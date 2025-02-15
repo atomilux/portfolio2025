@@ -1,0 +1,166 @@
+/* ================== PORTFOLIO ITEM DETAIL ==================  */
+
+#portItem_media {
+
+	position:absolute;
+	z-index: 100;
+
+	background:rgba(0,0,0,.9);
+
+	transition: all 0.5s ease-in-out;
+
+	overflow-y:scroll;
+
+	overflow-x:hidden;
+
+	padding:6vw 2vw 0 2vw;
+	
+}
+
+.port_images img {
+	width:100%;
+}
+
+
+#portItem_details .column {
+	width:50%;
+}
+
+
+.port_detail_description {
+	display:flex;
+	align-items:flex-start;
+	align-self: center;
+	justify-content: center;
+	text-align:left;
+	padding:0 0 0 9vw;
+}
+
+.port_detail_description .column {
+	width:50vw;
+}
+
+.portItem_detailPanel h3 {
+	font-size:2vw;
+	
+}
+
+.port_detail_nav {
+	text-align:right;
+	color:white;
+	cursor:pointer;
+	background:#2d2d2d;
+	height:4vw;
+	position:fixed;
+	left:50px;
+	right:50px;
+	z-index:1000;
+}
+
+.port_detail_nav .port_detail_nav_x {
+	width:2vw;
+	padding:1vw;
+	margin:0;
+}
+
+.port_detail_title {
+	position:fixed;
+	top:0;
+	right:0;
+	left:0;
+	text-align:center;
+	font-size:2vw;
+	letter-spacing:1vw;
+	padding:1vw 0 1vw 0;
+	background:#777;
+	cursor:pointer;
+}
+
+.port_detail_title .close {
+	font-size:3vw;
+	position:absolute;
+	margin:0;
+	top:0;
+	right:0;
+	text-align:right;
+	padding: 0 2vw 0 0
+}
+
+.port_detail_item {
+	border:1px solid #333;
+	width:80%;
+	margin:0 auto 3vw auto;
+}
+
+.port_detail_copy {
+	display:flex;
+	justify-content:center;
+}
+
+
+.port_detail_solution li {
+	text-align:left
+}
+
+.port_detail img {
+	width:100%;
+}
+
+
+.link_item {
+	display:flex;
+}
+
+.link_icon {
+	width:1.5vw !important; 
+	padding-right:.5vw;
+	width:90%;
+	padding:5%;
+}
+
+.link {
+	color:white;
+	text-decoration:none;
+	letter-spacing:.25vw;
+	padding-left:.5vw;
+}
+.link:hover {
+	text-decoration:underline;
+}
+
+.col_60 { width:60%; }
+
+.col_40 { width:40%; }
+
+.col_20 { width:20%; }
+
+@media only screen and (max-width: 420px) {
+
+	.port_detail_nav {
+		left:20px !important;
+		right:20px !important;
+		height:6vw !important;
+	}
+
+	.port_detail_nav .port_detail_nav_x {
+    width: 2vw;
+    padding: 2vw;
+    margin: 0;
+	}
+
+	.port_detail_title {
+		font-size:4vw !important;
+		padding:10vw 0 0 0 !important;
+	}
+
+}
+
+/* ================== PORTFOLIO ITEM MEDIA ==================  */
+
+.portItem_image {
+	padding-bottom:2vw;
+}
+
+.portItem_image img {
+	border:1px solid rgb(66, 66, 66);
+}

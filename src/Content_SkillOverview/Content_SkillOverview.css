@@ -1,0 +1,37 @@
+#skillset_overview {
+	/*
+	
+	width:80vw;
+	left:auto;
+	right:auto;
+	border:1px solid blue;
+	transform: rotateY(-90deg) translateZ(100px);
+	*/
+
+	position:absolute;
+	top:0;
+	height:1000px;
+	
+	width:70vw;
+
+	transition: all 0.5s ease-in-out;
+	background:rgba(0,0,0,1);
+	height:500px;
+	padding:2vw 0 0 0;
+	margin:4vw 0 0 0;
+
+	border:1px solid #333;
+
+	/*
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+	*/
+
+}
+
+.skills_overview {
+	width:80%;
+	margin:auto;
+	text-align:center;
+}
