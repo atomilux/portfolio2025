@@ -5,5 +5,4 @@ export function comment(txt:string) {
 	)
 }
 
-
 export default comment;

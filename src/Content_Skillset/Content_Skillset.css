@@ -69,24 +69,7 @@
 	line-height:3vw;
 }
 
-.skills_link {
-	display:flex;
-	margin-top:1vw;
-}
 
-.skills_link a {
-	color:white;
-	text-decoration:none;
-}
-
-.skills_link a:hover {
-	text-decoration:underline;
-}
-
-.acrobat_icon {
-	width:1.5vw;
-	padding-right:.5vw;
-}
 
 .skills .col1 {
 	padding:2% 2% 2% 10%;

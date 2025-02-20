@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
+import { PortfolioContext } from '../Data/DataProvider'
+
+//CSS
 import './Content_Skillset.css'
-import { PortfolioContext } from '../DataProvider/DataProvider'
 
 
 export default function Content_Skillset() {

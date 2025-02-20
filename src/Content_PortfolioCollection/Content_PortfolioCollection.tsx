@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState, useRef } from 'react'
+import { PortfolioContext } from '../Data/DataProvider'
+
 import './Content_PortfolioCollection.css'
-import { PortfolioContext } from '../DataProvider/DataProvider'
+
 
 export default function Content_PortfolioCollection () {
 

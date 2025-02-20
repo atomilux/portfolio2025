@@ -1,6 +1,9 @@
 import { useContext, useEffect, useRef, useState } from 'react'
+import { PortfolioContext } from '../Data/DataProvider'
+
+//CSS
 import './SubNav.css'
-import { PortfolioContext } from '../DataProvider/DataProvider'
+
 
 export default function SubNav() {
 
@@ -30,7 +33,6 @@ export default function SubNav() {
 	const [local_stick_x_skillset, set_local_stick_x_skillset] = useState(0)
 	const [local_stick_x_portfolio, set_local_stick_x_portfolio] = useState(0)
 	const [local_hidden, set_local_hidden] = useState(true)
-	//const [local_opacity, set_local_opacity] = useState(0)
 	const [ee_assigned, set_ee_assigned] = useState(false)
 
 
@@ -100,10 +102,14 @@ export default function SubNav() {
 
 	const ui_stick_move = () => {
 
-		console.log("ui_stick_move()")
+		
+		//console.log("ui_stick_move()")
+		/*
 		console.log("ui_stick_move() - local_stick_x_overview: " + local_stick_x_overview)
 		console.log("ui_stick_move() - local_stick_x_skillset: " + local_stick_x_skillset)
 		console.log("ui_stick_move() - local_stick_x_portfolio: " + local_stick_x_portfolio)
+		*/
+		
 		
 		if (global_portfolio_mode === "overview") {
 			set_local_stick_x(local_stick_x_overview)
@@ -121,17 +127,26 @@ export default function SubNav() {
 
 	const ui_stick_calcs = () => {
 
+		//console.log("ui_stick_calcs()");
+
 		const overview_rect 	= dom_ref_overview.current.getBoundingClientRect()
 		const skillset_rect 	= dom_ref_skillset.current.getBoundingClientRect()
 		const portfolio_rect 	= dom_ref_portfolio.current.getBoundingClientRect()
 		
-		set_local_stick_x(overview_rect.left)
+		if (local_firstRun === true) {
+			set_local_stick_x(overview_rect.left)
+		}
 
 		set_local_stick_x_overview(overview_rect.left)
 		set_local_stick_x_skillset(skillset_rect.left)
 		set_local_stick_x_portfolio(portfolio_rect.left)
 
 	}
+
+	ee.on(EVT.WINDOW_RESIZE,()=>{
+		ui_stick_calcs()
+		ui_stick_move()
+	})
 
 	useEffect(()=>{
 

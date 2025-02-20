@@ -3,9 +3,11 @@ export default class EventEmitter {
 	public events
 	public on
 	public emit
-	public fadeIn250
-	public fadeIn500
-	public fadeIn1000
+	public delay250
+	public delay500
+	public delay1000
+	public delay1500
+	public delay2000
 
   constructor() {
 
@@ -30,22 +32,34 @@ export default class EventEmitter {
 
 		}
 		
-		this.fadeIn250 = (callback) => {
+		this.delay250 = (callback) => {
 			setTimeout(()=> {
 				callback()
 			},250)
 		}
 
-		this.fadeIn500 = (callback) => {
+		this.delay500 = (callback) => {
 			setTimeout(()=> {
 				callback()
 			},500)
 		}
 
-		this.fadeIn1000 = (callback) => {
+		this.delay1000 = (callback) => {
 			setTimeout(()=> {
 				callback()
 			},1000)
+		}
+
+		this.delay1500 = (callback) => {
+			setTimeout(()=> {
+				callback()
+			},1500)
+		}
+
+		this.delay2000 = (callback) => {
+			setTimeout(()=> {
+				callback()
+			},2000)
 		}
   
 	}//end constructor()

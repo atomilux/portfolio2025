@@ -35,3 +35,23 @@
 	margin:auto;
 	text-align:center;
 }
+
+.skills_link {
+	display:block;
+	margin: 1vw auto 0 auto;
+	font-size:2vw;
+}
+
+.skills_link a {
+	color:white;
+	text-decoration:none;
+}
+
+.skills_link a:hover {
+	text-decoration:underline;
+}
+
+.acrobat_icon {
+	width:1.5vw;
+	padding-right:.5vw;
+}

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useRef } from 'react'
-import { PortfolioContext } from '../DataProvider/DataProvider'
+import { PortfolioContext } from '../Data/DataProvider'
 import './Content_PortfolioDetail.css'
 
 
@@ -208,7 +208,7 @@ export default function Content_PortfolioDetail() {
 
 	useEffect(()=>{
 
-		console.log("PortfolioDetails.tsx");
+		//console.log("PortfolioDetails.tsx");
 		//console.dir(global_portfolio_item_current)
 
 		//console.dir(local_css)

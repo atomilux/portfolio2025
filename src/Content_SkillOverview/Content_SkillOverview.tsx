@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
+import { PortfolioContext } from '../Data/DataProvider'
+
+//CSS
 import './Content_SkillOverview.css'
-import { PortfolioContext } from '../DataProvider/DataProvider'
 
 
 export default function Content_SkillOverview() {
@@ -25,19 +27,19 @@ export default function Content_SkillOverview() {
 		switch(role_in) {
 
 			case "skills_marketing": 
-				final_url = "marketingresume.pdf"
+				final_url = "resumes/resume_SteveLux_Marketing_2023.pdf"
 				break
 
 			case "skills_uiux":
-				final_url = "uiuxresume.pdf"
+				final_url = "resumes/resume_SteveLux_UIUX_2023.pdf"
 				break
 
 			case "skills_webDev":
-				final_url = "webDevresume.pdf"
+				final_url = "resumes/resume_SteveLux_UnityDev_2023.pdf"
 				break
 
 			case "skills_gameDev":
-				final_url = "gameDevResume.pdf"
+				final_url = "resumes/resume_SteveLux_webDev_2023.pdf"
 				break
 
 			default:
@@ -106,11 +108,15 @@ export default function Content_SkillOverview() {
 		local_resume_url_byRole,
 		local_resume_label_byRole
 	])
-	
 
 
 	return (
-		<div id="skillset_overview" style={{opacity:global_skillset_opacity, transform: 'rotateY('+global_content_overview_rotateY+'deg) translateZ('+global_content_3d_translateZ+'px)'}}>
+		<div 	id="skillset_overview" 
+					style={{
+						opacity:global_skillset_opacity, 
+						transform: 	'rotateY('+global_content_overview_rotateY+'deg) ' + 
+												'translateZ('+global_content_3d_translateZ+'px)'
+					}}>
 		<div className="skills_overview">
 			<div className="column col1">
 				<div className="skills_desc">{ global_role_current.desc }</div>
