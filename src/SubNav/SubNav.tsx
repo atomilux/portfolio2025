@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
 //CSS
@@ -7,12 +7,18 @@ import './SubNav.css'
 
 export default function SubNav() {
 
+
+	////////////////////// REFERENCES //////////////////////
+
 	const dom_ref_overview 	= useRef(null)
 	const dom_ref_skillset 	= useRef(null)
 	const dom_ref_portfolio = useRef(null)
 	const dom_ref_stick 		= useRef(null)
 
-	//All skill data objects (key, title, desc, resume)
+
+
+	////////////////////// GLOBAL VARIABLES //////////////////////
+
 	const {
 		ee,
 		EVT,
@@ -24,18 +30,25 @@ export default function SubNav() {
 		global_nav_isOpen
 	} = useContext(PortfolioContext)
 
-	//const [local_subnav_skillset_active, set_local_subnav_skillset_active] = useState(true)
-
-	const [local_firstRun, set_local_firstRun] = useState(true)
-	const [local_stick_move, set_local_stick_move] = useState(false)
-	const [local_stick_x, set_local_stick_x] = useState(0)
-	const [local_stick_x_overview, set_local_stick_x_overview] = useState(0)
-	const [local_stick_x_skillset, set_local_stick_x_skillset] = useState(0)
-	const [local_stick_x_portfolio, set_local_stick_x_portfolio] = useState(0)
-	const [local_hidden, set_local_hidden] = useState(true)
-	const [ee_assigned, set_ee_assigned] = useState(false)
 
 
+
+	////////////////////// LOCAL VARIABLES //////////////////////
+
+	const [local_firstRun, set_local_firstRun] 										= useState(true)
+	const [local_stick_move, set_local_stick_move] 								= useState(false)
+	const [local_stick_x, set_local_stick_x] 											= useState(0)
+	const [local_stick_x_overview, set_local_stick_x_overview] 		= useState(0)
+	const [local_stick_x_skillset, set_local_stick_x_skillset] 		= useState(0)
+	const [local_stick_x_portfolio, set_local_stick_x_portfolio] 	= useState(0)
+	const [ee_assigned, set_ee_assigned] 													= useState(false)
+
+
+
+
+	////////////////////// FUNCTIONS //////////////////////
+
+	//---- UI STYLING ------
 	const ui_subnav_overview_active = () => {
 		let active_css = "subnav_active"
 		if (global_portfolio_mode !== "overview") {
@@ -43,7 +56,6 @@ export default function SubNav() {
 		}
 		return active_css;
 	}
-
 
 	const ui_subnav_skillset_active = () => {
 		let active_css = "subnav_active"
@@ -61,6 +73,8 @@ export default function SubNav() {
 		return active_css;
 	}
 
+
+	//---- CLICK ------
 	const ui_click_overview = () => {
 
 		set_local_stick_move(true)
@@ -100,15 +114,9 @@ export default function SubNav() {
 
 	}
 
-	const ui_stick_move = () => {
 
-		
-		//console.log("ui_stick_move()")
-		/*
-		console.log("ui_stick_move() - local_stick_x_overview: " + local_stick_x_overview)
-		console.log("ui_stick_move() - local_stick_x_skillset: " + local_stick_x_skillset)
-		console.log("ui_stick_move() - local_stick_x_portfolio: " + local_stick_x_portfolio)
-		*/
+	//---- ANIMATE ------
+	const ui_stick_move = useCallback(() => {
 		
 		
 		if (global_portfolio_mode === "overview") {
@@ -123,11 +131,11 @@ export default function SubNav() {
 			set_local_stick_x(local_stick_x_portfolio)
 		}
 
-	}
+	})
 
-	const ui_stick_calcs = () => {
 
-		//console.log("ui_stick_calcs()");
+	//----- UI CALCULATIONS --------
+	const ui_stick_calcs = useCallback(() => {
 
 		const overview_rect 	= dom_ref_overview.current.getBoundingClientRect()
 		const skillset_rect 	= dom_ref_skillset.current.getBoundingClientRect()
@@ -141,12 +149,10 @@ export default function SubNav() {
 		set_local_stick_x_skillset(skillset_rect.left)
 		set_local_stick_x_portfolio(portfolio_rect.left)
 
-	}
-
-	ee.on(EVT.WINDOW_RESIZE,()=>{
-		ui_stick_calcs()
-		ui_stick_move()
 	})
+
+
+	////////////////////// EFFECTS //////////////////////
 
 	useEffect(()=>{
 
@@ -157,7 +163,7 @@ export default function SubNav() {
 
 		if(local_stick_move) {
 
-			console.log("SubNav.tsx - useEffect()");
+			console.log("SubNav.tsx - useEffect()")
 
 			ui_stick_move()
 
@@ -167,13 +173,14 @@ export default function SubNav() {
 
 	},[
 		local_stick_move,
+		local_firstRun,
+		ui_stick_calcs,
 		global_subnav_opacity,
 		global_subnav_scale,
 		global_nav_isOpen, 
 		local_stick_x, 
 		set_local_stick_x, 
 		global_portfolio_mode,
-		local_hidden,
 		ui_stick_move,
 		ee_assigned,
 		set_ee_assigned
@@ -181,13 +188,28 @@ export default function SubNav() {
 
 
 
+	////////////////////// EVENTS //////////////////////
+
+	ee.on(EVT.WINDOW_RESIZE,()=>{
+
+		console.log("SubNav.tsx - EVT.WINDOW_RESIZE");
+		ui_stick_calcs()
+
+		ee.delay500(()=>{
+			ui_stick_move()
+		})
+		
+	})
+
+
+
+	////////////////////// RENDER //////////////////////
 
 	return (
 					
 		<div id="subnav_category" className={"subnav subnav_" + global_role_current.key} style={{opacity:global_subnav_opacity, transform:'scale('+global_subnav_scale+')'}}>
 
 			<div className="content_subnav">
-
 
 			<div className="content_subnav_item">
 

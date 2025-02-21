@@ -1,10 +1,20 @@
-import { useContext, useEffect, useState, useRef } from 'react'
+import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
 import './Content_PortfolioCollection.css'
 
 
 export default function Content_PortfolioCollection () {
+
+
+
+	////////////////////// REFERENCES //////////////////////
+
+	const dom_ref_me = useRef(null)
+
+
+
+	////////////////////// GLOBAL VARIABLES //////////////////////
 
 	const {
 		ee,
@@ -20,16 +30,19 @@ export default function Content_PortfolioCollection () {
 		dom_ref_me.current.scrollTo(0,0)
 	})
 
-	const dom_ref_me = useRef(null)
 
 
-	const [local_vimeoThumbnailURLs, set_local_vimeoThumbnailURLs] = useState({})
+	////////////////////// LOCAL VARIABLES //////////////////////
 
-	const [local_vimeoAPIcallsTriggered, set_local_vimeoAPIcallsTriggered] = useState(false)
+	const [local_vimeoThumbnailURLs, set_local_vimeoThumbnailURLs] 					= useState({})
+	const [local_vimeoAPIcallsTriggered, set_local_vimeoAPIcallsTriggered] 	= useState(false)
 
-	const [local_height, set_local_height] = useState(200)
 
 
+	////////////////////// FUNCTIONS //////////////////////
+
+
+	//---- CLICK ------
 	const click_ui_portfolioItem = (e) => {
 
 		console.dir(e)
@@ -41,7 +54,7 @@ export default function Content_PortfolioCollection () {
 		
 	}
 
-	const image_isThumbnail = (str_url) => {
+	const image_isThumbnail = (str_url:string) => {
 
 		let r_img = /(png|jpg|gif)/
 		let b_isTrue = false;
@@ -53,12 +66,16 @@ export default function Content_PortfolioCollection () {
 		return b_isTrue
 	}
 
-	const image_isVimeo = (str_url) => {
+
+
+	//---- VIMEO ------
+
+	const image_isVimeo = (str_url:string) => {
 		return str_url.includes('vimeo')
 	}
 
 
-	const init_vimeoThumbnails = () => {
+	const vimeo_initThumbnails = useCallback(() => {
 
 		console.log("init_vimeoThumbnails()");
 
@@ -83,7 +100,7 @@ export default function Content_PortfolioCollection () {
 				thumbs_obj[int_id] = ''
 
 				//trigger
-				fetch_getVimeoThumbnail(item.images[0])
+				vimeo_fetch_getVideoJSONdata(item.images[0])
 
 			}
 
@@ -91,9 +108,11 @@ export default function Content_PortfolioCollection () {
 
 		})//enf forEach
 
-	}//end f
+	})//end f
 
-	const get_vimeoID = (url_str) => {
+
+
+	const vimeo_getID = (url_str) => {
 
 		const r_vidID = /[0-9]+/
 
@@ -104,22 +123,15 @@ export default function Content_PortfolioCollection () {
 	}
 
 
-	const fetch_getVimeoThumbnail = ( str_url) => {		
+	const vimeo_fetch_getVideoJSONdata = ( str_url) => {		
 				
-		//let r_vidID = /[0-9]+/;
-		//let int_id = str_url.match(r_vidID)[0];
 
-		const int_id = get_vimeoID(str_url)
+		const int_id = vimeo_getID(str_url)
 		
 		const url = 'http://vimeo.com/api/v2/video/' + int_id + '.json';
 
-		//http://vimeo.com/api/v2/video/791934386.json
-		//xhr.open("GET", url, true);
-
-		console.log(url);
-
 		//grab a copy of state
-		let tmp_thumbPaths_obj = local_vimeoThumbnailURLs
+		const tmp_thumbPaths_obj = local_vimeoThumbnailURLs
 
 		//set to empty string for now
 		tmp_thumbPaths_obj[int_id] = ''
@@ -129,7 +141,6 @@ export default function Content_PortfolioCollection () {
 
 
 		//trigger the xhr call
-		//xhr.onreadystatechange = function () {
 		fetch(url)
 		.then((response) => response.json())
 		.then((data)=>{
@@ -139,7 +150,7 @@ export default function Content_PortfolioCollection () {
 			console.dir(data)
 
 			//grab a copy of state
-			let tmp_thumbPaths_obj = local_vimeoThumbnailURLs
+			const tmp_thumbPaths_obj = local_vimeoThumbnailURLs
 
 			//set to empty string for now
 			tmp_thumbPaths_obj[int_id] = data[0].thumbnail_large
@@ -153,12 +164,17 @@ export default function Content_PortfolioCollection () {
 		
 	}//end f
 
-	const render_vimeoThumb_onCallback = (image_path_str, item_obj) => {
+
+
+	//---- RENDER ------
+	const vimeo_renderThumb_onCallback = (image_path_str, item_obj) => {
 		return(<img className="port_thumbnail" src={image_path_str} data-key={item_obj.id} key={item_obj.id+"_thumb"}/>)
 	}//end f
 
 
-	
+
+
+	////////////////////// EFFECTS //////////////////////
 
 	useEffect(()=>{
 
@@ -167,28 +183,14 @@ export default function Content_PortfolioCollection () {
 		if (	global_portfolio_filtered.length > 0 && 
 					local_vimeoAPIcallsTriggered === false) {
 
-			init_vimeoThumbnails()
+			vimeo_initThumbnails()
 			set_local_vimeoAPIcallsTriggered(true)
 
 		}
 
-		/*
-		console.log("PortfolioCollection - useEffect()")
-
-		//console.dir(global_portfolio_filtered)
-		//console.dir(ee.events[EVT.SUBNAV_CLICK_SKILLSET])
-
-		if (ee.events[EVT.SUBNAV_CLICK_SKILLSET] === undefined) {
-
-
-			ee.on(EVT.SUBNAV_CLICK_SKILLSET,(obj) => {
-				console.log("HEARD THIS!!!!!!!!!")
-				console.dir(obj)
-			})
-
-		}
-			*/
 	},[
+		vimeo_initThumbnails,
+		local_vimeoThumbnailURLs,
 		local_vimeoAPIcallsTriggered,
 		global_skillset_opacity,
 		global_portfolio_filtered,
@@ -196,6 +198,8 @@ export default function Content_PortfolioCollection () {
 	])
 
 	
+
+	////////////////////// RENDER //////////////////////
 
 	return (
 
@@ -224,8 +228,8 @@ export default function Content_PortfolioCollection () {
 
 										{
 											image_isVimeo(item.images[0]) ?
-											render_vimeoThumb_onCallback(
-												local_vimeoThumbnailURLs[get_vimeoID(item.images[0])],
+											vimeo_renderThumb_onCallback(
+												local_vimeoThumbnailURLs[vimeo_getID(item.images[0])],
 												item
 											)
 											: null

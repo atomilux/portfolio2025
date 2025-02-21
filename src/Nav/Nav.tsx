@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
 //CSS
@@ -79,6 +79,7 @@ export default function Nav() {
 		local_nav_isFirstLoad, 
 		local_set_nav_isFirstLoad] 				= useState(true)
 
+	//TODO - track down if we need to swap these for global
 	//open height value 
 	const [
 		local_nav_heightOpen, 
@@ -147,31 +148,10 @@ export default function Nav() {
 
 	}//end f
 
-	/*
-	const calc_get_nav_firstItemHeight = ():number => {
 
-		//TODO - get this by child item vs name
-		return refs.current["skills_marketing"].getBoundingClientRect().height
+	const calc_nav_openCloseHeights = useCallback(() => {
 
-	}//end f
-
-	const calc_get_nav_height = ():number => {
-		
-		return dom_nav_role_list.current.getBoundingClientRect().height
-
-	}//end f	
-
-	const calc_get_nav_headerHeight = ():number => {
-		
-		return dom_nav_header.current.getBoundingClientRect().height
-
-	}//end f	
-	*/
-
-
-	const calc_nav_openCloseHeights = () => {
-
-		console.log("calc_nav_openCloseHeights()");
+		//console.log("calc_nav_openCloseHeights()");
 
 		//const nav_cont_height = calc_get_nav_height()
 		const nav_cont_height = dom_nav_role_list.current.getBoundingClientRect().height
@@ -182,22 +162,15 @@ export default function Nav() {
 		//const nav_header_height = calc_get_nav_headerHeight()
 		const nav_header_height = dom_nav_header.current.getBoundingClientRect().height
 
-		console.log("calc_nav_openCloseHeights() - nav_cont_height: " + nav_cont_height);
-		console.log("calc_nav_openCloseHeights() - nav_firstItem_height: " + nav_firstItem_height);
-		console.log("calc_nav_openCloseHeights() - nav_header_height: " + nav_header_height);
-
 		const skillHeight = nav_cont_height + nav_header_height
 		const skillHeightClose = nav_header_height + nav_firstItem_height
-
-		console.log("calc_nav_openCloseHeights() - skillHeight: " + skillHeight);
-		console.log("calc_nav_openCloseHeights() - skillHeightClose: " + skillHeightClose);
 
 		return {
 			skillHeight,
 			skillHeightClose
 		}
 
-	}//end f
+	})//end f
 
 
 	//---- STATE ------
@@ -465,9 +438,6 @@ export default function Nav() {
 			ref={ dom_nav } 
 			style={{ height: local_nav_heightOpenDOMready + "px" }}
 		>
-			{/*
-			<p>local_nav_heightOpenDOMready &gt; {local_nav_heightOpenDOMready} -- local_nav_heightOpen &gt; {local_nav_heightOpen} -- local_nav_heightClosed &gt; {local_nav_heightClosed}</p>
-			 */}
 						
 			<div className="nav_role" ref={dom_nav_header}>
 				<div className="nav_role_control">

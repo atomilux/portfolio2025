@@ -5,7 +5,6 @@
 	position:absolute;
 	top:0;
 	height:500px;
-	overflow-y:scroll;
 
 	width:70vw;
 
@@ -14,12 +13,25 @@
 	border:1px solid #333;
 	margin:4vw 0 0 0;
 	padding:2vw 0 0 0;
+
+	overflow-y:hidden;
+	overflow-x:hidden;
 	
+}
+
+.skills_header {
+	width:100%;
+	position:fixed;
 }
 
 .skills_fuelBars {
 	display:flex;
 	flex-wrap:wrap;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height:400px;
+	margin:4vw 0 0 4vw;
+	align-content:baseline;
 }
 
 .port_item_stats {
@@ -58,6 +70,7 @@
 	margin-left: 4vw;
 }
 
+
 .skills_title { 
 	font-size:4vw;
 	padding:2vw 0 0 0;
@@ -88,6 +101,14 @@
 	font-size:1.2vw;
 	align-items:center;
 	height:4vw;
+}
+
+@media only screen and (max-width: 1024px) {
+	.skill_row {
+		width:100%;
+		font-size:1.6vw;
+		height:5vw
+	}
 }
 
 .skill_row_title {
@@ -191,9 +212,7 @@
 		width:100%;
 	}
 
-	.skills_content {
-		display:block;
-	}
+
 
 	.skills_link {
 		text-align:center;

@@ -7,6 +7,9 @@ import './Content_SkillOverview.css'
 
 export default function Content_SkillOverview() {
 
+
+	////////////////////// GLOBAL VARIABLES //////////////////////
+
 	const {
 		global_content_3d_translateZ,
 		global_content_overview_rotateY,
@@ -16,10 +19,22 @@ export default function Content_SkillOverview() {
 		global_role_skillsRanked, 
 		global_nav_openHeight} 	= useContext(PortfolioContext)
 
+
+
+
+	////////////////////// LOCAL VARIABLES //////////////////////
+
 	const [local_resume_url_byRole, set_local_resume_url_byRole] 									= useState("")
 	const [local_resume_label_byRole, set_local_resume_label_byRole] 							= useState("")
 
 
+
+
+	////////////////////// FUNCTIONS //////////////////////
+
+	
+	//---- CONTENT ------
+	
 	const resume_url_byRole = (role_in:string) => {
 		
 		let final_url = "";
@@ -51,6 +66,9 @@ export default function Content_SkillOverview() {
 		
 	}
 
+
+
+	//---- STYLING ------
 
 	const resume_label_byRole = (role_in:string) => {
 
@@ -87,13 +105,10 @@ export default function Content_SkillOverview() {
 	}//end f
 
 
+
+	////////////////////// EFFECTS //////////////////////
+
 	useEffect(() => {
-		/*
-		console.log("Skillset.tsx - useEffect( - local_resume_label_byRole: " + local_resume_label_byRole);
-		console.log("Skillset.tsx - useEffect() - local_resume_url_byRole: " + local_resume_url_byRole);
-		console.dir(global_role_current)
-		console.dir(global_role_skillsRanked)
-		*/
 
 		resume_url_byRole(global_role_current.key)
 		resume_label_byRole(global_role_current.key)
@@ -110,7 +125,11 @@ export default function Content_SkillOverview() {
 	])
 
 
+
+	////////////////////// RENDER //////////////////////
+
 	return (
+		
 		<div 	id="skillset_overview" 
 					style={{
 						opacity:global_skillset_opacity, 
@@ -129,6 +148,7 @@ export default function Content_SkillOverview() {
 		</div>
 			
 	</div>
-	)
+
+	)//end render
 
 }//end class

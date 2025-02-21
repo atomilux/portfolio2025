@@ -1,34 +1,38 @@
-import { useContext, useEffect, useState, useRef } from 'react'
+import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 import './Content_PortfolioDetail.css'
 
 
 export default function Content_PortfolioDetail() {
 
-	const {
-		ee,
-		EVT
-	} = useContext(PortfolioContext)
 
-	ee.on(EVT.PORTFOLIO_ITEM_CLICK,(data)=>{
-		console.dir(data)
-		render_inlineCSS(true)
-		console.dir(ref_overlay.current)
-		ref_overlay.current.scrollTo(0,0)
-	})
+	////////////////////// REFERENCES //////////////////////
 
 	const ref_overlay = useRef(null)
 
-	const {global_portfolio_item_current} = useContext(PortfolioContext)
 
-	const [local_links, set_local_links] = useState(false)
 
-	const [local_isOpen, set_local_isOpen] = useState(true)
 
-	const [local_firstRun, set_local_firstRun] = useState(true)
+	////////////////////// GLOBAL VARIABLES //////////////////////
 
-	const [local_css, set_local_css] 
-	= useState(
+	const {
+		ee,
+		EVT,
+		global_portfolio_item_current
+	} = useContext(PortfolioContext)
+
+
+
+
+	////////////////////// LOCAL VARIABLES //////////////////////
+
+	const [local_links, set_local_links] 				= useState(false)
+
+	const [local_isOpen, set_local_isOpen] 			= useState(true)
+
+	const [local_firstRun, set_local_firstRun] 	= useState(true)
+
+	const [local_css, set_local_css] 						= useState(
 		{
 			top:'50vw',
 			right:'50vw',
@@ -37,6 +41,11 @@ export default function Content_PortfolioDetail() {
 			opacity:0
 		}
 	)
+
+
+
+	////////////////////// FUNCTIONS //////////////////////
+
 
 	const link_icon = (str_name) => {
 
@@ -54,6 +63,10 @@ export default function Content_PortfolioDetail() {
 		return str_finalIconURL;
 
 	}//end f
+
+
+
+	//---- RENDER ------
 
 	const render_links_title = () => {
 
@@ -103,7 +116,7 @@ export default function Content_PortfolioDetail() {
 		if (global_portfolio_item_current.solution && 
 				global_portfolio_item_current.solution.length > 0) {
 
-			let solutions = global_portfolio_item_current.solution.map(
+			const solutions = global_portfolio_item_current.solution.map(
 
 				(item) => {
 					return (<li>{item}</li>)
@@ -150,6 +163,10 @@ export default function Content_PortfolioDetail() {
 
 	}//end f
 
+
+
+	//----- CALCULATIONS --------
+
 	const videoHeight = ():number => {
 
 		let h:number = window.screen.width * .5
@@ -162,11 +179,17 @@ export default function Content_PortfolioDetail() {
 
 	}//end f
 
+
+	//----- VIMEO --------
+
 	const image_isVimeo = (str_url:string):boolean => {
 		return str_url.includes('vimeo')
 	}
 
-	const closeMe = ():void => {
+
+	//----- CLICK --------
+
+	const click_closeMe = ():void => {
 
 		console.log("close me");
 		console.dir(local_css)
@@ -176,7 +199,11 @@ export default function Content_PortfolioDetail() {
 
 	}//end f
 
-	const render_inlineCSS = (showMe_in):object => {
+
+
+	//----- STYLING --------
+
+	const render_inlineCSS = useCallback((showMe_in) => {
 
 		console.log("render_inlineCSS()")
 
@@ -204,14 +231,14 @@ export default function Content_PortfolioDetail() {
 
 		set_local_css(css)
 
-	}
+	})//end f
+
+
+
+	////////////////////// EFFECTS //////////////////////
+
 
 	useEffect(()=>{
-
-		//console.log("PortfolioDetails.tsx");
-		//console.dir(global_portfolio_item_current)
-
-		//console.dir(local_css)
 
 		if (local_firstRun) { 
 			render_inlineCSS(false)
@@ -231,6 +258,19 @@ export default function Content_PortfolioDetail() {
 		local_links
 	])
 
+
+	////////////////////// EVENTS //////////////////////
+	ee.on(EVT.PORTFOLIO_ITEM_CLICK,(data)=>{
+		console.dir(data)
+		render_inlineCSS(true)
+		console.dir(ref_overlay.current)
+		ref_overlay.current.scrollTo(0,0)
+	})
+
+
+
+	////////////////////// RENDER //////////////////////
+
 	return (
 
 		<div id="portItem_media" className="portItem_detailPanel" style={{...local_css}} ref={ref_overlay}>
@@ -238,7 +278,7 @@ export default function Content_PortfolioDetail() {
 
 			{/* ----------------- PORTFOLIO ITEM: TITLE ---------------- */}
 
-			<div className="port_detail_title" onClick={closeMe}>
+			<div className="port_detail_title" onClick={click_closeMe}>
 				<div className="title">
 					{global_portfolio_item_current.title}
 				</div>
