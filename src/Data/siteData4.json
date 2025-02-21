@@ -1,0 +1,1089 @@
+{
+	"skillsets": {
+		"skills_roles":[ 
+			{
+				"key":"skills_marketing",
+				"title":"MARKETING GURU",
+				"desc":"Decades of successful creative and marketing initiatives have led to roles as Creative Director and VP Marketing. Startup experience honed my ability to quickly generate marketing that is compelling, extols value, clears objections and creates tribal loyalty. Successful marketing is timeless, iconic and is a measurable asset on a balance sheet.",
+				"skill_labels":"Marketing Strategy, Content Strategy, Social Media Strategy, Brand Strategy, Creative Direction, Product Design, Lead Generation,Logotype Design, Graphic Design, Photoshop, Illustrator, InDesign, Audition, AfterEffects, Premiere Pro, Acrobat, Copywriting",
+				"skill_keys":"marketing_campaigns,content_strategy,social_media_campaigns,brand_building,creative_direction,product_design,product_positioning,lead_generation,logo_design,graphic_design,photoshop,illustrator,indesign,audition,after_effects,premiere_pro,acrobat_pro,copywriting,typography,photography,extendscript,illustration",
+				"resume":"./resumes/resume_SteveLux_Marketing_2023.pdf"
+			},
+
+			{
+				"key":"skills_uiux",
+				"title":"UI/UX DESIGNER",
+				"desc":"I’m a product driven UI/UX designer and developer with 25+ years of experience in web, mobile and gaming. Transcendent human centric design principles have yielded work with clarity, intuitive ease of use and utility.",
+				"skill_labels": "UX customer research, competitive audit, Information Architecture, Journey Mapping, Wireframes, Prototyping, UI Design, UX Design, Usability Testing, Data Visualization, Animation",
+				"skill_keys":"ux_customer_research,competitive_audit,information_architecture,journey_mapping,wireframes,prototyping,ui_design,ux_design,data_visualization,animation,web_design,user_documentation,user_training",
+				"resume":"./resumes/resume_SteveLux_UIUX_2023.pdf"
+			},
+
+			{
+				"key":"skills_webDev",
+				"title":"WEB DEVELOPER",
+				"desc":"I’m a prooduct driven Full Stack Web Developer with 25+ years of experience. Agile DevOps, DB, Back End, APIs and Front End dev in multiple platforms and languages are part of my skillset. I've built products from concept to hardened completion.",
+				"skill_labels":"HTML, CSS, SCSS, CSS-in-JS, JavaScript, TypeScript, JSX, jQuery, webpack, Angular, React, Vue, Unit Testing, GraphQL, API integration, API authoring, MySQL, Postgres, Firebase NoSQL, ElasticSearch, relational DB design, Python, NodeJS, Linnode, AWS (S3,EC2,CLI), Google Cloud Storage, npm, yarn, chron jobs",
+				"skill_keys":"html,css,scss,css_in_js,javascript,typescript,jsx,jquery,webpack,angular,react,vuejs,unit_testing,graphql,api_integration,api_authoring,sql,firebase_nosql,relational_db_design,python,nodejs,linnode,aws,google_cloud_storage,npm,yarn,chron_jobs,web_app_architecture,php,asp_net,flex,mxml,as2,as3,mxml,perl,json,soap,flash,regex,java,automation,developer_documentation,netsuite_integration",
+				"resume":"./resumes/resume_SteveLux_webDev_2023.pdf"
+			},
+
+			{
+				"key":"skills_gameDev",
+				"title":"UNITY3D DEVELOPER",
+				"desc":"I’m a product driven Unity3d developer with 15 years of experience who has shipped titles for Fortune 500 Clients, Gaming Companies, Cyber Security Companies and Higher Education. These projects were published to WebGL, iOS and Android. Most had back end API integration.",
+				"skill_labels":"Application Architecture, Product Design, C#, .NET, Linq, MVC, Maya, 3D Modeling, UV Mapping, Shader Authoring, Unity3d, WebGL",
+				"skill_keys":"game_architecture,c_sharp,dot_net,linq,mvc,maya,3d_modeling,uv_mapping,shader_authoring,unity3d,unreal,webgl_builds,mecanim,ios_builds,android_builds,scriptable_objects",
+				"resume":"./resumes/resume_SteveLux_UnityDev_2023.pdf"
+			}
+		],
+		"skills_rated":[
+			{"title":"Marketing Campaigns", 		"strength":"6", "key":"marketing_campaigns", 		"category":"skills_marketing"},
+			{"title":"Content Strategy", 				"strength":"8", "key":"content_strategy", 			"category":"skills_marketing"},
+			{"title":"Social Media Campaigns", 	"strength":"6", "key":"social_media_campaigns", "category":"skills_marketing"},
+			{"title":"Brand Building",					"strength":"10", "key":"brand_building", 				"category":"skills_marketing"},
+			{"title":"Creative Direction", 			"strength":"10", "key":"creative_direction", 		"category":"skills_marketing"},
+			{"title":"Product Design", 					"strength":"7", "key":"product_design", 				"category":"skills_marketing"},
+			{"title":"Product Positioning", 		"strength":"7", "key":"product_positioning", 		"category":"skills_marketing"},
+			{"title":"Lead Generation", 				"strength":"5", "key":"lead_generation", 				"category":"skills_marketing"},
+			{"title":"Logo Design", 		"strength":"10", "key":"logo_design", 		"category":"skills_marketing"},
+			{"title":"Graphic Design", 	"strength":"10", "key":"graphic_design", 	"category":"skills_marketing"},
+			{"title":"Photoshop", 			"strength":"9", "key":"photoshop", 				"category":"skills_marketing"},
+			{"title":"Illustrator", 		"strength":"10", "key":"illustrator", 		"category":"skills_marketing"},
+			{"title":"InDesign", 				"strength":"8", "key":"indesign", 				"category":"skills_marketing"},
+			{"title":"Audition", 				"strength":"6", "key":"audution", 				"category":"skills_marketing"},
+			{"title":"After Effects",		"strength":"7", "key":"after_effects", 		"category":"skills_marketing"},
+			{"title":"Premiere Pro", 		"strength":"6", "key":"premiere_pro", 		"category":"skills_marketing"},
+			{"title":"Acrobat Pro", 		"strength":"5", "key":"acrobat_pro", 			"category":"skills_marketing"},
+			{"title":"Copywriting", 		"strength":"8", "key":"copywriting", 			"category":"skills_marketing"},
+			{"title":"Typography", 			"strength":"10", "key":"typography", 			"category":"skills_marketing"},
+			{"title":"Photography", 		"strength":"8", "key":"photography", 			"category":"skills_marketing"},
+			{"title":"Extendscript", 		"strength":"9", "key":"extendscript", 		"category":"skills_marketing"},
+			{"title":"Illustration", 		"strength":"9", "key":"illustration", 		"category":"skills_marketing"},
+
+			
+			{"title":"Usability Testing", 				"strength":"8", "key":"usability_testing", 			"category":"skills_uiux"},
+
+			{"title":"UX customer research", 			"strength":"9", "key":"ux_customer_research", 		"category":"skills_uiux"},
+			{"title":"Competitive Audit", 				"strength":"10", "key":"competitive_audit", 			"category":"skills_uiux"},
+			{"title":"Information Architecture", 	"strength":"9", "key":"information_architecture", "category":"skills_uiux"},
+			{"title":"Journey Mapping", 					"strength":"7", "key":"journey_mapping", 					"category":"skills_uiux"},
+			{"title":"Wireframes", 								"strength":"10", "key":"wireframes", 							"category":"skills_uiux"},
+			{"title":"Prototyping",								"strength":"10", "key":"prototyping", 						"category":"skills_uiux"},
+			{"title":"UI Design", 								"strength":"10", "key":"ui_design", 							"category":"skills_uiux"},
+			{"title":"UX Design", 								"strength":"10", "key":"ux_design", 							"category":"skills_uiux"},
+			{"title":"Data Visualization", 				"strength":"7", "key":"data_visualization", 			"category":"skills_uiux"},
+			{"title":"Animation", 								"strength":"7", "key":"animation", 								"category":"skills_uiux"},
+			{"title":"Web Design", 								"strength":"10", "key":"web_design", 							"category":"skills_uiux"},
+			{"title":"User Documentation", 				"strength":"8", "key":"user_documentation", 			"category":"skills_uiux"},
+			{"title":"User Training", 						"strength":"8", "key":"user_training", 						"category":"skills_uiux"},
+
+
+			{"title":"HTML", 									"strength":"10", "key":"html", 								"category":"skills_webDev"},
+			{"title":"CSS", 									"strength":"10", "key":"css", 								"category":"skills_webDev"},
+			{"title":"SCSS", 									"strength":"8", "key":"scss", 								"category":"skills_webDev"},
+			{"title":"CSS-in-JS", 						"strength":"6", "key":"css_in_js", 						"category":"skills_webDev"},
+			{"title":"JavaScript", 						"strength":"10", "key":"javascript", 					"category":"skills_webDev"},
+			{"title":"TypeScript", 						"strength":"7", "key":"typescript", 					"category":"skills_webDev"},
+			{"title":"JSX", 									"strength":"8", "key":"jsx", 									"category":"skills_webDev"},
+			{"title":"jQuery",								"strength":"9", "key":"jquery", 							"category":"skills_webDev"},
+			{"title":"webpack", 							"strength":"6", "key":"webpack", 							"category":"skills_webDev"},
+			{"title":"Angular", 							"strength":"6", "key":"angular", 							"category":"skills_webDev"},
+			{"title":"React", 								"strength":"9", "key":"react", 								"category":"skills_webDev"},
+			{"title":"VueJS", 								"strength":"8", "key":"vuejs", 								"category":"skills_webDev"},
+			{"title":"Unit Testing",					"strength":"6", "key":"unit_testing", 				"category":"skills_webDev"},
+			{"title":"GraphQL", 							"strength":"6", "key":"graphql", 							"category":"skills_webDev"},
+			{"title":"API integration", 			"strength":"10", "key":"api_integration", 		"category":"skills_webDev"},
+			{"title":"API authoring", 				"strength":"9", "key":"api_authoring", 				"category":"skills_webDev"},
+			{"title":"SQL", 									"strength":"7", "key":"sql", 									"category":"skills_webDev"},
+			{"title":"Firebase NoSQL", 				"strength":"7", "key":"firebase_nosql", 			"category":"skills_webDev"},
+			{"title":"relational DB design", 	"strength":"7", "key":"relational_db_design", "category":"skills_webDev"},
+			{"title":"Python", 								"strength":"6", "key":"python", 							"category":"skills_webDev"},
+			{"title":"NodeJS", 								"strength":"6", "key":"nodejs",  							"category":"skills_webDev"},
+			{"title":"Linnode", 							"strength":"5", "key":"linnode", 							"category":"skills_webDev"},
+			{"title":"AWS (S3,EC2,CLI)", 			"strength":"6", "key":"aws",  								"category":"skills_webDev"},
+			{"title":"Google Cloud Storage", 	"strength":"6", "key":"google_cloud_storage", "category":"skills_webDev"},
+			{"title":"npm", 									"strength":"8", "key":"npm", 									"category":"skills_webDev"},
+			{"title":"yarn", 									"strength":"9", "key":"yarn",									"category":"skills_webDev"},
+			{"title":"chron jobs", 						"strength":"5", "key":"chron_jobs", 					"category":"skills_webDev"},
+			{"title":"Wep App Architecture", 	"strength":"7", "key":"web_app_architecture", "category":"skills_webDev"},
+			{"title":"PHP", 									"strength":"7", "key":"php", 									"category":"skills_webDev"},
+			{"title":"ASP.NET", 							"strength":"5", "key":"asp_net", 							"category":"skills_webDev"},
+			{"title":"FLEX", 									"strength":"10", "key":"flex", 								"category":"skills_webDev"},
+			{"title":"ActionScript2", 				"strength":"10", "key":"as2", 								"category":"skills_webDev"},
+			{"title":"ActionScript3", 				"strength":"10", "key":"as3", 								"category":"skills_webDev"},
+			{"title":"MXML", 									"strength":"10", "key":"mxml", 								"category":"skills_webDev"},
+			{"title":"Perl", 									"strength":"5", "key":"perl", 								"category":"skills_webDev"},
+			{"title":"XML", 									"strength":"8", "key":"xml", 									"category":"skills_webDev"},
+			{"title":"JSON", 									"strength":"9", "key":"json", 								"category":"skills_webDev"},
+			{"title":"SOAP", 									"strength":"7", "key":"soap", 								"category":"skills_webDev"},
+			{"title":"Flash", 								"strength":"10", "key":"flash", 							"category":"skills_webDev"},
+			{"title":"REGEX", 								"strength":"8", "key":"regex", 								"category":"skills_webDev"},
+			{"title":"JAVA", 									"strength":"6", "key":"java", 								"category":"skills_webDev"},
+			{"title":"Automation", 						"strength":"7", "key":"automation",						"category":"skills_webDev"},
+			{"title":"Developer Documentation", "strength":"8", "key":"developer_documentation", "category":"skills_webDev"},
+			{"title":"Netsuite Integration", 	"strength":"5", "key":"netsuite_integration", "category":"skills_webDev"},
+
+
+
+			{"title":"Game Architecture", 				"strength":"6", "key":"game_architecture", 				"category":"skills_gameDev"},
+			{"title":"C#", 												"strength":"6", "key":"c_sharp", 									"category":"skills_gameDev"},
+			{"title":".NET", 											"strength":"9", "key":"dot_net", 									"category":"skills_gameDev"},
+			{"title":"Linq", 											"strength":"6", "key":"linq", 										"category":"skills_gameDev"},
+			{"title":"MVC", 											"strength":"8", "key":"mvc", 											"category":"skills_gameDev"},
+			{"title":"Maya", 											"strength":"5", "key":"maya", 										"category":"skills_gameDev"},
+			{"title":"3D Modeling", 							"strength":"6", "key":"3d_modeling", 							"category":"skills_gameDev"},
+			{"title":"UV Mapping", 								"strength":"7", "key":"uv_mapping", 							"category":"skills_gameDev"},
+			{"title":"Shader Authoring", 					"strength":"8", "key":"shader_authoring", 				"category":"skills_gameDev"},
+			{"title":"Unity3d", 									"strength":"10", "key":"unity3d", 								"category":"skills_gameDev"},
+			{"title":"Unreal", 										"strength":"3", "key":"unreal", 									"category":"skills_gameDev"},
+			{"title":"WebGL builds", 							"strength":"10", "key":"webgl_builds", 						"category":"skills_gameDev"},
+			{"title":"Mecanim", 									"strength":"7", "key":"mecanim", 									"category":"skills_gameDev"},
+			{"title":"iOS builds", 								"strength":"8", "key":"ios_builds", 							"category":"skills_gameDev"},
+			{"title":"Android builds",	 					"strength":"8", "key":"android_builds", 					"category":"skills_gameDev"},
+			{"title":"Scriptable Objects", 				"strength":"6", "key":"scriptable_objects", 			"category":"skills_gameDev"}
+		]
+
+	},
+
+	"portfolio": [
+
+		{
+			"id":0,
+			"title":"EL CERRITO SIMULATION",
+			"objective":"The remote, significant and dangerous town of El Cerrito, NM needed to be reproduced virtually for a safe introduction to Geography students.",
+			"solution":[
+				"Actual satellite topography",
+				"Reconstructed from photos",
+				"Open Exploration Exercise",
+				"Integrated Historical Photos",
+				"Integrated into Graduate programs",
+				"Immersive environment",
+				"Straightforward,simple UI/UX",
+				"Custom 3D models",
+				"Custom 3D UV Mapping and Texturing"
+			],
+			"skillset":"game_architecture,ui_design,animation,c_sharp,maya,3d_modeling,uv_mapping,shader_authoring,unity3d",
+			"images":[
+				"images/_HYBRID/elcerrito_zoomOut.png",
+				"images/_HYBRID/elcerrito_church_journals.png",
+				"images/_HYBRID/elcerrito_journal_assignment.png",
+				"images/_HYBRID/elcerrito_satellite.png"
+			],
+			"links":[]
+		},
+		{
+			"id":1,
+			"title":"LINEAR ACCELERATOR",
+			"objective":"The Radiation Therapy Department at Texas State University needed a way to train students about the base concepts of X/Y/Z coordinate space, isocenters and and general functionality of linear accelerators in a low risk environment.",
+			"solution":[
+				"Clean and Intuitive UI",
+				"Realistic Environment",
+				"Fully Functional Simulation",
+				"In-Simulation Tests",
+				"Robust Detailed Animation Sequences",
+				"Audio/Text Narration",
+				"Proprietary Custom Shader",
+				"Custom 3D models",
+				"Custom 3D UV Mapping and Texturing"
+			],
+			"skillset":"game_architecture,ui_design,animation,c_sharp,maya,3d_modeling,uv_mapping,shader_authoring,unity3d",
+			"images":[
+				"images/_HYBRID/linac1.png",
+				"images/_HYBRID/linac2.png"
+			],
+			"links":[]
+		},
+		{
+			"id":2,
+			"title":"DOGGIE TREAT WARRIOR",
+			"objective":"Create Korporeal's first gaming title infused with retro gameplay, humor, puns, all around fun and a marketing strategy rife with viral material.",
+			"solution":[
+				"Clean and Intuitive UI",
+				"Realistic Environment",
+				"Fully Functional Simulation",
+				"In-Simulation Tests",
+				"Robust Detailed Animation Sequences",
+				"Audio/Text Narration",
+				"Proprietary Custom Shader",
+				"Custom 3D models",
+				"Custom 3D UV Mapping and Texturing"
+			],
+			"skillset":"game_architecture,ui_design,animation,c_sharp,maya,3d_modeling,uv_mapping,shader_authoring,unity3d",
+			"images":[
+				"images/_HYBRID/DTW/blog_couchistanIntro2.png",
+				"images/_HYBRID/DTW/blog_secrets_basement.png",
+				"images/_HYBRID/DTW/blog_warroomFull.png",
+				"images/_HYBRID/DTW/dtw2.png",
+				"images/_HYBRID/DTW/dtw3.png",
+				"images/_HYBRID/DTW/dtw1.png",
+				"images/_HYBRID/DTW/DTW_CATEGORY_VALUE.png",
+				"images/_HYBRID/DTW/dtw_ads.png"
+			],
+			"links":[
+				{"title":"YOUTUBE CHANNEL","url":"https://www.youtube.com/channel/UCtzUCBK4Msvly1qjKB3lWeQ"}
+			]
+		},
+
+		{
+			"id":3,
+			"title":"TAGSPIRE v1",
+			"objective":"Create the world's first pure social commerce platform.",
+			"solution":[
+				"Incorporated successes of competitors",
+				"Straightforward, clean solution",
+				"Brand Standard Typography",
+				"Unique tag based approach",
+				"Super simple UI/UX",
+				"In Context Editing of tags (create, drag, drop, edit)",
+				"Integration of multiple Affiliate catalogs",
+				"Full profile editing of personal and payment info",
+				"Responsive Design"
+			],
+			"skillset":"brand_building,product_design,product_positioning,html,css,jquery,javascript,ui_design,ux_design,php,copywriting",
+			"images":[
+				"./images/_HYBRID/tagspire_v1/tagspire1.png",
+				"./images/_HYBRID/tagspire_v1/tagspire2.png",
+				"./images/_HYBRID/tagspire_v1/tagspire3.png",
+				"./images/_HYBRID/tagspire_v1/tagspire4.png",
+				"./images/_HYBRID/tagspire_v1/tagspire5.png"
+			],
+			"links":[]
+		},
+
+		{
+			"id":4,
+			"title":"RHINO TEES MICRO SITE",
+			"objective":"The client wanted a micro site that was edgy and simple.",
+			"solution":[
+				"Web Design utilized dot screens and streaks of ink commonly seen in T-Shirt production.",
+				"Fancybox gallery with mousewheel scrolling",
+				"Brand Standard Typography"
+			],
+			"skillset":"html,css,jquery,javascript",
+			"images":[
+				"./images/_HYBRID/rhinotees.png"
+			],
+			"links":[
+				{"title":"LIVE SITE","url":"http://rhinotees.com/"}
+			]
+		},
+		{
+			"id":5,
+			"title":"JONES & WIGHT BRAND",
+			"objective":"Microsite is consistent with larger rebranding project for Jones & Wight. Sleek and modern design that allows depths of information when user requires it.",
+			"solution":[
+				"UI Design strongly echoes brand",
+				"Brand Standard Typography",
+				"Clean Professional UI",
+				"UI Reinforcing Rollovers"
+			],
+			"skillset":"brand_building,web_design,typography,html,css,jquery,javascript",
+			"images":[
+				"./images/_HYBRID/joneswight.jpg",
+				"./images/_HYBRID/joneswight2.png"
+			],
+			"links":[]
+		},
+		{
+			"id":6,
+			"title":"DRAG DROP BUILDER",
+			"objective":"Create a live quiz authoring solution based on manipulative learning theory that allows embedding and is cross platform/cross device.",
+			"solution":[
+				"Simplified and Easy UI",
+				"End Use Modules used in Authoring",
+				"Live Preview/Authoring",
+				"Active Feedback (right/wrong)",
+				"ZIP exporter",
+				"ADA compliant version (also iOS)"
+			],
+			"skillset":"web_app_architecture,flex,mxml,as3,php,html,css,javascript,user_documentation,developer_documentation,user_training",
+			"images":[
+				"images/_TECH/dragdrop1.png",
+				"images/_TECH/dragdrop2.png",
+				"images/_TECH/dragdrop3.png"
+			],
+			"links":[]
+		},
+		{
+			"id":7,
+			"title":"GOODWILL SA",
+			"objective":"Utilize proprietary agency PHP framework (authored by me) and build custom solution seamlessly integrating legacy modules and Wordpress.",
+			"solution":[
+				"Site Aware Information Architecture",
+				"Navigation generated from Information Architecture",
+				"Simple include engine",
+				"Light Wordpress integration for Blog",
+				"Mod. of legacy Perl Donation Module",
+				"Integration of legacy PHP mailer form"
+			],
+			"skillset":"web_app_architecture,html,css,javascript,php,perl",
+			"images":[
+				"images/_TECH/goodwill1.png"
+			],
+			"links":[]
+		},
+		{
+			"id":8,
+			"title":"MCKENNA FOUNDATION",
+			"objective":"Create a group of 4 micro sites for each division of the newly formed McKenna foundation. Sites need to match agency design specs pixel for pixel.",
+			"solution":[
+				"Pixel for pixel translation of visual comps",
+				"Tasteful animated Flash header",
+				"Configurable XML driven navigation"
+			],
+			"skillset":"html,css,javascript,as2,animation,xml",
+			"images":[
+				"images/_TECH/mckenna1.png"
+			],
+			"links":[]
+		},
+		{
+			"id":9,
+			"title":"UNITED ALLERGY LABS",
+			"objective":"Create a web identity for this leading research lab.",
+			"solution":[
+				"Professional and contemporary design"
+			],
+			"skillset":"creative_direction,web_design,ui_design,ux_design",
+			"images":[
+				"images/_CREATIVE/UAL_design1.png"
+			],
+			"links":[]
+		},
+		{
+			"id":10,
+			"title":"id SOFTWARE",
+			"objective":"Design a fitting website for this game industry legend.",
+			"solution":[
+				"Design echoes game UI",
+				"Led to another round of design"
+			],
+			"skillset":"creative_direction,web_design,ui_design,ux_design",
+			"images":[
+				"images/_CREATIVE/id_software1.png",
+				"images/_CREATIVE/id_software2.png"
+			],
+			"links":[]
+		},
+		{
+			"id":11,
+			"title":"BRILLIANT COLORS",
+			"objective":"Leading concept art house wanted a robust site showcasing their top notch portfolio, community and educational efforts.",
+			"solution":[
+				"Simplicity of design",
+				"Color coded sections reflect logo spectrum",
+				"Header design ports to CMS environments easily"
+			],
+			"skillset":"creative_direction,web_design,ui_design,ux_design",
+			"images":[
+				"images/_CREATIVE/bcweb_design1_nav2.jpg",
+				"images/_CREATIVE/bcweb_design2_nav2.jpg"
+			],
+			"links":[]
+		},
+		{
+			"id":12,
+			"title":"ILLUSTRATION SITE",
+			"objective":"This is my live portfolio for Commercial Illustration. Its playful and inventive UI mimics the gamer-esque illustration style I offer.",
+			"solution":[
+				"Smooth Dragging Algorithm with Edge Bounce",
+				"Gamer-esque UI Design",
+				"Externalized Images for faster load",
+				"iOS friendly fallback version"
+			],
+			"skillset":"flash,as3,html,css,jquery",
+			"images":[
+				"images/_HYBRID/illustration_port.jpg"
+			],
+			"links":[]
+		},
+		{
+			"id":13,
+			"title":"BRADFORD LAWTON",
+			"objective":"Create a custom high end, upscale interactive experience that can be dynamically updated, scaleable and allow deep linking.",
+			"solution":[
+				"Upscale and Intuitive UI",
+				"Prospective clients actually said “Oooh, wow, they look expensive.",
+				"Custom Portfolio Engine",
+				"Custom Scrollers",
+				"3rd party FlipBook library Integration for real page turning",
+				"XML driven data",
+				"Clean UI",
+				"Email campaigns utilized deep linking flawlessly."
+			],
+			"skillset":"web_app_architecture,web_design,ui_design,ux_design,flash,as3,xml,php",
+			"images":[
+				"images/_HYBRID/bldg.png",
+				"images/_HYBRID/bldg2.png"
+			],
+			"links":[]
+		},
+		{
+			"id":14,
+			"title":"CHRIST PRESBYTERIAN",
+			"objective":"Create a site that is informative, sleek and administerable by staff.",
+			"solution":[
+				"Custom Homepage",
+				"Custom Sermon Archive Tool",
+				"Custom Podcast Tool",
+				"Custom Pictoral Directory Tool",
+				"Custom Interface for admins"
+			],
+			"skillset":"web_app_architecture,information_architecture,php,sql,html,css,javascript,jquery,regex,photography,web_design,ui_design,ux_design",
+			"images":[
+				"images/_HYBRID/cpc.png"
+			],
+			"links":[]
+		},
+		{
+			"id":15,
+			"title":"JUST FUR ME",
+			"objective":"This startup needed a playful, friendly and functional custom built Flash site.",
+			"solution":[
+				"Completely Embodies the Brand's Playfulness",
+				"Custom Wrapping Paper Page Curl Logic",
+				"Custom Greeting Card Opening Logic",
+				"Custom Page Scroller",
+				"Custom Site Navigator",
+				"3rd party Netsuite shopping cart integration with Cookies/Flash"
+			],
+			"skillset":"netsuite_integration,web_app_architecture,flash,as2,javascript,web_design,ui_design,ux_design",
+			"images":[
+				"images/_HYBRID/justfurme.png"
+			],
+			"links":[]
+		},
+		{
+			"id":16,
+			"title":"DON B MCDONALD",
+			"objective":"Don B. McDonald specializes in rennovations of older properties with a vision that is rare. This site was an effort to show primarily images of his work and have minimal accompanying text.",
+			"solution":[
+				"Solution properly echoes his unique Brand",
+				"Externalized XML Driven Image Gallery",
+				"Custom Scroller Logic",
+				"Beautiful and smooth UI",
+				"Background is actually the cover of client’s famous personal sketchbook"
+			],
+			"skillset":"web_design,ui_design,ux_design,flash,as2,xml",
+			"images":[
+				"images/_HYBRID/donbmcdonald.png"
+			],
+			"links":[]
+		},
+		{
+			"id":17,
+			"title":"DAVID HILL PHOTOGRAPHY",
+			"objective":"Custom build a site with a simplistic and clean design that would showcase his photography, leverage easy to update portfolio technology and put the client in an upper class of wedding photography.",
+			"solution":[
+				"logo_design still in use today",
+				"Code was cleanly written and client could maintain",
+				"1st party integration of Iridium engine"
+			],
+			"skillset":"brand_building,logo_design,api_integration,web_design,ui_design,ux_design,php,xml,html,css,javascript",
+			"images":[
+				"images/_HYBRID/davidHill1.png"
+			],
+			"links":[]
+		},
+		{
+			"id":18,
+			"title":"InDesign, PDF, HTML DOC GENERATOR",
+			"objective":"Open source LMS Sakai would release documentation updates. Texas State University required manual formatting for two weeks of work. The documents were loosely within brand guidelines. Create an automated solution.",
+			"solution":[
+				"2 month timeline reduced to under a minute",
+				"Highly adherent to branding guidelines",
+				"Cover and alternating left/right facing pages",
+				"Automated control of Adobe InDesign",
+				"Receipting system for process tracking",
+				"PDF generation",
+				"HTML generation"
+			],
+			"skillset":"java,extendscript,xml,html,css,javascript,automation,xml,html,css,javascript",
+			"images":[
+				"images/_HYBRID/bigPrometheum.jpg"
+			],
+			"links":[]
+		},
+		{
+			"id":19,
+			"title":"IRIDIUM GALLERY",
+			"objective":"During Flash's hay day I was writing so many Flash/PHP/XML dynamic image galleries that i streamlined it into a package with an updater. Bulk upload your files,  run the PHP updater and voila!  Still hosted on SourceForge. Still free. A bit old though.",
+			"solution":[
+				"Batch updating",
+				"Generates Thumbnails",
+				"Resizing of photos",
+				"Online Gallery Update Tool",
+				"Hosted on SourceForge"
+			],
+			"skillset":"flash,as2,php,xml,html,css,javascript,product_design,user_documentation,developer_documentation",
+			"images":[
+				"images/_HYBRID/iridium.png"
+			],
+			"links":[]
+		},
+
+		{
+			"id":20,
+			"title":"Prevailion v2",
+			"objective":"Visualize complex cyber security data into corporate friendly business intelligence.",
+			"solution":[
+				"Human centered, C-Suite UX",
+				"Clean and simple UI",
+				"Brand requirements: Professional, High Tech, Ominous, Serious",
+				"REACTJS create-react-app2",
+				"Custom solutions for: centralized data, API handling, routing and app logic",
+				"Custom responsive SCSS solution",
+				"Event driven interactivity",
+				"Anonymize data mode",
+				"Bookmarking/Favoriting system"
+			],
+			"skillset":"brand_building,ui_design,ux_design,react,javascript,jquery,jsx,html,scss,css,unit_testing",
+			"images":[
+				"./images/_HYBRID/prevailion_platform_home.png",
+				"./images/_HYBRID/prevailion_platform_seeker.png",
+				"./images/_HYBRID/prevailion_platform_detail.png"
+			],
+			"links":[]
+		},
+
+		{
+			"id":21,
+			"title":"PREVAILION V3 BRAND",
+			"objective":"Create a cyber security brand that's high-tech, sophisticated, mysterious and formidable.",
+			"solution":[
+				"A C-Suite friendly brand that's less cyber, ominous and technical",
+				"Implemented across multiple communication channels",
+				"Collaborated with agencies and management"
+			],
+			"skillset":"brand_building,creative_direction,logo_design,graphic_design",
+			
+			"images":[
+				"images/_CREATIVE/prevailion_onePager_gen_front.png",
+				"images/_CREATIVE/prevailion_onePager_gen_back.png",
+				"images/_CREATIVE/prevailion_onePager_eap.png",
+				"images/_CREATIVE/prevailion_onePager_general.png",
+				"images/_CREATIVE/prevailion_onePager_roadmap.png",
+
+				"images/_CREATIVE/prevailion_ppt_0.png",
+				"images/_CREATIVE/prevailion_ppt_1.png",
+				"images/_CREATIVE/prevailion_ppt_2.png",
+				"images/_CREATIVE/prevailion_ppt_3.png",
+				"images/_CREATIVE/prevailion_ppt_4.png",
+				"images/_CREATIVE/prevailion_ppt_5.png",
+
+				"images/_CREATIVE/prevailion_web_1.png",
+				"images/_CREATIVE/prevailion_web_2.png",
+
+				"images/_CREATIVE/prevailion_brandGuide_1.png",
+				"images/_CREATIVE/prevailion_brandGuide_7.png",
+				"images/_CREATIVE/prevailion_brandGuide_6.png",
+				"images/_CREATIVE/prevailion_brandGuide_2.png",
+				"images/_CREATIVE/prevailion_brandGuide_3.png",
+				"images/_CREATIVE/prevailion_brandGuide_4.png",
+				"images/_CREATIVE/prevailion_brandGuide_5.png"				
+			],
+			"links":[]
+		},
+		{
+			"id":22,
+			"title":"PREVAILION V2 BRAND",
+			"objective":"Create a cyber security brand that's high-tech, sophisticated, mysterious and formidable.",
+			"solution":[
+				"Scrappy Startup look and feel",
+				"Leveraged proprietary Visual Security Language",
+				"Conveyed serious contention among industry peers",
+				"Consistent brand implementation",
+				"First consistency with messaging"
+				
+			],
+			"skillset":"brand_building,creative_direction,logo_design,graphic_design,ux_design,ui_design,react,jsx,javascript,css,html,illustrator,photoshop",
+			
+			"images":[
+				"images/_CREATIVE/prevailion_logo_name_w_tagline_w_shield_black.png",
+				"images/_CREATIVE/Prevailion_OnePager_v6_front.png",
+				"images/_CREATIVE/Prevailion_OnePager_v6_back.png",
+				"images/_CREATIVE/prevailion_site_1024x1868.png",
+				"images/_CREATIVE/prevailion_standup_32x80.png",
+				"./images/_HYBRID/prevailion_platform_home.png",
+				"./images/_HYBRID/prevailion_platform_seeker.png",
+				"./images/_HYBRID/prevailion_platform_detail.png"
+			],
+			"links":[]
+		},
+		{
+			"id":23,
+			"title":"MOORE MEDIA",
+			"objective":"Create a uniquely identifiable logo mark for a media company",
+			"solution":[
+				"Creatively and Legally Unique ",
+				"Uses MM name shorthand in logo mark",
+				"Uses Fast Forward button icon",
+				"Client just loved it"
+				
+			],
+			"skillset":"creative_direction,logo_design,graphic_design,illustrator",
+			
+			"images":[
+				"images/_CREATIVE/MooreMediaLogo_1024x1024.png",
+				"images/_CREATIVE/MooreMedia_logos_concept1.png",
+				"images/_CREATIVE/MooreMedia_logos_concept2.png",
+				"images/_CREATIVE/MooreMedia_logos_concept3.png",
+				"images/_CREATIVE/MooreMedia_logos_concept4.png",
+				"images/_CREATIVE/MooreMedia_logos_concept5.png",
+				"images/_CREATIVE/MooreMedia_logos_conceptsALL.png"
+			],
+			"links":[
+				{
+					"title":"PDF Logo Study",
+					"url":"/pdfs/MooreMedia_logos_v1.pdf"
+				}
+			]
+		},
+		{
+			"id":24,
+			"title":"WELLVANA LOGO STUDY",
+			"objective":"Concept a logo that communicates true comprehensive healthcare from physical, mental and spiritual aspects.",
+			"solution":[
+				"The first logo reflects a central hub with health as the focus",
+				"The second logo shows overlaps of various care forming the whole and incorporating the 'W' and 'V' from the company name",
+				"The third logo focuses on literal depictions of folders working to create the 'W' from the name"
+			],
+			"skillset":"creative_direction,logo_design,graphic_design,illustrator,photoshop,indesign",
+			"images":[
+				"images/_CREATIVE/logoWellvana.png"
+			],
+			"links":[]
+		},		
+		{
+			"id":25,
+			"title":"AIG REBRANDING",
+			"objective":"Rebrand a top financial services company.",
+			"solution":[
+				"Award Winning Pieces",
+				"Well received with Agents and Clients",
+				"Built with coworkers",
+				"Modular, Recolorable, Layered PSDs",
+				"Communicates Market Position"
+				
+			],
+			"skillset":"brand_building,creative_direction,graphic_design,indesign,illustrator,photoshop",
+			"images":[
+				"images/_CREATIVE/BRAND/AIG/aig_rebrand1.png",
+				"images/_CREATIVE/BRAND/AIG/12tips_cover.png",
+				"images/_CREATIVE/BRAND/AIG/12tips_spread.png"
+			],
+			"links":[]
+		},
+		{
+			"id":26,
+			"title":"INFINITE TITLE SOLUTIONS",
+			"objective":"Adjust existing branding to be reflect professional and high end clientele.",
+			"solution":[
+				"Cross Media visual consistency",
+				"Clients responded well to new messaging"
+			],
+			"skillset":"brand_building,creative_direction,graphic_design,copywriting,typography,html,illustrator,photoshop",
+			"images":[
+				"images/_CREATIVE/BRAND/ITSholidayEblast_v1.png",
+				"images/_CREATIVE/BRAND/ITSmikeSpear.png",
+				"images/_CREATIVE/BRAND/ITStaxCreditFlier.png"
+			],
+			"links":[]
+		},
+		{
+			"id":27,
+			"title":"EYEDOG CREATIVE",
+			"objective":"Editorial Illustrations for Haverford College's magazine spread on fixing the US.",
+			"solution":[
+				"Conceptual and Communicative",
+				"Unique Style"
+				
+			],
+			"skillset":"illustration,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/eyedog_haverford1.png",
+				"images/_CREATIVE/eyedog_haverford2.png",
+				"images/_CREATIVE/eyedog_haverford3.png",
+				"images/_CREATIVE/eyedog_haverford4.png"
+
+			],
+			"links":[]
+		},
+		{
+			"id":28,
+			"title":"WIRED MAGAZINE/GE",
+			"objective":"Create concepts for GE Smart Start initiative advertisement.",
+			"solution":[
+				"Multiple concepts showing global implementation of renewable energy",
+				"Used in both digital and print"
+			],
+			"skillset":"illustration,graphic_design",
+			"images":[
+				"images/_CREATIVE/wired1.png",
+				"images/_CREATIVE/wired2.png"
+			],
+			"links":[]
+		},		
+		{
+			"id":29,
+			"title":"CORBITT LAW IDENTITY",
+			"objective":"Create a unique identity for Arkansas attorney Christopher P. Corbitt.",
+			"solution":[
+				"Legal architecture evoked a less common approach to legal identity"
+			],
+			"skillset":"creative_direction,logo_design,graphic_design",
+			"images":[
+				"images/_CREATIVE/corbittLaw1.png"
+			],
+			"links":[]
+		},
+		{
+			"id":30,
+			"title":"GRIND ETHIC",
+			"objective":"Digest the creative brief and produce an ironic and iconic illustration to match the series. Eric Hines invited me to contribute to his iconic new brand, Grind Ethic. His concept is underdogs with a dash of irony and humor. Showing an Octopus fishing for the fishermen was another in a series of clever and legendary concepts.",
+			"solution":[
+				"Iconic",
+				"Adheres to Existing Brand",
+				"Impactful",
+				"Memorable",
+				"Unique",
+				"Clever",
+				"Creative"
+			],
+			"skillset":"creative_direction,graphic_design,illustration,illustrator",
+			"images":[
+				"images/_CREATIVE/honestbros_octopus.png"
+			],
+			"links":[
+				{"title":"GRIND ETHIC SITE", "url":"https://grindethic.com/"}
+			]
+		},
+		{
+			"id":31,
+			"title":"PREVAILION LOGOS",
+			"objective":"Create unique, iconic and memorable product logos that were worthy of the innovative Prevailion brand.",
+			"solution":[
+				"Impactful logo marks",
+				"TM worthy",
+				"Market Differentiation",
+				"Brand recall",
+				"Viral worthy"
+			],
+			"skillset":"brand_building,product_positioning,creative_direction,graphic_design,logo_design,typography",
+			"images":[
+				"images/_CREATIVE/prevailion_AXIS_GLOBAL_WHITE_ON_BLACK.png",
+				"images/_CREATIVE/prevailion_OMEGA_FINAL_OMEGA_white_red.png",
+				"images/_CREATIVE/prevailion_ARKTOS_WHITE_ON_BLACK.png"
+
+			],
+			"links":[]
+		},
+		{
+			"id":32,
+			"title":"PREVAILION ONE PAGERS",
+			"objective":"Create succinct, compelling and informative sales slicks for Prevailion products.",
+			"solution":[
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/Prevailion-ARKTOS_OnePager_v4-01.png",
+				"images/_CREATIVE/Prevailion-ARKTOS_OnePager_v4-02.png",
+				"images/_CREATIVE/Prevailion-IntelligenceOnePager_v5-01.png",
+				"images/_CREATIVE/Prevailion-IntelligenceOnePager_v5-02.png"
+			],
+			"links":[]
+		},
+		{
+			"id":33,
+			"title":"PREVAILION ADS",
+			"objective":"Create impactful and simple ads that stick out in crowded social media streams.",
+			"solution":[
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/Prevailion_ARKTOS_AD_Networks.png",
+				"images/_CREATIVE/Prevailion_ARKTOS_AD_PhoneHome.png",
+				"images/_CREATIVE/Prevailion_ARKTOS_AD_RemoteWorkforce.png",
+				"images/_CREATIVE/Prevailion_ARKTOS_AD_SecurityValidation.png",
+				"images/_CREATIVE/Prevailion_AD_ReplicatedNotSimulated.png",
+				"images/_CREATIVE/Prevailion_AD_HardenAgainstC2.png",
+				"images/_CREATIVE/Prevailion_AD_HardenAgainstActiveInfra.png",
+				"images/_CREATIVE/Prevailion_AD_ARKTOS_BETA_v2.2_1024x576.png",
+				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE1.png",
+				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE2.png",
+				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE3.png",
+				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE4.png",
+				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE5.png"
+			],
+			"links":[]
+		},
+		{
+			"id":34,
+			"title":"PREVAILION CARD GAME",
+			"objective":"Create a viral giveaway that opens doors for engaging sales prospects and bolsters brand.",
+			"solution":[
+				"Viral Marketing",
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/Prevailion_cardGame_cover.png",
+				"images/_CREATIVE/Prevailion_cardGame_coverCorporation.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_ammanda.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_chad.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_janet.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_jason.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_martha.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_mohan.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_sharleen.png",
+				"images/_CREATIVE/Prevailion_cardGame_corporateCard_tom.png",
+
+				"images/_CREATIVE/Prevailion_cardGame_coverVirus.png",
+				"images/_CREATIVE/Prevailion_cardGame_virusCyberWorm.png",
+				"images/_CREATIVE/Prevailion_cardGame_virusNigeria.png",
+				"images/_CREATIVE/Prevailion_cardGame_virusSourceCode.png",
+				"images/_CREATIVE/Prevailion_cardGame_virusSpearPhishing.png",
+				"images/_CREATIVE/Prevailion_cardGame_virusSQLinjection.png",
+				"images/_CREATIVE/Prevailion_cardGame_virusWateringHole.png"
+			],
+			"links":[]
+		},
+		{
+			"id":35,
+			"title":"PREVAILION MEMES",
+			"objective":"Create a viral movie quote memes that will resonate and cut through typical dry corporate social media.",
+			"solution":[
+				"Viral Marketing",
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/Prevailion_MEME_ARKTOS_littleFriend_1024x1024.png",
+				"images/_CREATIVE/Prevailion_MEME_goesTo11_1024x1024.png",
+				"images/_CREATIVE/Prevailion_MEME_OMEGA_malwareAlly_1024x1024_v1.png",
+				"images/_CREATIVE/Prevailion_MEME_aint_got_time_to_bleed.png",
+				"images/_CREATIVE/Prevailion_MEME_boomstick.png",
+				"images/_CREATIVE/Prevailion_MEME_crush_the_malware.png",
+				"images/_CREATIVE/Prevailion_MEME_malware_inthe_morning.png",
+				"images/_CREATIVE/Prevailion_MEME_particular_set_of_skills.png",
+				"images/_CREATIVE/Prevailion_MEME_unleash_hell.png"
+			],
+			"links":[]
+		},
+		{
+			"id":36,
+			"title":"PREVAILION ILLUSTRATIONS",
+			"objective":"Our intel blog posts were top of the industry so naturally they deserved artwork on par with this research. With the exception of Ghostwriter (my illustration), these illustrations were all masterfully done by Will Keetell when he wasn't authoring amazing stories for us with motion graphics. They helped the proliferation of this solid work done by team members in the intel division.",
+			"solution":[
+				"Creative Direction",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking",
+				"Illustrator"
+			],
+			"skillset":"brand_building,creative_direction,illustration,lead_generation,graphic_design,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/Prevailion_illustration_ghostWriter_detail.png",
+				"images/_CREATIVE/Prevailion_illustration_ghostWriter.png",
+				"images/_CREATIVE/Prevailion_illustration_Blog_Ill_EvilNum_FinalBanner.png",
+				"images/_CREATIVE/Prevailion_illustration_Blog_Ill_MustangPanda_FinalFull_w_logo.png",
+				"images/_CREATIVE/Prevailion_illustration_C4V_FinalBanner_1500.png",
+				"images/_CREATIVE/Prevailion_illustration_DarkWatchman_Final_B@0.33x.png",
+				"images/_CREATIVE/Prevailion_illustration_MasterMana_FullImage.png",
+				"images/_CREATIVE/Prevailion_illustration_Shark_Lyceum_TheIllustrationFINAL@0.5x.png",
+				"images/_CREATIVE/Prevailion_illustration_SpiderWizard_Banner.png",
+				"images/_CREATIVE/Prevailion_illustration_SummerMirageFinal2Blog.png",
+				"images/_CREATIVE/Prevailion_illustration_TA505_FinalBanner.png",
+				"images/_CREATIVE/Prevailion_illustration_WordPressIllustration.png"
+			],
+			"links":[]
+		},
+		{
+			"id":37,
+			"title":"PREVAILION VIDEOS",
+			"objective":"Create impactful, explanatory and evergreen videos showcasing product function, relevance and value.",
+			"solution":[
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,copywriting,typography,photoshop,illustrator",
+			"images":[
+				"https://player.vimeo.com/video/791940768?h=8c55c39be2",
+				"https://player.vimeo.com/video/791943029?h=3fb569b20d",
+				"https://player.vimeo.com/video/791938587?h=c24c41157c",
+				"https://player.vimeo.com/video/791945027?h=6524079c1d",
+				"https://player.vimeo.com/video/375960058",
+				"https://player.vimeo.com/video/375958964?h=8e6a67b009"
+			],
+			"links":[]
+		},
+		{
+			"id":38,
+			"title":"DEEP SECURITY THOUGHTS",
+			"objective":"Hilarious spoof of a popular comedy skit from decades ago that gained PREVAILION measurable exposure and brand awareness",
+			"solution":[
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Strong Visual Brand",
+				"Strong Brand Recall",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,copywriting,typography,photoshop,illustrator",
+			"images":[
+				"https://player.vimeo.com/video/796649756?h=bb5702b8bd",
+				"https://player.vimeo.com/video/796649621?h=cf33a51bc1",
+				"https://player.vimeo.com/video/796649500?h=ea79d433c2",
+				"https://player.vimeo.com/video/796649406?h=3426fbbcde",
+				"https://player.vimeo.com/video/796649275?h=f5f6c4e35b",
+				"https://player.vimeo.com/video/796649195?h=b28bb11eec",
+				"https://player.vimeo.com/video/796649102?h=ae8b3ba8e9",
+				"https://player.vimeo.com/video/796648629?h=03b8b63215",
+				"https://player.vimeo.com/video/796648461?h=6e22a12686"
+			],
+			"links":[]
+		},
+		{
+			"id":39,
+			"title":"PREVAILION RELEVANCE",
+			"objective":"These very helpfulsales support pieces helped position Prevailion product relevance against existing frameworks like MITRE and NIST.",
+			"solution":[
+				"Sales Support",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Visually Striking"
+			],
+			"skillset":"brand_building,product_positioning,lead_generation,creative_direction,graphic_design,copywriting,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/Prevailion_diagram_MITREATTACK_relevance.png",
+				"images/_CREATIVE/Prevailion_diagram_NISTrelevance.png",
+				"images/_CREATIVE/Prevailion_diagram_timeIsOfTheEssence_v3.png"
+			],
+			"links":[]
+		},
+		{
+			"id":40,
+			"title":"PREVAILION SAFE APP",
+			"objective":"This app was going to be an open and free public app allowing consumer level vetting of infection risk in any public wifi, office network or home.",
+			"solution":[
+				"Expanded Product Line",
+				"Product Positioning",
+				"Clear Value Proposition",
+				"Innovative Concept"
+			],
+			"skillset":"brand_building,product_design,product_positioning,information_architecture,ux_customer_research,wireframes,prototyping,ui_design,ux_design,data_visualization,typography,photoshop,illustrator",
+			"images":[
+				"images/_CREATIVE/prevailion_mobileApp_Notification.png",
+				"images/_CREATIVE/prevailion_mobileApp_compact.png",
+				"images/_CREATIVE/prevailion_mobileApp_expanded1.png",
+				"images/_CREATIVE/prevailion_mobileApp_expanded2.png"
+			],
+			"links":[]
+		},
+		{
+			"id":41,
+			"title":"PREVAILION PROTOTYPE",
+			"objective":"This prototype design pushed the envelope further than our existing Apex platform. It was meant to be visually striking with strong differentiation while retaining its simple and clean UI from its predecessor.",
+			"solution":[
+				"Innovative UI",
+				"Product Positioning",
+				"Breach centric design"
+			],
+			"skillset":"brand_building,product_design,product_positioning,information_architecture,ux_customer_research,wireframes,prototyping,ui_design,ux_design,data_visualization,typography,illustrator",
+			"images":[
+				"images/_CREATIVE/prevailion_protoUI_breaches.png",
+				"images/_CREATIVE/prevailion_protoUI_homeMonitorRemoteWorkforce.png",
+				"images/_CREATIVE/prevailion_protoUI_IPdetail.png",
+				"images/_CREATIVE/prevailion_protoUI_malwareDetail.png",
+				"images/_CREATIVE/prevailion_protoUI_orgDetail.png",
+				"images/_CREATIVE/prevailion_protoUI_seeker.png",
+				"images/_CREATIVE/prevailion_protoUI_seeker2.png"
+			],
+			"links":[]
+		},
+		{
+			"id":42,
+			"title":"PREVAILION APEX V2",
+			"objective":"Visualize complex cyber security data into corporate friendly business intelligence.",
+			"solution":[
+				"Human centered, C-Suite UX",
+				"Clean and simple UI",
+				"Brand requirements: Professional, High Tech, Ominous, Serious",
+				"REACTJS create-react-app2",
+				"Custom solutions for: centralized data, API handling, routing and app logic",
+				"Custom responsive SCSS solution",
+				"Event driven interactivity",
+				"Anonymize data mode",
+				"Bookmarking/Favoriting system"
+			],
+			"skillset":"brand_building,ui_design,ux_design,react,javascript,jquery,jsx,html,scss,css,unit_testing",
+			"images":[
+				"./images/_HYBRID/prevailion_platform_home.png",
+				"./images/_HYBRID/prevailion_platform_seeker.png",
+				"./images/_HYBRID/prevailion_platform_detail.png"
+			],
+			"links":[]
+		},
+		{
+			"id":43,
+			"title":"PREVAILION VISUALIZER",
+			"objective":"Transform complex cyber security telemetry to understandable and applicable corporate intel. This one of a kind tool was concepted by Karim Hijazi and myself but was co-authored by the stellar team of Kevin Tillman, Will Keetell and Andrea Conner.",
+			"solution":[
+				"Unity3d engine",
+				"Mapping GB of API data",
+				"Log parsing",
+				"Real time intel",
+				"Full 3D visualizations",
+				"Story telling with cyber data"
+			],
+			"skillset":"brand_building,creative_direction,product_design,product_positioning,game_architecture,c_sharp,linq,unity3d,webgl_builds,html,css,javascript,api_integration,api_authoring,python,npm,json,information_architecture,ux_customer_research,wireframes,prototyping,ui_design,ux_design,data_visualization,animation,web_design",
+			"images":[
+				"https://player.vimeo.com/video/791934386?h=c6489e295b",
+				"images/_CREATIVE/Prevailion_Heimdall_IntroScreen_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_3rdParty_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_UI_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_Arktos_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_Arktos2_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_Building_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_Building2_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_DNS_BrandingGuide.png",
+				"images/_CREATIVE/Prevailion_Heimdall_OrgLogo_BrandingGuide.png"
+			],
+			"links":[]
+		}
+
+	]
+
+}
+
+
+
