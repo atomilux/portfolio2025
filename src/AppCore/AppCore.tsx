@@ -1,5 +1,5 @@
 /* REACT */
-import { useState, useContext  } from 'react'
+import { useState, useContext, useEffect  } from 'react'
 
 /* COMPONENTS */
 import Nav from '../Nav/Nav'
@@ -18,7 +18,7 @@ export default function AppCore() {
 	const [ content_width, set_content_width 	] = useState(100)
 	const [ content_left, set_content_left		] = useState(100)
 
-	const {ee,EVT} = useContext(PortfolioContext) 
+	const {ee,EVT_ENUM} = useContext(PortfolioContext) 
 
 
 	/* //////////////////////////////////////////////////
@@ -52,7 +52,7 @@ export default function AppCore() {
 			//set the timeout
 			window['port_resizeTimeout'] = setTimeout(() => {
 
-				ee.emit(EVT.WINDOW_RESIZE,{'source':'AppCore'})
+				ee.emit(EVT_ENUM.WINDOW_RESIZE,{'source':'AppCore'})
 
 				//turn off flag
 				window['port_isAwaiting_resize_timeout'] = false;
@@ -63,9 +63,26 @@ export default function AppCore() {
 	
 	})
 
-	//------------------ EVENTS ------------------
 
-	ee.on(EVT.WINDOW_RESIZE,()=>{
+
+	////////////////////// EFFECTS //////////////////////
+
+	
+	useEffect(()=>{
+		set_content_width(window.outerWidth * .75)
+		set_content_left(window.outerWidth * .125)
+	},[
+		set_content_width,
+		set_content_left
+	])
+
+
+
+
+	////////////////////// EVENTS //////////////////////
+
+
+	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
 		//resize 
 		set_content_width(window.outerWidth * .75)
@@ -83,7 +100,10 @@ export default function AppCore() {
 
 			<Nav></Nav>
 
+
 			<SubNav></SubNav>
+
+						{/* 
 
 
 			<div className="page_content" style={{width:content_width+'px', left:content_left+'px'}}>
@@ -108,6 +128,8 @@ export default function AppCore() {
 			</div>
 
 			<PortfolioDetail/>
+
+			*/}
 
 		</>
 

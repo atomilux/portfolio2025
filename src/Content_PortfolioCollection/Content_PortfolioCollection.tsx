@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
 import './Content_PortfolioCollection.css'
+import { IPortfolio_item } from '../Data/Models'
 
 
 export default function Content_PortfolioCollection () {
@@ -10,7 +11,7 @@ export default function Content_PortfolioCollection () {
 
 	////////////////////// REFERENCES //////////////////////
 
-	const dom_ref_me = useRef(null)
+	const dom_ref_me = useRef<HTMLDivElement>(null) 
 
 
 
@@ -18,23 +19,23 @@ export default function Content_PortfolioCollection () {
 
 	const {
 		ee,
-		EVT,
-		global_skillset_opacity,
+		EVT_ENUM,
+		global_skillset_opacity: global_skillset_opacity,
 		global_content_3d_translateZ,
 		global_content_portfolio_rotateY,
 		global_portfolio_filtered, 
 		ctrl_skillsRated_get_byPortfolioID, 
-		ctrl_set_global_portfolio_item_current} = useContext(PortfolioContext)
+		ctrl_global_set_IPortfolio_item_current} = useContext(PortfolioContext)
 
-	ee.on(EVT.NAV_CLICK,(data)=>{
-		dom_ref_me.current.scrollTo(0,0)
+	ee.on(EVT_ENUM.NAV_CLICK,()=>{
+		dom_ref_me.current?.scrollTo(0,0)
 	})
 
 
 
 	////////////////////// LOCAL VARIABLES //////////////////////
 
-	const [local_vimeoThumbnailURLs, set_local_vimeoThumbnailURLs] 					= useState({})
+	const [local_vimeoThumbnailURLs, set_local_vimeoThumbnailURLs] 					= useState<{ [key: string]: string }>({})
 	const [local_vimeoAPIcallsTriggered, set_local_vimeoAPIcallsTriggered] 	= useState(false)
 
 
@@ -43,22 +44,22 @@ export default function Content_PortfolioCollection () {
 
 
 	//---- CLICK ------
-	const click_ui_portfolioItem = (e) => {
+	const click_ui_portfolioItem = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 
 		console.dir(e)
-		console.log("port ID: " + e.target.dataset.key)
+		console.log("port ID: " + e.currentTarget.dataset.key)
 
-		ctrl_set_global_portfolio_item_current(e.target.dataset.key)
+		ctrl_global_set_IPortfolio_item_current(e.currentTarget.dataset.key ?? '')
 
-		ee.emit(EVT.PORTFOLIO_ITEM_CLICK,{"id":e.target.dataset.key})
+		ee.emit(EVT_ENUM.IPortfolio_item_CLICK,{"id":e.currentTarget.dataset.key})
 		
 	}
 
-	const image_isThumbnail = (str_url:string) => {
+	const image_isThumbnail = (str_url:string):boolean => {
 
-		let r_img = /(png|jpg|gif)/
+		const r_img = /(png|jpg|gif)/
 		let b_isTrue = false;
-		let match = r_img.test(str_url)
+		const match = r_img.test(str_url)
 		
 		if (match != false){
 			b_isTrue = true;
@@ -86,16 +87,17 @@ export default function Content_PortfolioCollection () {
 		console.dir(global_portfolio_filtered.length)
 
 		//loop through the images
-		global_portfolio_filtered.forEach((item,i)=>{
+		global_portfolio_filtered.forEach((item)=>{
 
 			//regex
-			let r_vidID = /[0-9]+/;
+			const r_vidID = /[0-9]+/;
 
-			let thumbs_obj:object = {}
+			const thumbs_obj: { [key: string]: string } = {}
 
 			if ( image_isVimeo(item.images[0]) ) {
 
-				const int_id = item.images[0].match(r_vidID)[0];
+				const match = item.images[0].match(r_vidID);
+				const int_id = match ? match[0] : '';
 
 				thumbs_obj[int_id] = ''
 
@@ -108,25 +110,29 @@ export default function Content_PortfolioCollection () {
 
 		})//enf forEach
 
-	})//end f
+	},[])//end f
 
 
 
-	const vimeo_getID = (url_str) => {
+	const vimeo_getID = (url:string) => {
 
 		const r_vidID = /[0-9]+/
 
-		const int_id = url_str.match(r_vidID)[0]
+		const match = url.match(r_vidID) 
+		
+		if (!match) throw new Error('No valid Vimeo ID found in URL')
+
+		const int_id = match[0]
 
 		return (int_id)
 		
 	}
 
 
-	const vimeo_fetch_getVideoJSONdata = ( str_url) => {		
+	const vimeo_fetch_getVideoJSONdata = ( str:string) => {		
 				
 
-		const int_id = vimeo_getID(str_url)
+		const int_id = vimeo_getID(str)
 		
 		const url = 'http://vimeo.com/api/v2/video/' + int_id + '.json';
 
@@ -167,7 +173,7 @@ export default function Content_PortfolioCollection () {
 
 
 	//---- RENDER ------
-	const vimeo_renderThumb_onCallback = (image_path_str, item_obj) => {
+	const vimeo_renderThumb_onCallback = (image_path_str:string, item_obj: IPortfolio_item) => {
 		return(<img className="port_thumbnail" src={image_path_str} data-key={item_obj.id} key={item_obj.id+"_thumb"}/>)
 	}//end f
 

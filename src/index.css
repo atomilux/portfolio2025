@@ -233,6 +233,33 @@ a:hover:after {
 	}
 }
 
+
+@media only screen and (min-width: 1024px) {
+	@keyframes fadeInOpacityAndScale {
+		0% {
+			opacity: 0;
+			scale: 1;
+			margin:4vw;
+			height:15vw;
+		}
+		70% {
+			opacity: 1;
+			scale: 1;
+			margin:4vw;
+			height:15vw;
+		}
+		100% {
+			opacity: 1;
+			scale: .175;
+			margin:0vw;
+			height:6vw
+		}
+	}
+	
+}
+
+
+
 @keyframes fadeInOpacity {
 	0% {
 		opacity: 0;

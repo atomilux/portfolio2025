@@ -8,7 +8,7 @@ export default function Content_PortfolioDetail() {
 
 	////////////////////// REFERENCES //////////////////////
 
-	const ref_overlay = useRef(null)
+	const ref_overlay = useRef<HTMLDivElement>(null)
 
 
 
@@ -17,7 +17,7 @@ export default function Content_PortfolioDetail() {
 
 	const {
 		ee,
-		EVT,
+		EVT_ENUM,
 		global_portfolio_item_current
 	} = useContext(PortfolioContext)
 
@@ -47,16 +47,18 @@ export default function Content_PortfolioDetail() {
 	////////////////////// FUNCTIONS //////////////////////
 
 
-	const link_icon = (str_name) => {
+	const link_icon = (link:string) => {
+
+		//console.log("link_icon() - link: " + link);
 
 		const r_pdf = /.pdf/;
 
 		const str_linkIcon = "/images/icon_newWindow_256x256.svg";
 		const str_pdfIcon = "/images/icon_acrobat.svg";
 
-		let str_finalIconURL = str_linkIcon;
+		let str_finalIconURL:string = str_linkIcon;
 
-		if (str_name.match(r_pdf)) {
+		if (link.match(r_pdf)) {
 			str_finalIconURL = str_pdfIcon;
 		}
 
@@ -82,30 +84,36 @@ export default function Content_PortfolioDetail() {
 	}//end f
 
 	const render_links = () => {
+
+		console.dir(global_portfolio_item_current.links)
 		
+		//sometimes obj isn't initialized properly - checks
 		if (global_portfolio_item_current.links && 
-				global_portfolio_item_current.links.length > 0) {
+				global_portfolio_item_current.links.length > 0 &&
+				typeof global_portfolio_item_current.links[0] === 'object'
+		){
 
-			let links = global_portfolio_item_current.links.map(
+				const links = global_portfolio_item_current.links.map(
 
-				(item,i) => {
+					(item) => {
 
-					return(
-						<div className="link">
-							<div>
-								<img className="link_icon" src={ link_icon(item.url) }/>
+						return(
+							<div className="link">
+								<div>
+									<img className="link_icon" src={ link_icon(item.url) }/>
+								</div>
+								<div>
+									<a href={item.url} target="_blank" className="link">
+										{ item.title }
+									</a>
+								</div>
 							</div>
-							<div>
-								<a href={item.url} target="_blank" className="link">
-									{ item.title }
-								</a>
-							</div>
-						</div>
-					)
-				}
-			)
+						)
+					}
+				)
 
-			return links
+				return links
+
 
 		}//end if
 
@@ -118,8 +126,8 @@ export default function Content_PortfolioDetail() {
 
 			const solutions = global_portfolio_item_current.solution.map(
 
-				(item) => {
-					return (<li>{item}</li>)
+				(item,i) => {
+					return (<li key={"solution_"+i}>{item}</li>)
 				}
 
 			)
@@ -137,18 +145,18 @@ export default function Content_PortfolioDetail() {
 
 			const images = global_portfolio_item_current.images.map(
 
-				(item) => {
+				(item,i) => {
 					console.log("PORTFOLIO IMAGE: " + item);
 
 					if (image_isVimeo(item)) {
 						return(
-							<div className="port_detail_item">
+							<div className="port_detail_item" key={"image_"+i}>
 								<iframe title="vimeo-player" src={item+"&transparent=0"} width="100%" height={videoHeight()} style={{border:0, background:"black"}} allowFullScreen={true}></iframe>
 							</div>
 						)
 					} else {
 						return (
-							<div className="port_detail_item">
+							<div className="port_detail_item" key={"image_"+i}>
 								<img src={item}/>
 							</div>
 						)
@@ -203,20 +211,16 @@ export default function Content_PortfolioDetail() {
 
 	//----- STYLING --------
 
-	const render_inlineCSS = useCallback((showMe_in) => {
+	const render_inlineCSS = useCallback((showMe_in:boolean) => {
 
 		console.log("render_inlineCSS()")
 
-		let css
-
-		if (showMe_in === true) {
-			css = {
-				top:'0',
-				right:'0',
-				bottom:'0',
-				left:'0',
-				opacity:1
-			}
+		let css = {
+			top:'0',
+			right:'0',
+			bottom:'0',
+			left:'0',
+			opacity:1
 		}
 
 		if (showMe_in === false) {
@@ -231,7 +235,7 @@ export default function Content_PortfolioDetail() {
 
 		set_local_css(css)
 
-	})//end f
+	},[])//end f
 
 
 
@@ -245,7 +249,7 @@ export default function Content_PortfolioDetail() {
 			set_local_firstRun(false)
 		}
 
-		if (global_portfolio_item_current.links && global_portfolio_item_current.links > 0) {
+		if (global_portfolio_item_current.links && global_portfolio_item_current.links.length > 0) {
 			set_local_links(true)
 		}
 	},[
@@ -260,11 +264,17 @@ export default function Content_PortfolioDetail() {
 
 
 	////////////////////// EVENTS //////////////////////
-	ee.on(EVT.PORTFOLIO_ITEM_CLICK,(data)=>{
+	ee.on(EVT_ENUM.PORTFOLIO_ITEM_CLICK,(data)=>{
+
 		console.dir(data)
-		render_inlineCSS(true)
 		console.dir(ref_overlay.current)
-		ref_overlay.current.scrollTo(0,0)
+
+		render_inlineCSS(true)
+
+		if (ref_overlay.current) {
+			ref_overlay.current.scrollTo(0,0)
+		}
+
 	})
 
 

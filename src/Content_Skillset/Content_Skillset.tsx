@@ -14,10 +14,10 @@ export default function Content_Skillset() {
 	const {
 		global_content_3d_translateZ,
 		global_content_skillset_rotateY,
-		global_skillset_opacity,
-		global_skillset_scale,
-		global_role_current, 
-		global_role_skillsRanked, 
+		global_skillset_opacity: global_skillset_opacity,
+		global_skillset_scale: global_skillset_scale,
+		global_skills_role_current: global_skills_role_current, 
+		global_role_skillsRanked: global_role_skillsRanked, 
 		global_nav_openHeight} 	= useContext(PortfolioContext)
 
 
@@ -63,7 +63,7 @@ export default function Content_Skillset() {
 		global_content_3d_translateZ,
 		global_skillset_opacity,
 		global_skillset_scale,
-		global_role_current, 
+		global_skills_role_current, 
 		global_role_skillsRanked,
 		global_nav_openHeight
 	])
@@ -80,7 +80,7 @@ export default function Content_Skillset() {
 						transform:'rotateY('+global_content_skillset_rotateY+'deg) translateZ('+global_content_3d_translateZ+'px)'}}>
 
 		<div className="skills_header">
-			<div className="skills_search_title">{global_role_current.title} Skills ({global_role_skillsRanked.length})</div>
+			<div className="skills_search_title">{global_skills_role_current.title} Skills ({global_role_skillsRanked.length})</div>
 			<div className="skills_search_input">
 				<input type="text" id="skills_search_input" name="fname" placeholder='Search' onChange={search_skills}/>
 			</div>

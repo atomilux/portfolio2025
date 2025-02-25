@@ -13,10 +13,10 @@ export default function Content_SkillOverview() {
 	const {
 		global_content_3d_translateZ,
 		global_content_overview_rotateY,
-		global_skillset_opacity,
-		global_skillset_scale,
-		global_role_current, 
-		global_role_skillsRanked, 
+		global_skillset_opacity: global_skillset_opacity,
+		global_skillset_scale: global_skillset_scale,
+		global_skills_role_current: global_skills_role_current, 
+		global_role_skillsRanked: global_role_skillsRanked, 
 		global_nav_openHeight} 	= useContext(PortfolioContext)
 
 
@@ -110,14 +110,14 @@ export default function Content_SkillOverview() {
 
 	useEffect(() => {
 
-		resume_url_byRole(global_role_current.key)
-		resume_label_byRole(global_role_current.key)
+		resume_url_byRole(global_skills_role_current.key)
+		resume_label_byRole(global_skills_role_current.key)
 
 	},[
 		global_content_3d_translateZ,
 		global_skillset_opacity,
 		global_skillset_scale,
-		global_role_current, 
+		global_skills_role_current, 
 		global_role_skillsRanked,
 		global_nav_openHeight,
 		local_resume_url_byRole,
@@ -138,7 +138,7 @@ export default function Content_SkillOverview() {
 					}}>
 		<div className="skills_overview">
 			<div className="column col1">
-				<div className="skills_desc">{ global_role_current.desc }</div>
+				<div className="skills_desc">{ global_skills_role_current.desc }</div>
 				<div className="skills_link">
 					<img className="acrobat_icon" src="/icon_acrobat.svg"/>
 					<a href={ local_resume_url_byRole } target="_blank">{ local_resume_label_byRole }</a>

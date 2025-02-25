@@ -11,12 +11,12 @@ export default function Nav() {
 	////////////////////// REFERENCES //////////////////////
 
 	//DOM references for swapping classes on <div class="nav"> and measuring nav height
-	const dom_nav 										= useRef(null) //Nav Container whole
-	const dom_nav_header 							= useRef(null) //AS A SENIOR LEVEL:
-	const dom_nav_role_list						= useRef(null) //skill list container
+	const dom_nav 										= useRef<HTMLDivElement>(null) //Nav Container whole
+	const dom_nav_header 							= useRef<HTMLDivElement>(null) //AS A SENIOR LEVEL:
+	const dom_nav_role_list						= useRef<HTMLDivElement>(null) //skill list container
 
 	//TODO - refactor past thgis v1
-	const refs = useRef({});
+	const refs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
 	const handleRef = (key,ref) => {
 		refs.current[key] = ref
@@ -28,27 +28,7 @@ export default function Nav() {
 
 	//----------- SKILL ------------
 
-	//All skill data objects (key, title, desc, resume)
-	const {
-		ee,
-		EVT,
-		global_roles, 
-		anim_sequence_subnav_click,
-		set_global_content_3d_translateZ,
-	} = useContext(PortfolioContext)
-
-	const {global_nav_isOpen, set_global_nav_isOpen} = useContext(PortfolioContext)
-
-	//the main lane switcher for the portfolio silo based on type of role
-	//values - skills_marketing, skills_uiux, skills_webDev, skills_gameDev
-	const {global_role_current, set_global_role_current} = useContext(PortfolioContext)
-
-
-	const {ctrl_set_global_role_skillsData, ctrl_set_global_role_skillsRanked} = useContext(PortfolioContext)
-
-
 	//TODO - take this back to local or answer why it's in global if not
-	//const {global_nav_openHeight, set_global_nav_openHeight} = useContext(PortfolioContext)
 
 	//the Nav CSS styling class for role flavor
 	/*
@@ -59,13 +39,31 @@ export default function Nav() {
 			"skills_gameDev"	:"nav_gameDev"
 		}
 	*/
-	const {global_ui_nav_classMap} = useContext(PortfolioContext)
+
+
+
+
+	//All skill data objects (key, title, desc, resume)
+	const {
+		ee,
+		EVT_ENUM,
+		global_skills_roles, 
+		anim_sequence_subnav_click,
+		global_set_content_3d_translateZ: global_set_content_3d_translateZ,
+		global_nav_isOpen, 
+		global_set_nav_isOpen,
+		global_skills_role_current,
+		ctrl_set_global_role_skillsData,
+		ctrl_set_global_role_skillsRanked,
+		global_ui_nav_classMap,
+		ctrl_portfolio_filter_byRole
+	} = useContext(PortfolioContext)
+
+
+
 
 
 	//----------- PORTFOLIO ------------
-
-	//get collection of portfolio items by skills
-	const {ctrl_portfolio_filter_bySkillArray} = useContext(PortfolioContext);
 
 
 
@@ -81,6 +79,8 @@ export default function Nav() {
 
 	//TODO - track down if we need to swap these for global
 	//open height value 
+
+	
 	const [
 		local_nav_heightOpen, 
 		local_set_nav_heightOpen] 				= useState(0)
@@ -89,6 +89,7 @@ export default function Nav() {
 	const [
 		local_nav_heightClosed,
 		local_set_nav_heightClosed] 			= useState(0)
+		
 
 	//DOM height storage for inline CSS height/animations to work
 	const [
@@ -105,6 +106,15 @@ export default function Nav() {
 		local_nav_item_height,
 		local_set_local_nav_item_height] = useState(10)
 	
+
+
+	////////////////////// DATA MODELS //////////////////////
+
+	interface HeightsObject {
+		skillHeight:number,
+		skillHeightClose:number
+	}
+
 
 
 	////////////////////// FUNCTIONS //////////////////////
@@ -134,7 +144,7 @@ export default function Nav() {
 
 		//desktop
 		if (window_width > 1024){
-			font_size_fraction = .05
+			font_size_fraction = .03
 		}
 
 		console.log(font_size_fraction)
@@ -154,13 +164,13 @@ export default function Nav() {
 		//console.log("calc_nav_openCloseHeights()");
 
 		//const nav_cont_height = calc_get_nav_height()
-		const nav_cont_height = dom_nav_role_list.current.getBoundingClientRect().height
+		const nav_cont_height = dom_nav_role_list.current ? dom_nav_role_list.current.getBoundingClientRect().height : 0
 	
 		//const nav_firstItem_height = calc_get_nav_firstItemHeight()
-		const nav_firstItem_height = refs.current["skills_marketing"].getBoundingClientRect().height
+		const nav_firstItem_height = refs.current["skills_marketing"] ? refs.current["skills_marketing"].getBoundingClientRect().height : 0
 
 		//const nav_header_height = calc_get_nav_headerHeight()
-		const nav_header_height = dom_nav_header.current.getBoundingClientRect().height
+		const nav_header_height = dom_nav_header.current ? dom_nav_header.current.getBoundingClientRect().height : 0
 
 		const skillHeight = nav_cont_height + nav_header_height
 		const skillHeightClose = nav_header_height + nav_firstItem_height
@@ -170,11 +180,13 @@ export default function Nav() {
 			skillHeightClose
 		}
 
-	})//end f
+	},[])//end f
+
+
 
 
 	//---- STATE ------
-	const local_set_heightsData = (heights_obj, setOpen_bool) => {
+	const local_set_heightsData = useCallback((heights_obj:HeightsObject, setOpen_bool:boolean) => {
 
 		//console.log("local_set_heightsData()");
 
@@ -199,13 +211,14 @@ export default function Nav() {
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeightClose)
 		}
 
-	}
+	},[])
 
 
 	//---- UI STYLING ------
 	const ui_bold_nav = (skillset_in:string):string => {
 
-		if (global_role_current === skillset_in) {
+
+		if (global_skills_role_current.key === skillset_in) {
 			return "nav_role_item_active"
 		}
 
@@ -225,12 +238,25 @@ export default function Nav() {
 
 	const ui_switch_navOrdering = (skillset_in:string) => {
 
-		refs.current["skills_marketing"].classList.remove("textBold","orderMinus1");
-		refs.current["skills_uiux"].classList.remove("textBold","orderMinus1");
-		refs.current["skills_webDev"].classList.remove("textBold","orderMinus1");
-		refs.current["skills_gameDev"].classList.remove("textBold","orderMinus1");
+		if (refs.current["skills_marketing"]) {
+			refs.current["skills_marketing"].classList.remove("textBold","orderMinus1")
+		}
+		
+		if (refs.current["skills_uiux"]) {
+			refs.current["skills_uiux"].classList.remove("textBold","orderMinus1")
+		}
 
-		refs.current[skillset_in].classList.add("textBold","orderMinus1");
+		if (refs.current["skills_webDev"]) {
+			refs.current["skills_webDev"].classList.remove("textBold","orderMinus1")
+		}
+
+		if (refs.current["skills_gameDev"]) {
+			refs.current["skills_gameDev"].classList.remove("textBold","orderMinus1")
+		}
+
+		if (refs.current[skillset_in]) {
+			refs.current[skillset_in].classList.add("textBold","orderMinus1")
+		}
 		
 	}//end f
 
@@ -257,14 +283,14 @@ export default function Nav() {
 		ctrl_set_global_role_skillsData(role)
 
 		//GLOBAL - see if we can call a function to filter portfolio
-		ctrl_portfolio_filter_bySkillArray(role)
+		ctrl_portfolio_filter_byRole(role)
 
 
 
 		//----------- OPEN/CLOSE ----------
 
 		//LOCAL - invert isOpen boolean
-		set_global_nav_isOpen(!global_nav_isOpen)
+		global_set_nav_isOpen(!global_nav_isOpen)
 
 		//RESPONSIVE
 		//Calculate dynamic height of nav items based on window width
@@ -301,12 +327,12 @@ export default function Nav() {
 		//----------- ANIMATION ----------
 
 		//if it's a different NAV item then animate page
-		if (role !== global_role_current.key) {
+		if (role !== global_skills_role_current.key) {
 			anim_sequence_subnav_click()
 		}
 
 		//if it's the same item and NAV is OPEN
-		if (role === global_role_current.key && global_nav_isOpen) {
+		if (role === global_skills_role_current.key && global_nav_isOpen) {
 			anim_sequence_subnav_click()
 		}
 	
@@ -324,16 +350,13 @@ export default function Nav() {
 
 
 		//for some reason it takes a few cycles for setState to catch up ... fkn React
-		if (dom_nav.current.getBoundingClientRect().height === 0) { return; }
+		if (dom_nav.current && dom_nav.current.getBoundingClientRect().height === 0) { return; }
 
 		//trigger init calcs
 		if (local_nav_isFirstLoad) { 
 
 
 			//----------- OPEN/CLOSE ----------
-
-			//LOCAL - invert isOpen boolean
-			//set_global_nav_isOpen(!global_nav_isOpen)
 
 			//RESPONSIVE
 			//Calculate dynamic height of nav items based on window width
@@ -358,22 +381,23 @@ export default function Nav() {
 
 			local_set_nav_isFirstLoad(false) //turn off so we don't keep re-initializaing
 
-			ctrl_set_global_role_skillsRanked(global_role_current.key)
+			ctrl_set_global_role_skillsRanked(global_skills_role_current.key)
 
-			set_global_content_3d_translateZ(window.outerWidth * .4)
+			global_set_content_3d_translateZ(window.outerWidth * .4)
 
 		}//end if
 
 	},[
 		ee,
 		local_nav_item_height,
+		local_set_heightsData,
 		calc_nav_openCloseHeights,
 		local_nav_heightOpenDOMready,
 		local_nav_isFirstLoad,
 		global_nav_isOpen,
-		global_role_current,
+		global_skills_role_current,
 		ctrl_set_global_role_skillsRanked,
-		set_global_content_3d_translateZ
+		global_set_content_3d_translateZ
 	])
 
 	
@@ -382,7 +406,7 @@ export default function Nav() {
 	////////////////////// EVENTS //////////////////////
 
 
-	ee.on(EVT.WINDOW_RESIZE,()=>{
+	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
 		//console.log("EVT.WINDOW_RESIZE - Nav.tsx");
 
@@ -391,9 +415,6 @@ export default function Nav() {
 			()=>{
 
 				//----------- OPEN/CLOSE ----------
-
-				//LOCAL - invert isOpen boolean
-				//set_global_nav_isOpen(!global_nav_isOpen)
 
 				//RESPONSIVE
 				//Calculate dynamic height of nav items based on window width
@@ -421,7 +442,7 @@ export default function Nav() {
 		
 		)
 
-		set_global_content_3d_translateZ(window.outerWidth * .4)
+		global_set_content_3d_translateZ(window.outerWidth * .4)
 
 	})
 
@@ -448,7 +469,7 @@ export default function Nav() {
 			<div className="nav_role_list_container" ref={dom_nav_role_list}>
 
 				{
-					global_roles.map(
+					global_skills_roles.map(
 						
 						(item, i) => (
 					

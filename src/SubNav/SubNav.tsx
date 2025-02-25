@@ -10,10 +10,10 @@ export default function SubNav() {
 
 	////////////////////// REFERENCES //////////////////////
 
-	const dom_ref_overview 	= useRef(null)
-	const dom_ref_skillset 	= useRef(null)
-	const dom_ref_portfolio = useRef(null)
-	const dom_ref_stick 		= useRef(null)
+	const dom_ref_overview 	= useRef<HTMLDivElement>(null)
+	const dom_ref_skillset 	= useRef<HTMLDivElement>(null)
+	const dom_ref_portfolio = useRef<HTMLDivElement>(null)
+	const dom_ref_stick 		= useRef<HTMLDivElement>(null)
 
 
 
@@ -21,12 +21,12 @@ export default function SubNav() {
 
 	const {
 		ee,
-		EVT,
+		EVT_ENUM,
 		ctrl_set_rotateY,
 		global_subnav_opacity,
 		global_subnav_scale,
-		global_role_current, global_portfolio_mode, 
-		set_global_portfolio_mode,
+		global_skills_role_current: global_skills_role_current, global_portfolio_mode, 
+		global_set_portfolio_mode: global_set_portfolio_mode,
 		global_nav_isOpen
 	} = useContext(PortfolioContext)
 
@@ -79,7 +79,7 @@ export default function SubNav() {
 
 		set_local_stick_move(true)
 
-		set_global_portfolio_mode("overview")
+		global_set_portfolio_mode("overview")
 		ui_stick_move()
 
 		ctrl_set_rotateY("overview")
@@ -92,7 +92,7 @@ export default function SubNav() {
 
 		set_local_stick_move(true)
 
-		set_global_portfolio_mode("skillset")
+		global_set_portfolio_mode("skillset")
 		ui_stick_move()
 
 		ctrl_set_rotateY("skillset")
@@ -105,7 +105,7 @@ export default function SubNav() {
 
 		set_local_stick_move(true)
 
-		set_global_portfolio_mode("portfolio")
+		global_set_portfolio_mode("portfolio")
 		ui_stick_move()
 
 		ctrl_set_rotateY("portfolio")
@@ -131,25 +131,25 @@ export default function SubNav() {
 			set_local_stick_x(local_stick_x_portfolio)
 		}
 
-	})
+	},[])
 
 
 	//----- UI CALCULATIONS --------
 	const ui_stick_calcs = useCallback(() => {
 
-		const overview_rect 	= dom_ref_overview.current.getBoundingClientRect()
-		const skillset_rect 	= dom_ref_skillset.current.getBoundingClientRect()
-		const portfolio_rect 	= dom_ref_portfolio.current.getBoundingClientRect()
+		const overview_rect 	= dom_ref_overview.current ? dom_ref_overview.current.getBoundingClientRect() : 0
+		const skillset_rect 	= dom_ref_skillset.current ? dom_ref_skillset.current.getBoundingClientRect() : 0
+		const portfolio_rect 	= dom_ref_portfolio.current ? dom_ref_portfolio.current.getBoundingClientRect() : 0
 		
 		if (local_firstRun === true) {
-			set_local_stick_x(overview_rect.left)
+			if (overview_rect) set_local_stick_x(overview_rect.left)
 		}
 
-		set_local_stick_x_overview(overview_rect.left)
-		set_local_stick_x_skillset(skillset_rect.left)
-		set_local_stick_x_portfolio(portfolio_rect.left)
+		if (overview_rect) set_local_stick_x_overview(overview_rect.left)
+		if (skillset_rect) set_local_stick_x_skillset(skillset_rect.left)
+		if (portfolio_rect) set_local_stick_x_portfolio(portfolio_rect.left)
 
-	})
+	},[])
 
 
 	////////////////////// EFFECTS //////////////////////
@@ -190,7 +190,7 @@ export default function SubNav() {
 
 	////////////////////// EVENTS //////////////////////
 
-	ee.on(EVT.WINDOW_RESIZE,()=>{
+	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
 		console.log("SubNav.tsx - EVT.WINDOW_RESIZE");
 		ui_stick_calcs()
@@ -207,7 +207,7 @@ export default function SubNav() {
 
 	return (
 					
-		<div id="subnav_category" className={"subnav subnav_" + global_role_current.key} style={{opacity:global_subnav_opacity, transform:'scale('+global_subnav_scale+')'}}>
+		<div id="subnav_category" className={"subnav subnav_" + global_skills_role_current.key} style={{opacity:global_subnav_opacity, transform:'scale('+global_subnav_scale+')'}}>
 
 			<div className="content_subnav">
 

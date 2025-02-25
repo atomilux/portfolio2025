@@ -1,66 +1,127 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect, useCallback, ReactNode } from 'react'
 import portfolio_data from './siteData4.json'
 import _ from 'lodash'
 import EventEmitter from '../EVENTS/EventEmitter'
+import { 
+	EVT_ENUM, 
+	IPortfolio_item, Portfolio_item, 
+	ISkills_role, Skills_role,
+	ISkills_rated, Skills_rated 
+} from './Models'
 
 
 
 /* ------------ INIT CONTEXT ------------ */
 export const PortfolioContext = createContext({ 
-	
-	global_count:1,
 
-	global_roles:[],
-	global_portfolio:[],
-	global_role_skillsRated_all:[],
-	global_role_skillsRanked:[],
+
+	//////////////////// APP /////////////////////
+
+	// Variables -----------
+
 	global_nav_openHeight:0,
-	global_role_current:{},
-	global_portfolio_mode:"overview",
-	global_portfolio_filtered:[],
-	global_portfolio_item_current:{},
-	global_portfolio_item_mode:"details",
-	global_ui_nav_classMap:{},
 	global_nav_isOpen:true,
+	global_ui_nav_classMap:{
+		"skills_marketing":"nav_marketing",
+		"skills_uiux"			:"nav_uiux",
+		"skills_webDev"		:"nav_webDev",
+		"skills_gameDev"	:"nav_gameDev"
+	},
 	global_subnav_opacity:0,
 	global_subnav_scale:1,
-	global_skillset_opacity:0,
-	global_skillset_scale:1,
+
 	global_content_overview_rotateY:0,
 	global_content_skillset_rotateY:90,
 	global_content_portfolio_rotateY:180,
 	global_content_3d_translateZ:200,
-	set_global_count:()=>{},
-	set_global_nav_openHeight:()=>{},
-	set_global_role_current:()=>{},
-	set_global_portfolio_mode:()=>{},
-	set_global_portfolio_filtered:()=>{},
-	set_global_portfolio_item_current:()=>{},
-	set_global_portfolio_item_mode:()=>{},
-	set_global_ui_nav_classMap:()=>{},
-	set_global_nav_isOpen:()=>{},
+	
+	// Setters -----------
+
+	global_set_nav_openHeight:				(_value: number):void => {},
+	global_set_nav_isOpen:						(_value: boolean):void => {},
+	global_set_ui_nav_classMap: 			(_value: { skills_marketing: string; skills_uiux: string; skills_webDev: string; skills_gameDev: string; }):void => {},
+	global_set_content_3d_translateZ:	(_value: number):void => {},
+
+
+	// Functions -----------
+
+	ctrl_set_rotateY:(_value: string):void=>{},
 	anim_sequence_subnav_click:()=>{},
-	ctrl_set_rotateY:()=>{},
-	ctrl_set_global_role_skillsRanked:()=>{},
-	ctrl_set_global_role_skillsData:()=>{},
-	ctrl_set_global_portfolio_item_current:()=>{},
-	ctrl_portfolio_filter_bySkillArray:()=>{},
-	ctrl_skillsRated_get_byPortfolioID:()=>{},
+
+
+	
+	//////////////////// SKILLS /////////////////////
+
+
+	// Variables -----------
+
+	global_skills_roles:								[] as ISkills_role[],
+
+	global_skills_role_current:					new Skills_role(),
+
+	global_role_skillsRanked_all:				[] as ISkills_rated[],
+	global_role_skillsRanked:						[] as ISkills_rated[],
+	global_skills_role_current_skills:	[] as string[],
+
+	global_skillset_opacity:0,
+	global_skillset_scale:1,
+
+
+	// Setters ----------
+
+	global_set_skills_role_current:			(_value: ISkills_role):void=>{},
+
+
+	// Functions ----------
+
+	ctrl_set_global_role_skillsRanked:	(_value: string):void=>{},
+	ctrl_set_global_role_skillsData:		(_value: string):void=>{},
+	ctrl_portfolio_filter_byRole:				(_value: string):void=>{},
+
+
+
+	//////////////////// PORTFOLIO /////////////////////
+
+
+	// Variables -----------
+
+	global_portfolio_mode:					"overview",
+	global_portfolio:								[] as IPortfolio_item[],
+	global_portfolio_filtered:			[] as IPortfolio_item[],
+	global_portfolio_item_current:	new Portfolio_item(),
+	global_portfolio_item_mode:			"details",
+
+
+	// Setters -----------
+
+	global_set_portfolio_filtered:			(_value: IPortfolio_item[]):void => {},
+	global_set_portfolio_mode:					(_value: string):void=>{},
+	global_set_portfolio_item_current:	(_value: IPortfolio_item)=>{},
+	global_set_portfolio_item_mode:			(_value: string):void=>{},
+
+
+	// Functions -----------
+
+	ctrl_global_set_portfolio_item_current:(_value: number):void=>{},
+	ctrl_skillsRated_get_byPortfolioID:(role:number):ISkills_role => {
+
+		//too apease linter
+		console.log(role)
+		return new Skills_role()
+
+	},
 	ee:new EventEmitter(),
-	EVT:{}
+	EVT_ENUM
 });
 
 
 
 /* -------------- CONTEXT PROVIDER ----------- */
 
-export const PortfolioContextProvider = ({children}) => {
+export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 	
 
-	//----------- TEST STATE OBJ ------------
-	const [global_count, set_global_count] = useState(1)
-
-	const [global_ui_nav_classMap, set_global_ui_nav_classMap] = useState({
+	const [global_ui_nav_classMap, global_set_ui_nav_classMap] = useState({
 		"skills_marketing":"nav_marketing",
 		"skills_uiux"			:"nav_uiux",
 		"skills_webDev"		:"nav_webDev",
@@ -115,42 +176,60 @@ export const PortfolioContextProvider = ({children}) => {
 	const [ global_content_skillset_rotateY, set_global_content_skillset_rotateY		] = useState(90)
 	const [ global_content_portfolio_rotateY, set_global_content_portfolio_rotateY	] = useState(180)
 
-	const [ global_content_3d_translateZ, set_global_content_3d_translateZ					] = useState(200)
+	const [ global_content_3d_translateZ, global_set_content_3d_translateZ					] = useState(200)
 
 	
 
 	///////////////////// < PORTFOLIO > /////////////////////
 
-	//ACCESS - Nav.tsx - iterates over DATA:skillsets->skills_roles to build HTML
+	//ACCESS - Nav.tsx - iterates over DATA:skills -> roles to build HTML
 	//Array
-	const [	global_portfolio																									] 	= useState<Array<object>>(portfolio_data.portfolio)
+	const [	global_portfolio																									] 	= useState<Array<IPortfolio_item>>(portfolio_data.portfolio)
 
 	//ACCESS - Portfolio_subNav.tsx uses to render conditional JSX
 	//String - "skillset", "portfolio"
-	const [	global_portfolio_mode, set_global_portfolio_mode									] 	= useState<string>("overview")
+	const [	global_portfolio_mode, global_set_portfolio_mode									] 	= useState<string>("overview")
 
-	//ACCESS - set by - ctrl_portfolio_filter_bySkillArray()
+	//ACCESS - set by - ctrl_portfolio_filter_byRole()
 	//Array - filtered portfolio items
-	const [	global_portfolio_filtered, set_global_portfolio_filtered					] 	= useState([])
+	const [	global_portfolio_filtered, global_set_portfolio_filtered					] 	= useState<Array<IPortfolio_item>>([
+		portfolio_data.portfolio[0]
+	])
 
-	//ACCESS - set by - ctrl_set_global_portfolio_item_current()
+	//ACCESS - set by - ctrl_global_set_portfolio_item_current()
 	//integer - single portfolio item id
-	const [	global_portfolio_item_current, set_global_portfolio_item_current	] 	= useState<object>({})
+	const [	global_portfolio_item_current, global_set_portfolio_item_current	] 	
+	= useState<IPortfolio_item>(
+		{
+			id:0,
+			title:"",
+			objective:"",
+			solution:[""],
+			skillset:"",
+			images:[""],
+			links:[
+				{
+					title:'',
+					url:''	
+				}
+			]
+		}
+	)
 
 	//ACCESS - set by ...
 	//string - "details", "skills", "media"
-	const [	global_portfolio_item_mode, set_global_portfolio_item_mode				] 	= useState<string>("details")
+	const [	global_portfolio_item_mode, global_set_portfolio_item_mode				] 	= useState<string>("details")
 
-	const [	global_nav_isOpen, set_global_nav_isOpen													]		= useState<boolean>(true)
+	const [	global_nav_isOpen, global_set_nav_isOpen													]		= useState<boolean>(true)
 
-	const [	global_nav_openHeight, set_global_nav_openHeight									]		= useState<number>(0)
+	const [	global_nav_openHeight, global_set_nav_openHeight									]		= useState<number>(0)
 
 
 	///////////////////// < SKILLS > /////////////////////
 
 	//ACCESS - Nav.tsx - builds UI from
 	//Aray of objects
-	const [	global_roles																											] 	= useState<Array<object>>(portfolio_data.skillsets.skills_roles)
+	const [	global_skills_roles																									] 	= useState<Array<ISkills_role>>(portfolio_data.skills.skills_roles)
 
 
 	//ACCESS - Nav.tsx - UI clicks
@@ -158,13 +237,13 @@ export const PortfolioContextProvider = ({children}) => {
 	//String 	- "skills_marketing", "skills_uiux", 
 	// 				- "skills_webDev", "skills_gameDev"
 
-	const [	global_role_current, set_global_role_current											] 	= useState<object>(portfolio_data.skillsets.skills_roles[0]) 
+	const [	global_skills_role_current, global_set_skills_role_current									] 	= useState<ISkills_role>(portfolio_data.skills.skills_roles[0]) 
 
-	const [ global_role_current_skills, set_global_role_current_skills 				] 	= useState<Array<string>>(portfolio_data.skillsets.skills_roles[0].skill_keys.split(','))
+	const [ global_skills_role_current_skills, global_set_skills_role_current_skills 		] 	= useState<Array<string>>(portfolio_data.skills.skills_roles[0].skill_keys.split(','))
 
-	const [	global_role_skillsRated_all																				] 	= useState<Array<object>>(portfolio_data.skillsets.skills_rated)
+	const [	global_role_skillsRanked_all																				] 	= useState<Array<ISkills_rated>>(portfolio_data.skills.skills_rated)
 
-	const [	global_role_skillsRanked, set_global_role_skillsRanked						] 	= useState<Array<object>>([portfolio_data.skillsets.skills_rated[0]])
+	const [	global_role_skillsRanked, set_global_role_skillsRanked							] 	= useState<Array<(ISkills_rated)>>([portfolio_data.skills.skills_rated[0]])
 
 
 
@@ -180,7 +259,7 @@ export const PortfolioContextProvider = ({children}) => {
 
 	// ----------- 3D ROTATE - FUNCTION --------------
 
-	const ctrl_set_rotateY = (mode_str_in) => {
+	const ctrl_set_rotateY = (mode_str_in: string) => {
 
 		if (mode_str_in === "overview") {
 
@@ -212,19 +291,19 @@ export const PortfolioContextProvider = ({children}) => {
 	//----------------- PORTFOLIO - FUNCTIONS -----------------
 
 	//ACCESS - Nav.tsx UI clicks
-	const ctrl_portfolio_filter_bySkillArray = (role_in) => {
+	const ctrl_portfolio_filter_byRole = useCallback((role_in: string):void => {
 
-		console.log("ctrl_portfolio_filter_bySkillArray()")
+		console.log("ctrl_portfolio_filter_byRole()")
 
 		console.log("role_in: " + role_in);
 
 		
 
-		//console.dir(global_role_current_skills)
+		//console.dir(global_skills_role_current_skills)
 
-		let skills_arr = [];
+		let skills_arr:string[] = [];
 
-		portfolio_data.skillsets.skills_roles.forEach((item,i)=>{
+		portfolio_data.skills.skills_roles.forEach((item)=>{
 			if(item.key===role_in) {
 				skills_arr = item.skill_keys.split(',')
 			}
@@ -233,7 +312,7 @@ export const PortfolioContextProvider = ({children}) => {
 		//console.log("skills arr")
 		//console.dir(skills_arr)
 
-		let matching_items:object[] = []
+		const matching_items:object[] = []
 
 		//----------- Portfolio Items -----------
 
@@ -242,10 +321,10 @@ export const PortfolioContextProvider = ({children}) => {
 			// --------- item ---------
 			(item) => {
 
-				let port_item_skills = item.skillset.split(",")
+				const port_item_skills = item.skillset.split(",")
 
 
-				let port_item_matchingSkills = _.intersection( skills_arr, port_item_skills )
+				const port_item_matchingSkills = _.intersection( skills_arr, port_item_skills )
 
 				//=== skills_arr_in.length
 
@@ -259,7 +338,7 @@ export const PortfolioContextProvider = ({children}) => {
 		)
 
 		//sort by latest (newest) id for good chronology
-		let matching_items_sorted = _.sortBy(matching_items,['id'],['desc'])
+		const matching_items_sorted = _.sortBy(matching_items,['id'],['desc']) as IPortfolio_item[]
 
 		console.log("-------------- NEW PORTFOLIO --------------")
 
@@ -267,21 +346,23 @@ export const PortfolioContextProvider = ({children}) => {
 
 		matching_items_sorted.reverse()
 
-		set_global_portfolio_filtered(matching_items_sorted)
+		global_set_portfolio_filtered(matching_items_sorted)
 
 		//console.dir(matching_items)
 
-	}//end f
+	},[global_portfolio])//end f
 
-	const ctrl_set_global_portfolio_item_current = (id_in):void => {
+	
+
+	const ctrl_global_set_portfolio_item_current = (id_in: number):void => {
 
 		console.log("set_global_portfolio_byID() - id_in: " + id_in);
 
-		let portfolio_item = {}; 
+		let portfolio_item:IPortfolio_item = new Portfolio_item(); 
 
 		global_portfolio.forEach((item) => {
 
-			if(item.id == id_in) {
+			if(item.id === id_in) {
 				console.dir(item);
 				portfolio_item = item;
 			}
@@ -289,25 +370,25 @@ export const PortfolioContextProvider = ({children}) => {
 		})
 
 		//set global state
-		set_global_portfolio_item_current(portfolio_item);
+		global_set_portfolio_item_current(portfolio_item);
 
 	}//end f
 	
 
 	//----------------- SKILLS - FUNCTIONS -----------------
 
-	const ctrl_set_global_role_skillsData = (role_in:string) => {
+	const ctrl_set_global_role_skillsData = (role_in:string):void => {
 
 		console.log("ctrl_set_global_role_skillsData()");
 
-		portfolio_data.skillsets.skills_roles.forEach(
+		portfolio_data.skills.skills_roles.forEach(
 
 			(item) => {
 
 				if (role_in === item.key) {
 					console.dir(item)
-					set_global_role_current(item)
-					set_global_role_current_skills(item.skill_keys.split(','))
+					global_set_skills_role_current(item)
+					global_set_skills_role_current_skills(item.skill_keys.split(','))
 				}
 			}
 
@@ -318,12 +399,11 @@ export const PortfolioContextProvider = ({children}) => {
 
 	const ctrl_set_global_role_skillsRanked = (role_in:string) => {
 
-		let final_skills = []
+		const final_skills: ISkills_rated[] = [new Skills_rated()]
 
-		portfolio_data.skillsets.skills_rated.forEach(
+		portfolio_data.skills.skills_rated.forEach(
 
 			(item) => {
-				//console.log("ctrl_set_global_role_skillsRanked() - role_in: " + role_in + " - item.category: " + item.category);
 				if (role_in === item.category) {
 					//console.dir(item)
 					final_skills.push(item)
@@ -336,23 +416,26 @@ export const PortfolioContextProvider = ({children}) => {
 	
 	}//end f
 
-	const ctrl_skillsRated_get_byPortfolioID = (int_id:number) => {
+
+	const ctrl_skillsRated_get_byPortfolioID = useCallback((int_id:number):ISkills_role => {
 
 		//get this portfolio item
-		let portfolioItem = _.filter(global_portfolio,{'id':int_id})
+		const portfolioItem:IPortfolio_item[] = _.filter(global_portfolio,{'id':int_id})
 
-		let portfolioItem_skillset_arr = portfolioItem[0].skillset.split(',')
+		const portfolioItem_skillset_arr:string[] = portfolioItem[0].skillset.split(',')
 
-		let matches = [] 
+		const matches: object[] = [] 
 
-		portfolioItem_skillset_arr.forEach((key_str)=> {
-		//console.log(key_str)
-			matches.push(_.filter(global_role_skillsRated_all,{'key':key_str})[0])
+		portfolioItem_skillset_arr.forEach((key_str: string)=> {
+			matches.push(_.filter(global_role_skillsRanked_all,{'key':key_str})[0])
 		})
 
-		return matches
+		//send back the first match
+		return matches[0] as ISkills_role
 
-	}//end f
+	},
+		[global_portfolio,global_role_skillsRanked_all]
+	)//end f
 
 	useEffect(()=>{
 		
@@ -362,13 +445,13 @@ export const PortfolioContextProvider = ({children}) => {
 
 		set_local_portfolioInit(true) 
 
-		ctrl_portfolio_filter_bySkillArray(portfolio_data.skillsets.skills_roles[0].skill_keys.split(','))
+		ctrl_portfolio_filter_byRole(portfolio_data.skills.skills_roles[0].key)
 
 		ctrl_skillsRated_get_byPortfolioID(3)
 
 	},[
 		local_portfolioInit,
-		ctrl_portfolio_filter_bySkillArray,
+		ctrl_portfolio_filter_byRole,
 		ctrl_skillsRated_get_byPortfolioID
 	])
 
@@ -377,66 +460,106 @@ export const PortfolioContextProvider = ({children}) => {
 
     <PortfolioContext.Provider value={{ 
 
-			global_count, set_global_count, 
+			//////////////////// APP /////////////////////
 
-			global_roles,
+			// Variables -----------
 
-			global_portfolio,
+			ee, 
 
-			global_role_skillsRated_all,
+			EVT_ENUM,
 
-			global_role_skillsRanked,
+			global_nav_openHeight,
 
-			global_nav_openHeight, set_global_nav_openHeight,
-
-			global_role_current, set_global_role_current,
-
-			global_portfolio_mode, set_global_portfolio_mode,
-
-			global_portfolio_filtered, set_global_portfolio_filtered,
-
-			global_portfolio_item_current, set_global_portfolio_item_current,
-
-			global_portfolio_item_mode, set_global_portfolio_item_mode,
-			
-			global_ui_nav_classMap, set_global_ui_nav_classMap,
-
-			global_nav_isOpen, set_global_nav_isOpen,
+			global_ui_nav_classMap,
+			global_nav_isOpen,
 
 
 			global_subnav_opacity,
-
 			global_subnav_scale,
 
 			global_skillset_opacity,
-
 			global_skillset_scale,
 
-			anim_sequence_subnav_click,
-
-
-			ctrl_set_rotateY,
 			global_content_overview_rotateY,
 			global_content_skillset_rotateY,
 			global_content_portfolio_rotateY,
 
 			global_content_3d_translateZ,
-			set_global_content_3d_translateZ,
-			
 
+
+
+			// Setters -----------
+
+			global_set_nav_openHeight,
+			global_set_ui_nav_classMap,
+			global_set_nav_isOpen,
+			global_set_content_3d_translateZ,
+
+
+
+			// Functions -----------
+			ctrl_set_rotateY,
+
+
+
+
+			//////////////////// SKILLS /////////////////////
+
+
+			// Variables -----------
+
+			global_skills_roles,
+			global_skills_role_current,
+			global_role_skillsRanked_all,
+			global_skills_role_current_skills,
+			global_role_skillsRanked,
+
+
+			// Setters -----------
+
+			global_set_skills_role_current,
+
+
+			// Functions -----------
 			ctrl_set_global_role_skillsRanked,
 
 			ctrl_set_global_role_skillsData,
 
-			ctrl_set_global_portfolio_item_current,
-
-			ctrl_portfolio_filter_bySkillArray, 
-
 			ctrl_skillsRated_get_byPortfolioID,
 
-			ee, 
 
-			EVT
+
+
+
+			//////////////////// PORTFOLIO /////////////////////
+
+			// Variables -----------
+
+			global_portfolio,
+			global_portfolio_mode, 
+			global_portfolio_filtered,
+			global_portfolio_item_current,
+			global_portfolio_item_mode, 
+			
+			
+			// Setters -----------
+
+			global_set_portfolio_mode,
+			global_set_portfolio_filtered,
+			global_set_portfolio_item_current,
+
+			global_set_portfolio_item_mode,
+			
+
+
+			anim_sequence_subnav_click,
+	
+			
+
+			// Functions -----------
+
+			ctrl_global_set_portfolio_item_current,
+			ctrl_portfolio_filter_byRole, 
 
 			}}>
 
@@ -448,22 +571,3 @@ export const PortfolioContextProvider = ({children}) => {
 
 }//end class
 
-
-
-/* -------- MODELS ---------- */
-enum EVT {
-
-	//MAIN NAV EVENT
-	"NAV_CLICK" = "NAV_CLICK",
-
-	//SUBNAV EVENTS 
-	"SUBNAV_CLICK" = "SUBNAV_CLICK",
-	"SUBNAV_ANIM_DONE" = "SUBNAV_ANIM_DONE",
-	"SKILLS_ANIM_DONE" = "SKILLS_ANIM_DONE",
-
-	//PORTFOLIO ITEM EVENT
-	"PORTFOLIO_ITEM_CLICK" = "PORTFOLIO_ITEM_CLICK",
-
-	"WINDOW_RESIZE" = "WINDOW_RESIZE"
-
-}
