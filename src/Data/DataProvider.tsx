@@ -6,7 +6,8 @@ import {
 	EVT_ENUM, 
 	IPortfolio_item, Portfolio_item, 
 	ISkills_role, Skills_role,
-	ISkills_rated, Skills_rated 
+	ISkills_rated, Skills_rated, 
+	Skills
 } from './Models'
 
 
@@ -102,14 +103,8 @@ export const PortfolioContext = createContext({
 
 	// Functions -----------
 
-	ctrl_global_set_portfolio_item_current:(_value: number):void=>{},
-	ctrl_skillsRated_get_byPortfolioID:(role:number):ISkills_role => {
-
-		//too apease linter
-		console.log(role)
-		return new Skills_role()
-
-	},
+	ctrl_global_set_portfolio_item_current:	(_value: number):void=>{},
+	ctrl_skillsRated_get_byPortfolioID:			(_value:number):ISkills_rated[] => {return [new Skills_rated()]},
 	ee:new EventEmitter(),
 	EVT_ENUM
 });
@@ -297,10 +292,6 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 		console.log("role_in: " + role_in);
 
-		
-
-		//console.dir(global_skills_role_current_skills)
-
 		let skills_arr:string[] = [];
 
 		portfolio_data.skills.skills_roles.forEach((item)=>{
@@ -309,8 +300,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 			}
 		})
 
-		//console.log("skills arr")
-		//console.dir(skills_arr)
+
 
 		const matching_items:object[] = []
 
@@ -417,25 +407,30 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 	}//end f
 
 
-	const ctrl_skillsRated_get_byPortfolioID = useCallback((int_id:number):ISkills_role => {
+	const ctrl_skillsRated_get_byPortfolioID = useCallback((int_id:number):ISkills_rated[] => {
 
 		//get this portfolio item
 		const portfolioItem:IPortfolio_item[] = _.filter(global_portfolio,{'id':int_id})
 
 		const portfolioItem_skillset_arr:string[] = portfolioItem[0].skillset.split(',')
 
-		const matches: object[] = [] 
+		const matches: ISkills_rated[] = [] 
 
 		portfolioItem_skillset_arr.forEach((key_str: string)=> {
 			matches.push(_.filter(global_role_skillsRanked_all,{'key':key_str})[0])
 		})
 
 		//send back the first match
-		return matches[0] as ISkills_role
+		return matches
 
 	},
 		[global_portfolio,global_role_skillsRanked_all]
 	)//end f
+
+
+
+	////////////////////// EFFECTS //////////////////////
+
 
 	useEffect(()=>{
 		

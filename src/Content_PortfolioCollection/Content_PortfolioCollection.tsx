@@ -25,7 +25,7 @@ export default function Content_PortfolioCollection () {
 		global_content_portfolio_rotateY,
 		global_portfolio_filtered, 
 		ctrl_skillsRated_get_byPortfolioID, 
-		ctrl_global_set_IPortfolio_item_current} = useContext(PortfolioContext)
+		ctrl_global_set_portfolio_item_current} = useContext(PortfolioContext)
 
 	ee.on(EVT_ENUM.NAV_CLICK,()=>{
 		dom_ref_me.current?.scrollTo(0,0)
@@ -49,9 +49,9 @@ export default function Content_PortfolioCollection () {
 		console.dir(e)
 		console.log("port ID: " + e.currentTarget.dataset.key)
 
-		ctrl_global_set_IPortfolio_item_current(e.currentTarget.dataset.key ?? '')
+		ctrl_global_set_portfolio_item_current(Number(e.currentTarget.dataset.key) || 0)
 
-		ee.emit(EVT_ENUM.IPortfolio_item_CLICK,{"id":e.currentTarget.dataset.key})
+		ee.emit(EVT_ENUM.PORTFOLIO_ITEM_CLICK,{"id":e.currentTarget.dataset.key})
 		
 	}
 
@@ -219,7 +219,7 @@ export default function Content_PortfolioCollection () {
 
 					global_portfolio_filtered.map(
 
-						(item,i) => (
+						(item) => (
 
 							<div className="port_item" onClick={click_ui_portfolioItem} data-key={item.id} key={item.id}>
 

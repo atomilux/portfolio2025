@@ -75,7 +75,7 @@ export default function Content_PortfolioDetail() {
 		if (global_portfolio_item_current.links && 
 				global_portfolio_item_current.links.length > 0) {
 
-			return(<h3>LINKS</h3>)
+			return(<h3 key={"key"}>LINKS</h3>)
 
 		}//end if
 
@@ -95,10 +95,10 @@ export default function Content_PortfolioDetail() {
 
 				const links = global_portfolio_item_current.links.map(
 
-					(item) => {
+					(item,i) => {
 
 						return(
-							<div className="link">
+							<div className="link" key={"link_"+i}>
 								<div>
 									<img className="link_icon" src={ link_icon(item.url) }/>
 								</div>

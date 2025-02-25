@@ -103,23 +103,19 @@ export default function AppCore() {
 
 			<SubNav></SubNav>
 
-						{/* 
 
 
 			<div className="page_content" style={{width:content_width+'px', left:content_left+'px'}}>
 
 				<div className="content_stage">
 
-					<div className="content_cube">
+					<div className="content_cube">	
 
-						
 						<Content_SkillOverview/>
 				
 						<Content_Skillset/>
 
 						<Content_PortfolioCollection/>
-
-						
 
 					</div>
 
@@ -127,9 +123,8 @@ export default function AppCore() {
 
 			</div>
 
-			<PortfolioDetail/>
 
-			*/}
+			<PortfolioDetail/>
 
 		</>
 

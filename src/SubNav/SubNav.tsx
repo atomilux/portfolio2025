@@ -84,7 +84,7 @@ export default function SubNav() {
 
 		ctrl_set_rotateY("overview")
 
-		ee.emit(EVT.SUBNAV_CLICK,{'subnav':'overview'})
+		ee.emit(EVT_ENUM.SUBNAV_CLICK,{'subnav':'overview'})
 
 	}
 
@@ -97,7 +97,7 @@ export default function SubNav() {
 
 		ctrl_set_rotateY("skillset")
 
-		ee.emit(EVT.SUBNAV_CLICK,{'subnav':'skillset'})
+		ee.emit(EVT_ENUM.SUBNAV_CLICK,{'subnav':'skillset'})
 
 	}
 
@@ -110,7 +110,7 @@ export default function SubNav() {
 
 		ctrl_set_rotateY("portfolio")
 
-		ee.emit(EVT.SUBNAV_CLICK,{'subnav':'portfolio'})
+		ee.emit(EVT_ENUM.SUBNAV_CLICK,{'subnav':'portfolio'})
 
 	}
 
@@ -192,7 +192,7 @@ export default function SubNav() {
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
-		console.log("SubNav.tsx - EVT.WINDOW_RESIZE");
+		console.log("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE");
 		ui_stick_calcs()
 
 		ee.delay500(()=>{

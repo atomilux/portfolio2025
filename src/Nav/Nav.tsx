@@ -408,8 +408,6 @@ export default function Nav() {
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
-		//console.log("EVT.WINDOW_RESIZE - Nav.tsx");
-
 		ee.delay1000(
 
 			()=>{
