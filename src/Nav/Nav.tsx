@@ -11,7 +11,7 @@ import './Nav.css'
 
 export default function Nav() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)
@@ -107,9 +107,7 @@ export default function Nav() {
 	//----- UI CALCULATIONS --------
 	const calc_nav_itemHeight = () => {
 
-
-		console.log(debug && o("calc_nav_itemHeight",LVL.function))
-
+		if (debug) { console.log(o("calc_nav_itemHeight",LVL.function)) }
 
 		let font_size_fraction = 1.0
 		const window_width = window.innerWidth
@@ -148,8 +146,7 @@ export default function Nav() {
 
 	const calc_nav_openCloseHeights = useCallback(() => {
 
-		console.log(debug && o("calc_nav_openCloseHeights",LVL.function))
-
+		if (debug) { console.log(o("calc_nav_openCloseHeights",LVL.function)) }
 
 		//const nav_cont_height = calc_get_nav_height()
 		const nav_cont_height = dom_nav_role_list.current ? dom_nav_role_list.current.getBoundingClientRect().height : 0
@@ -168,7 +165,7 @@ export default function Nav() {
 			skillHeightClose
 		}
 
-	},[])//end f
+	},[debug])//end f
 
 
 
@@ -176,33 +173,31 @@ export default function Nav() {
 	//---- STATE ------
 	const local_set_heightsData = useCallback((heights_obj:HeightsObject, setOpen_bool:boolean) => {
 
-		console.log(debug && o("local_set_heightsData",LVL.function))
-
 		if (debug) {
-			console.log(o("local_set_heightsData",LVL.function))
-			console.log(o("heights_obj: ",LVL.line), heights_obj)
-			console.log(o("setOpen_bool:"+setOpen_bool,LVL.line))
+			console.log( o("local_set_heightsData",				LVL.function)						) 					
+			console.log( o("heights_obj: ",								LVL.line), heights_obj	)	
+			console.log( o("setOpen_bool:"+setOpen_bool,	LVL.line)								) 							
 		}
 
 		//toggling DOM height
 		if (setOpen_bool === true) {
-			//console.log("local_set_heightsData() - set to OPEN height")
+			if (debug) { console.log(o("local_set_heightsData() - set to OPEN height",LVL.line)) }
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeight)
 			return;
 		}
 
 		if (setOpen_bool === false) {
-			//console.log("local_set_heightsData() - set to CLOSED height")
+			if (debug) { console.log(o("local_set_heightsData() - set to CLOSED height",LVL.line)) }
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeightClose)
 		}
 
-	},[])
+	},[debug])
 
 
 	//---- UI STYLING ------
 	const ui_bold_nav = (skillset_in:string):string => {
 
-		console.log(debug && o("ui_bold_nav",LVL.function))
+		if(debug) { console.log(o("ui_bold_nav",LVL.function)) }
 
 		if (global_skills_role_current.key === skillset_in) {
 			return "nav_role_item_active"
@@ -215,7 +210,7 @@ export default function Nav() {
 
 	const ui_switch_navSkillsetCSS = (skillset_in:string):string => {
 
-		console.log(debug && o("ui_switch_navSkillsetCSS",LVL.function))
+		if (debug) { console.log(o("ui_switch_navSkillsetCSS",LVL.function)) }
 		
 		if (skillset_in in global_ui_nav_classMap) {
 			return global_ui_nav_classMap[skillset_in as keyof typeof global_ui_nav_classMap]
@@ -227,7 +222,7 @@ export default function Nav() {
 
 	const ui_switch_navOrdering = (skillset_in:string) => {
 
-		console.log(debug && o("ui_click_skill",LVL.function))
+		if (debug) { console.log(o("ui_click_skill",LVL.function)) }
 
 		if (refs.current["skills_marketing"]) {
 			refs.current["skills_marketing"].classList.remove("textBold","orderMinus1")
@@ -256,7 +251,7 @@ export default function Nav() {
 	//---- CLICK ------
 	const ui_click_skill = (e: React.MouseEvent<HTMLDivElement>) => {
 
-		console.log(debug && o("ui_click_skill",LVL.function))
+		if (debug) { console.log(o("ui_click_skill",LVL.function)) }
 
 		//scope the data-key attribute
 		const role:string = (e.target as HTMLDivElement).dataset.key || ''
@@ -333,7 +328,7 @@ export default function Nav() {
 	
 	useEffect(()=>{
 
-		console.log(debug && o("Nav.tsx",LVL.effect))
+		if (debug) { console.log(o("Nav.tsx",LVL.effect)) }
 
 		//for some reason it takes a few cycles for setState to catch up ... fkn React
 		if (dom_nav.current && dom_nav.current.getBoundingClientRect().height === 0) { return; }
@@ -383,7 +378,9 @@ export default function Nav() {
 		global_nav_isOpen,
 		global_skills_role_current,
 		ctrl_set_global_role_skillsRanked,
-		global_set_content_3d_translateZ
+		global_set_content_3d_translateZ,
+		calc_nav_itemHeight,
+		debug
 	])
 
 	
@@ -393,6 +390,8 @@ export default function Nav() {
 
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
+
+		if (debug) { console.log(o("Nav.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event)) }
 
 		ee.delay1000(
 

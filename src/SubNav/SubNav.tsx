@@ -10,7 +10,7 @@ import './SubNav.css'
 
 export default function SubNav() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)
@@ -67,7 +67,7 @@ export default function SubNav() {
 	//---- UI STYLING ------
 	const ui_subnav_overview_active = () => {
 
-		console.log(debug && o("ui_subnav_overview_active",LVL.function))
+		if (debug) { console.log( o("ui_subnav_overview_active",LVL.function)) }
 
 		let active_css = "subnav_active"
 		if (global_portfolio_mode !== "overview") {
@@ -78,7 +78,7 @@ export default function SubNav() {
 
 	const ui_subnav_skillset_active = () => {
 
-		console.log(debug && o("ui_subnav_skillset_active",LVL.function))
+		if (debug) { console.log( o("ui_subnav_skillset_active",LVL.function) ) }
 
 		let active_css = "subnav_active"
 		if (global_portfolio_mode !== "skillset") {
@@ -89,7 +89,7 @@ export default function SubNav() {
 
 	const ui_subnav_portfolio_active = () => {
 
-		console.log(debug && o("ui_subnav_portfolio_active",LVL.function))
+		if (debug) { console.log( o("ui_subnav_portfolio_active",LVL.function) ) }
 
 		let active_css = "subnav_active"
 		if (global_portfolio_mode !== "portfolio") {
@@ -102,7 +102,7 @@ export default function SubNav() {
 	//---- CLICK ------
 	const ui_click_overview = () => {
 
-		console.log(debug && o("ui_click_overview",LVL.function))
+		if (debug) { console.log( o("ui_click_overview",LVL.function) ) }
 
 		set_local_stick_move(true)
 
@@ -117,7 +117,7 @@ export default function SubNav() {
 
 	const ui_click_skillset = () => {
 
-		console.log(debug && o("ui_click_skillset",LVL.function))
+		if (debug) { console.log( o("ui_click_skillset",LVL.function) ) }
 
 		set_local_stick_move(true)
 
@@ -132,7 +132,7 @@ export default function SubNav() {
 
 	const ui_click_portfolio = () => {
 
-		console.log(debug && o("ui_click_portfolio",LVL.function))
+		if (debug) { console.log(  o("ui_click_portfolio",LVL.function) ) }
 
 		set_local_stick_move(true)
 
@@ -148,8 +148,8 @@ export default function SubNav() {
 
 	//---- ANIMATE ------
 	const ui_stick_move = useCallback(() => {
-		
-		console.log(debug && o("ui_stick_move",LVL.function))
+
+		if (debug) { console.log(  o("ui_stick_move",LVL.function) ) }
 
 		if (global_portfolio_mode === "overview") {
 			set_local_stick_x(local_stick_x_overview)
@@ -178,8 +178,7 @@ export default function SubNav() {
 	//----- UI CALCULATIONS --------
 	const ui_stick_calcs = useCallback(() => {
 
-		console.log(debug && o("ui_stick_calcs",LVL.function))
-
+		if (debug) { console.log(  o("ui_stick_calcs",LVL.function) ) }
 
 		const overview_rect 						= dom_ref_overview.current ?					 	dom_ref_overview.current.getBoundingClientRect() : 0
 
@@ -190,10 +189,12 @@ export default function SubNav() {
 		const stick_parent_rect 				= dom_ref_stick_container.current ? 		dom_ref_stick_container.current.getBoundingClientRect() : 0
 
 
-		console.log(debug && o("Overview:",LVL.line)		,overview_rect			)
-		console.log(debug && o("Skillset:",LVL.line)		,skillset_rect			)
-		console.log(debug && o("Portfolio:",LVL.line)	,portfolio_rect			)
-		console.log(debug && o("Stick Row:",LVL.line)	,stick_parent_rect	)
+		if (debug) { 
+			console.log( o("Overview:",LVL.line)		,overview_rect			)
+			console.log( o("Skillset:",LVL.line)		,skillset_rect			)
+			console.log( o("Portfolio:",LVL.line)		,portfolio_rect			)
+			console.log( o("Stick Row:",LVL.line)		,stick_parent_rect	)
+		}
 
 		
 		if (local_firstRun === true) {
@@ -213,7 +214,8 @@ export default function SubNav() {
 		} 
 
 	},[
-		local_firstRun
+		local_firstRun,
+		debug
 	])
 
 
@@ -222,7 +224,7 @@ export default function SubNav() {
 
 	useEffect(()=>{
 
-		console.log(debug && o("SubNav.tsx",LVL.effect))
+		if (debug) { console.log( o("SubNav.tsx",LVL.effect) ) }
 
 		if (local_firstRun) {
 			ui_stick_calcs()
@@ -231,7 +233,7 @@ export default function SubNav() {
 
 		if(local_stick_move) {
 
-			console.log(debug && o("SubNav.tsx - useEffect - local_stick_move:true",LVL.line))
+			if (debug) { console.log( o("SubNav.tsx - useEffect - local_stick_move:true",LVL.line) ) }
 
 			ui_stick_move()
 
@@ -261,7 +263,7 @@ export default function SubNav() {
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
-		console.log("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE")
+		if (debug) { console.log( o("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event) ) }
 
 		ui_stick_calcs()
 
@@ -289,12 +291,11 @@ export default function SubNav() {
 
 		*/
 		
-
-
-		
-		console.log("local_stick_x_overview: " + local_stick_x_overview)
-		console.log("local_stick_x_skillset: " + local_stick_x_skillset)
-		console.log("local_stick_x_portfolio: " + local_stick_x_portfolio)
+		if (debug) { 
+			console.log( o("local_stick_x_overview: " + local_stick_x_overview,LVL.line) )
+			console.log( o("local_stick_x_skillset: " + local_stick_x_skillset,LVL.line) )
+			console.log( o("local_stick_x_portfolio: " + local_stick_x_portfolio,LVL.line) )
+		}
 
 		/*
 

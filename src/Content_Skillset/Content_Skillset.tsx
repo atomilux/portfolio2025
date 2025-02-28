@@ -2,12 +2,20 @@ import { useContext, useEffect, useState } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 import _ from 'lodash'
 
+import { chalk_out } from '../Util/Output'
 
 //CSS
 import './Content_Skillset.css'
+import { LVL } from '../Data/Models'
 
 
 export default function Content_Skillset() {
+
+		const debug:boolean = true;
+	
+		const o = (msg:string,l:LVL) => {
+			return chalk_out(msg,l)
+		}
 
 
 	////////////////////// GLOBAL VARIABLES //////////////////////
@@ -35,7 +43,7 @@ export default function Content_Skillset() {
 
 	const search_skills = (e) => {
 
-		console.log("search_skills()")
+		if (debug) { o("search_skills",LVL.function) }
 
 		const search_str = e.target.value
 
@@ -57,6 +65,8 @@ export default function Content_Skillset() {
 	////////////////////// EFFECTS //////////////////////
 
 	useEffect(() => { 
+
+		if (debug) { o("Content_Skillset.tsx",LVL.effect) }
 
 		set_local_skills(global_role_skillsRanked)
 

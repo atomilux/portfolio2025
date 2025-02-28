@@ -11,12 +11,20 @@ import Content_PortfolioCollection from '../Content_PortfolioCollection/Content_
 import { PortfolioContext } from '../Data/DataProvider'
 
 /* Util, Models, Events */
-import { EVT_ENUM } from '../Data/Models'
+import { EVT_ENUM,LVL } from '../Data/Models'
+
+import { chalk_out } from '../Util/Output'
 
 /* SVG */
 import stevelux_logo from '../assets/logo_stevelux_logotype_940x150.svg'
 
 export default function AppCore() {
+
+	const debug:boolean = true;
+
+	const o = (msg:string,l:LVL) => {
+		return chalk_out(msg,l)
+	}
 
 	const [ content_width, set_content_width 	] = useState(window.outerWidth * .75)
 	const [ content_left, set_content_left		] = useState(window.outerWidth * .125)
@@ -72,6 +80,8 @@ export default function AppCore() {
 
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
+
+		console.log(debug && o("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event))
 
 		//resize 
 		set_content_width(window.outerWidth * .75)

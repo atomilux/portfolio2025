@@ -1,12 +1,20 @@
 import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
-import { EVT_ENUM } from '../Data/Models'
+import { EVT_ENUM, LVL } from '../Data/Models'
+
+import { chalk_out } from '../Util/Output'
 
 import './Content_PortfolioDetail.css'
 
 
 
 export default function Content_PortfolioDetail() {
+
+	const debug:boolean = true;
+
+	const o = (msg:string,l:LVL) => {
+		return chalk_out(msg,l)
+	}
 
 
 	////////////////////// REFERENCES //////////////////////
@@ -51,7 +59,10 @@ export default function Content_PortfolioDetail() {
 
 	const link_icon = (link:string) => {
 
-		//console.log("link_icon() - link: " + link);
+		if (debug) {
+			console.log(o("link_icon",LVL.function))
+			console.log(o("link: " + link,LVL.line))
+		}
 
 		const r_pdf = /.pdf/;
 
@@ -74,6 +85,8 @@ export default function Content_PortfolioDetail() {
 
 	const render_links_title = () => {
 
+		console.log(debug && o("render_links_title",LVL.function))
+
 		if (global_portfolio_item_current.links && 
 				global_portfolio_item_current.links.length > 0) {
 
@@ -87,8 +100,8 @@ export default function Content_PortfolioDetail() {
 
 	const render_links = () => {
 
-		//console.dir(global_portfolio_item_current.links)
-		
+		console.log(debug && o("render_links",LVL.function))
+
 		//sometimes obj isn't initialized properly - checks
 		if (global_portfolio_item_current.links && 
 				global_portfolio_item_current.links.length > 0 &&
@@ -123,6 +136,8 @@ export default function Content_PortfolioDetail() {
 
 	const render_solutions = () => {
 
+		console.log(debug && o("render_solutions",LVL.function))
+
 		if (global_portfolio_item_current.solution && 
 				global_portfolio_item_current.solution.length > 0) {
 
@@ -141,6 +156,8 @@ export default function Content_PortfolioDetail() {
 	}//end f
 
 	const render_imagesAndVideos = () => {
+
+		console.log(debug && o("render_imagesAndVideos",LVL.function))
 
 		if (global_portfolio_item_current.images && 
 				global_portfolio_item_current.images.length > 0) {
@@ -184,6 +201,8 @@ export default function Content_PortfolioDetail() {
 
 	const videoHeight = ():number => {
 
+		console.log(debug && o("videoHeight",LVL.function))
+
 		let h:number = window.screen.width * .5
 		
 		if (window.screen.width < 415) {
@@ -198,7 +217,11 @@ export default function Content_PortfolioDetail() {
 	//----- VIMEO --------
 
 	const image_isVimeo = (str_url:string):boolean => {
+
+		console.log(debug && o("image_isVimeo",LVL.function))
+
 		return str_url.includes('vimeo')
+
 	}
 
 
@@ -206,9 +229,12 @@ export default function Content_PortfolioDetail() {
 
 	const click_closeMe = ():void => {
 
-		console.log("close me");
+		if (debug) {
+			console.log(o("click_closeMe",LVL.function))
+			console.log(o("local_css: ",LVL.line),local_css)
+		}
+
 		console.dir(local_css)
-		//set_local_isOpen(true)
 
 		render_inlineCSS(false)
 
@@ -220,7 +246,7 @@ export default function Content_PortfolioDetail() {
 
 	const render_inlineCSS = useCallback((showMe_in:boolean) => {
 
-		console.log("render_inlineCSS()")
+		console.log(debug && o("render_inlineCSS",LVL.function))
 
 		let css = {
 			top:'0',
@@ -251,6 +277,8 @@ export default function Content_PortfolioDetail() {
 
 	useEffect(()=>{
 
+		console.log(debug && o("Content_PortfolioCollection.tsx",LVL.effect))
+
 		if (local_firstRun) { 
 			render_inlineCSS(false)
 			set_local_firstRun(false)
@@ -266,15 +294,20 @@ export default function Content_PortfolioDetail() {
 		local_isOpen,
 		set_local_isOpen,
 		global_portfolio_item_current,
-		local_links
+		local_links,
+		debug
 	])
 
 
 	////////////////////// EVENTS //////////////////////
+
 	ee.on(EVT_ENUM.PORTFOLIO_ITEM_CLICK,(data)=>{
 
-		console.dir(data)
-		console.dir(ref_overlay.current)
+		if (debug) {
+			console.log(o("Nav.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event))
+			console.log(o("data: ",LVL.line),data)
+			console.log(o("ref_overlay.current: ",LVL.line),ref_overlay.current)
+		}
 
 		render_inlineCSS(true)
 

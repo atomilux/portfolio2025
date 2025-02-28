@@ -112,7 +112,7 @@ export const PortfolioContext = createContext({
 
 export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)
@@ -364,7 +364,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const ctrl_set_global_role_skillsData = (role_in:string):void => {
 
-		console.log(debug && o("ctrl_set_global_role_skillsData",LVL.function))
+		if (debug) { o("ctrl_set_global_role_skillsData",LVL.function) }
 
 		portfolio_data.skills.skills_roles.forEach(
 
@@ -384,7 +384,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const ctrl_set_global_role_skillsRanked = (role_in:string) => {
 
-		console.log(debug && o("ctrl_set_global_role_skillsRanked",LVL.function))
+		if (debug) { o("ctrl_set_global_role_skillsRanked",LVL.function) }
 
 		const final_skills: ISkills_rated[] = [new Skills_rated()]
 
@@ -406,7 +406,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const ctrl_skillsRated_get_byPortfolioID = useCallback((int_id:number):ISkills_rated[] => {
 
-		console.log(debug && o("ctrl_skillsRated_get_byPortfolioID",LVL.function))
+		if (debug) { o("ctrl_skillsRated_get_byPortfolioID",LVL.function) }
 
 		//get this portfolio item
 		const portfolioItem:IPortfolio_item[] = _.filter(global_portfolio,{'id':int_id})
@@ -433,11 +433,11 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	useEffect(()=>{
 
-		console.log(debug && o("DataProvider.tsx",LVL.effect))
+		if (debug) { o("DataProvider.tsx",LVL.effect) }
 
 		if (local_portfolioInit) { return }
 
-		console.log(debug && o("DataProvider.tsx - ",LVL.line))
+		if (debug) { o("DataProvider.tsx - ",LVL.line) }
 
 		set_local_portfolioInit(true) 
 

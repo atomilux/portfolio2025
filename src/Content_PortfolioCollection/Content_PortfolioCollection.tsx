@@ -11,7 +11,7 @@ import play_icon from '../assets/play_icon.svg'
 
 export default function Content_PortfolioCollection () {
 
-		const debug:boolean = true;
+		const debug:boolean = false;
 	
 		const o = (msg:string,l:LVL) => {
 			return chalk_out(msg,l)
