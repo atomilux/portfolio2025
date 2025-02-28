@@ -1,5 +1,5 @@
 /* REACT */
-import { useState, useContext, useEffect  } from 'react'
+import { useState, useContext  } from 'react'
 
 /* COMPONENTS */
 import Nav from '../Nav/Nav'
@@ -10,15 +10,19 @@ import PortfolioDetail from '../Content_PortfolioDetail/Content_PortfolioDetail'
 import Content_PortfolioCollection from '../Content_PortfolioCollection/Content_PortfolioCollection'
 import { PortfolioContext } from '../Data/DataProvider'
 
+/* Util, Models, Events */
+import { EVT_ENUM } from '../Data/Models'
+
 /* SVG */
 import stevelux_logo from '../assets/logo_stevelux_logotype_940x150.svg'
 
 export default function AppCore() {
 
-	const [ content_width, set_content_width 	] = useState(100)
-	const [ content_left, set_content_left		] = useState(100)
+	const [ content_width, set_content_width 	] = useState(window.outerWidth * .75)
+	const [ content_left, set_content_left		] = useState(window.outerWidth * .125)
 
-	const {ee,EVT_ENUM} = useContext(PortfolioContext) 
+	const {ee} = useContext(PortfolioContext) 
+
 
 
 	/* //////////////////////////////////////////////////
@@ -31,10 +35,10 @@ export default function AppCore() {
 
 	//config
 	const resize_delay = 500
+	
 
 	//used as a flag for interval finish state
 	window['port_isAwaiting_resize_timeout'] = false;
-
 
 	//create app wide event listener and custom event emission
 
@@ -63,22 +67,7 @@ export default function AppCore() {
 	
 	})
 
-
-
-	////////////////////// EFFECTS //////////////////////
-
 	
-	useEffect(()=>{
-		set_content_width(window.outerWidth * .75)
-		set_content_left(window.outerWidth * .125)
-	},[
-		set_content_width,
-		set_content_left
-	])
-
-
-
-
 	////////////////////// EVENTS //////////////////////
 
 
@@ -89,6 +78,8 @@ export default function AppCore() {
 		set_content_left(window.outerWidth * .125)
 
 	})
+
+
 
 	return (
 
@@ -130,4 +121,4 @@ export default function AppCore() {
 
 	)//end return()
 
-}
+}//end f

@@ -10,6 +10,7 @@ export default class EventEmitter {
 
 	public events:	{ [key: string]: Array<(data?: unknown) => void> }
 	public on: 			( event: string, listener: (data?: unknown) => void) => void
+	public off: 		( event: string, listener: (data?: unknown) => void) => void
 	public emit: 		( event: string, data?: unknown) => void 
 
 	public delay250: 	(callback: () => void) => void
@@ -33,6 +34,10 @@ export default class EventEmitter {
 
 			this.events[event].push(listener)
 
+		}
+
+		this.off = (event) => {
+			delete this.events[event]
 		}
 	
 		//used to emit EVENT (EVT) with data

@@ -46,6 +46,19 @@
 	border:1px solid grey;
 }
 
+.port_item_img_container {
+	position:relative;
+	border:1px sold red;
+}
+
+.port_videoIcon {
+	position:absolute;
+	width:12vw;
+	opacity:.25;
+	left:3vw;
+	top:3vw;
+}
+
 .port_item_title {
 	font-size:1.5vw;
 	margin:.5vw;

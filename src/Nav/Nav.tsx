@@ -1,12 +1,21 @@
 import { useContext, useEffect, useRef, useState, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
+import { EVT_ENUM, LVL } from '../Data/Models'
+
+import { chalk_out } from '../Util/Output'
+
 //CSS
 import './Nav.css'
 
 
 export default function Nav() {
 
+	const debug:boolean = true;
+
+	const o = (msg:string,l:LVL) => {
+		return chalk_out(msg,l)
+	}
 
 	////////////////////// REFERENCES //////////////////////
 
@@ -18,7 +27,7 @@ export default function Nav() {
 	//TODO - refactor past thgis v1
 	const refs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-	const handleRef = (key,ref) => {
+	const handleRef = (key: string,ref: HTMLDivElement | null) => {
 		refs.current[key] = ref
 	}
 
@@ -26,27 +35,9 @@ export default function Nav() {
 	////////////////////// GLOBAL VARIABLES //////////////////////
 
 
-	//----------- SKILL ------------
-
-	//TODO - take this back to local or answer why it's in global if not
-
-	//the Nav CSS styling class for role flavor
-	/*
-		{
-			"skills_marketing":"nav_marketing",
-			"skills_uiux"			:"nav_uiux",
-			"skills_webDev"		:"nav_webDev",
-			"skills_gameDev"	:"nav_gameDev"
-		}
-	*/
-
-
-
-
 	//All skill data objects (key, title, desc, resume)
 	const {
 		ee,
-		EVT_ENUM,
 		global_skills_roles, 
 		anim_sequence_subnav_click,
 		global_set_content_3d_translateZ: global_set_content_3d_translateZ,
@@ -60,13 +51,7 @@ export default function Nav() {
 	} = useContext(PortfolioContext)
 
 
-
-
-
 	//----------- PORTFOLIO ------------
-
-
-
 
 
 	////////////////////// LOCAL VARIABLES //////////////////////
@@ -80,7 +65,7 @@ export default function Nav() {
 	//TODO - track down if we need to swap these for global
 	//open height value 
 
-	
+	/*
 	const [
 		local_nav_heightOpen, 
 		local_set_nav_heightOpen] 				= useState(0)
@@ -89,7 +74,7 @@ export default function Nav() {
 	const [
 		local_nav_heightClosed,
 		local_set_nav_heightClosed] 			= useState(0)
-		
+		*/
 
 	//DOM height storage for inline CSS height/animations to work
 	const [
@@ -122,7 +107,9 @@ export default function Nav() {
 	//----- UI CALCULATIONS --------
 	const calc_nav_itemHeight = () => {
 
-		console.log("calc_nav_itemHeight()");
+
+		console.log(debug && o("calc_nav_itemHeight",LVL.function))
+
 
 		let font_size_fraction = 1.0
 		const window_width = window.innerWidth
@@ -147,11 +134,11 @@ export default function Nav() {
 			font_size_fraction = .03
 		}
 
-		console.log(font_size_fraction)
+		//console.log(font_size_fraction)
 
 		const final_size_px = (window.innerWidth * font_size_fraction)
 
-		console.log(final_size_px)
+		//console.log(final_size_px)
 
 		return final_size_px
 
@@ -161,7 +148,8 @@ export default function Nav() {
 
 	const calc_nav_openCloseHeights = useCallback(() => {
 
-		//console.log("calc_nav_openCloseHeights()");
+		console.log(debug && o("calc_nav_openCloseHeights",LVL.function))
+
 
 		//const nav_cont_height = calc_get_nav_height()
 		const nav_cont_height = dom_nav_role_list.current ? dom_nav_role_list.current.getBoundingClientRect().height : 0
@@ -188,26 +176,23 @@ export default function Nav() {
 	//---- STATE ------
 	const local_set_heightsData = useCallback((heights_obj:HeightsObject, setOpen_bool:boolean) => {
 
-		//console.log("local_set_heightsData()");
+		console.log(debug && o("local_set_heightsData",LVL.function))
 
-		console.log("local_set_heightsData() - setOpen_bool: " + setOpen_bool);
-		console.dir(heights_obj)
-
-		//open height
-		local_set_nav_heightClosed(heights_obj.skillHeight)
-
-		//close height
-		local_set_nav_heightOpen(heights_obj.skillHeightClose)
+		if (debug) {
+			console.log(o("local_set_heightsData",LVL.function))
+			console.log(o("heights_obj: ",LVL.line), heights_obj)
+			console.log(o("setOpen_bool:"+setOpen_bool,LVL.line))
+		}
 
 		//toggling DOM height
 		if (setOpen_bool === true) {
-			console.log("local_set_heightsData() - set to OPEN height")
+			//console.log("local_set_heightsData() - set to OPEN height")
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeight)
 			return;
 		}
 
 		if (setOpen_bool === false) {
-			console.log("local_set_heightsData() - set to CLOSED height")
+			//console.log("local_set_heightsData() - set to CLOSED height")
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeightClose)
 		}
 
@@ -217,6 +202,7 @@ export default function Nav() {
 	//---- UI STYLING ------
 	const ui_bold_nav = (skillset_in:string):string => {
 
+		console.log(debug && o("ui_bold_nav",LVL.function))
 
 		if (global_skills_role_current.key === skillset_in) {
 			return "nav_role_item_active"
@@ -229,14 +215,19 @@ export default function Nav() {
 
 	const ui_switch_navSkillsetCSS = (skillset_in:string):string => {
 
-		console.log("switch_css() - skillset_in: " + skillset_in)
+		console.log(debug && o("ui_switch_navSkillsetCSS",LVL.function))
 		
-		return global_ui_nav_classMap[skillset_in]
+		if (skillset_in in global_ui_nav_classMap) {
+			return global_ui_nav_classMap[skillset_in as keyof typeof global_ui_nav_classMap]
+		}
+		return ''
 
 	}//end f
 
 
 	const ui_switch_navOrdering = (skillset_in:string) => {
+
+		console.log(debug && o("ui_click_skill",LVL.function))
 
 		if (refs.current["skills_marketing"]) {
 			refs.current["skills_marketing"].classList.remove("textBold","orderMinus1")
@@ -263,12 +254,12 @@ export default function Nav() {
 
 
 	//---- CLICK ------
-	const ui_click_skill = (e) => {
+	const ui_click_skill = (e: React.MouseEvent<HTMLDivElement>) => {
 
-		console.log("--------------------- CLICK NAV --------------------- ");
+		console.log(debug && o("ui_click_skill",LVL.function))
 
 		//scope the data-key attribute
-		const role:string = e.target.dataset.key
+		const role:string = (e.target as HTMLDivElement).dataset.key || ''
 
 
 		//----------- GLOBAL STATE----------
@@ -321,9 +312,6 @@ export default function Nav() {
 		local_set_nav_skillset_navStyling(nav_class)
 
 
-		console.log("handle_skill_click() - END - global_nav_isOpen: " + global_nav_isOpen)
-
-
 		//----------- ANIMATION ----------
 
 		//if it's a different NAV item then animate page
@@ -345,9 +333,7 @@ export default function Nav() {
 	
 	useEffect(()=>{
 
-		console.log("------ Nav.tsx - useEffect() -----------");
-		console.log("local_set_nav_heightOpenDOMready: " + local_nav_heightOpenDOMready);
-
+		console.log(debug && o("Nav.tsx",LVL.effect))
 
 		//for some reason it takes a few cycles for setState to catch up ... fkn React
 		if (dom_nav.current && dom_nav.current.getBoundingClientRect().height === 0) { return; }

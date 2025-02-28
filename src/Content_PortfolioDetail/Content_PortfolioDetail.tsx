@@ -1,6 +1,9 @@
 import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
+import { EVT_ENUM } from '../Data/Models'
+
 import './Content_PortfolioDetail.css'
+
 
 
 export default function Content_PortfolioDetail() {
@@ -17,7 +20,6 @@ export default function Content_PortfolioDetail() {
 
 	const {
 		ee,
-		EVT_ENUM,
 		global_portfolio_item_current
 	} = useContext(PortfolioContext)
 
@@ -85,7 +87,7 @@ export default function Content_PortfolioDetail() {
 
 	const render_links = () => {
 
-		console.dir(global_portfolio_item_current.links)
+		//console.dir(global_portfolio_item_current.links)
 		
 		//sometimes obj isn't initialized properly - checks
 		if (global_portfolio_item_current.links && 
@@ -146,12 +148,16 @@ export default function Content_PortfolioDetail() {
 			const images = global_portfolio_item_current.images.map(
 
 				(item,i) => {
-					console.log("PORTFOLIO IMAGE: " + item);
 
 					if (image_isVimeo(item)) {
 						return(
 							<div className="port_detail_item" key={"image_"+i}>
-								<iframe title="vimeo-player" src={item+"&transparent=0"} width="100%" height={videoHeight()} style={{border:0, background:"black"}} allowFullScreen={true}></iframe>
+								<iframe title="vimeo-player"
+								 				src={item+"&transparent=0"} 
+												width="100%" height={videoHeight()} 
+												style={{border:0, background:"black"}} 
+												allowFullScreen={true}>
+								</iframe>
 							</div>
 						)
 					} else {
@@ -163,6 +169,7 @@ export default function Content_PortfolioDetail() {
 					}
 
 				}
+
 			)
 
 			return images

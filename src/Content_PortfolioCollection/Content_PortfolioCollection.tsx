@@ -2,11 +2,20 @@ import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
 import './Content_PortfolioCollection.css'
-import { IPortfolio_item } from '../Data/Models'
+import { IPortfolio_item, Portfolio_item, EVT_ENUM, LVL } from '../Data/Models'
+
+import { chalk_out } from '../Util/Output'
+
+import play_icon from '../assets/play_icon.svg'
 
 
 export default function Content_PortfolioCollection () {
 
+		const debug:boolean = true;
+	
+		const o = (msg:string,l:LVL) => {
+			return chalk_out(msg,l)
+		}
 
 
 	////////////////////// REFERENCES //////////////////////
@@ -19,7 +28,6 @@ export default function Content_PortfolioCollection () {
 
 	const {
 		ee,
-		EVT_ENUM,
 		global_skillset_opacity: global_skillset_opacity,
 		global_content_3d_translateZ,
 		global_content_portfolio_rotateY,
@@ -46,8 +54,11 @@ export default function Content_PortfolioCollection () {
 	//---- CLICK ------
 	const click_ui_portfolioItem = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 
-		console.dir(e)
-		console.log("port ID: " + e.currentTarget.dataset.key)
+		if (debug){
+			console.log(o("click_ui_portfolioItem",LVL.function))
+			console.log(o("click e:",LVL.line),e)
+			console.log(o("port ID: " + e.currentTarget.dataset.key,LVL.line))
+		}
 
 		ctrl_global_set_portfolio_item_current(Number(e.currentTarget.dataset.key) || 0)
 
@@ -56,6 +67,11 @@ export default function Content_PortfolioCollection () {
 	}
 
 	const image_isThumbnail = (str_url:string):boolean => {
+
+		if (debug) {
+			console.log(o("image_isThumbnail",LVL.function))
+			console.log(o("str_url: " + str_url,LVL.line))
+		}
 
 		const r_img = /(png|jpg|gif)/
 		let b_isTrue = false;
@@ -72,19 +88,27 @@ export default function Content_PortfolioCollection () {
 	//---- VIMEO ------
 
 	const image_isVimeo = (str_url:string) => {
+
+		if (debug) {
+			console.log(o("image_isVimeo",LVL.function))
+			console.log(o("str_url: " + str_url,LVL.line))
+		}
+
 		return str_url.includes('vimeo')
+
 	}
 
 
-	const vimeo_initThumbnails = useCallback(() => {
+	const vimeo_initThumbnails = useCallback((port_in:Portfolio_item[]) => {
 
-		console.log("init_vimeoThumbnails()");
+		if (debug) {
+			console.log(o("init_vimeoThumbnails",LVL.function))
+			console.log(o("port_in: " + port_in,LVL.line))
+		}
 
-		if (global_portfolio_filtered.length === 0) { return; }
+		if (global_portfolio_filtered.length === 0) { return }
 
-		console.log("init_vimeoThumbnails() - running ...");
-		console.dir(local_vimeoThumbnailURLs)
-		console.dir(global_portfolio_filtered.length)
+		console.log(debug && o("init_vimeoThumbnails - running ...",LVL.line))
 
 		//loop through the images
 		global_portfolio_filtered.forEach((item)=>{
@@ -95,6 +119,8 @@ export default function Content_PortfolioCollection () {
 			const thumbs_obj: { [key: string]: string } = {}
 
 			if ( image_isVimeo(item.images[0]) ) {
+
+				console.log("init_vimeoThumbnails() - image_isVimeo() TRUE");
 
 				const match = item.images[0].match(r_vidID);
 				const int_id = match ? match[0] : '';
@@ -110,11 +136,21 @@ export default function Content_PortfolioCollection () {
 
 		})//enf forEach
 
-	},[])//end f
+	},[
+		global_portfolio_filtered,
+		debug,
+		image_isVimeo
+	]
+)//end f
 
 
 
 	const vimeo_getID = (url:string) => {
+
+		if (debug) {
+			console.log(o("vimeo_getID",LVL.function))
+			console.log(o("url: " + url,LVL.line))
+		}
 
 		const r_vidID = /[0-9]+/
 
@@ -130,8 +166,13 @@ export default function Content_PortfolioCollection () {
 
 
 	const vimeo_fetch_getVideoJSONdata = ( str:string) => {		
-				
 
+		if (debug) {
+			console.log(o('',LVL.spacer))
+			console.log(o("vimeo_fetch_getVideoJSONdata",LVL.function))
+			console.log(o("str: " + str,LVL.line))
+		}
+				
 		const int_id = vimeo_getID(str)
 		
 		const url = 'http://vimeo.com/api/v2/video/' + int_id + '.json';
@@ -151,9 +192,11 @@ export default function Content_PortfolioCollection () {
 		.then((response) => response.json())
 		.then((data)=>{
 
-			console.log("----------- FETCH RESPONSE -------------");
+			if (debug) {
+				console.log(o("----------- FETCH RESPONSE -------------",LVL.line))
+				console.log(o("data: ",LVL.line),data)
 
-			console.dir(data)
+			}
 
 			//grab a copy of state
 			const tmp_thumbPaths_obj = local_vimeoThumbnailURLs
@@ -174,7 +217,18 @@ export default function Content_PortfolioCollection () {
 
 	//---- RENDER ------
 	const vimeo_renderThumb_onCallback = (image_path_str:string, item_obj: IPortfolio_item) => {
-		return(<img className="port_thumbnail" src={image_path_str} data-key={item_obj.id} key={item_obj.id+"_thumb"}/>)
+
+		if (debug) {
+			console.log(o("vimeo_renderThumb_onCallback",LVL.function))
+			console.log(o("image_path_str: " + image_path_str,LVL.line))
+			console.log(o("item_obj: ",LVL.line), item_obj)
+		}
+		
+		return(
+		<>
+			<img className="port_videoIcon" src={play_icon} />
+			<img className="port_thumbnail" src={image_path_str} data-key={item_obj.id} key={item_obj.id+"_thumb"}/>
+		</>)
 	}//end f
 
 
@@ -184,12 +238,19 @@ export default function Content_PortfolioCollection () {
 
 	useEffect(()=>{
 
+		//console.log("useEffect - Content_PortfolioCollection.tsx - OUTSIDE");
+		//console.dir(global_portfolio_filtered)
+
 		//look for a portfolio array that's populated 
 		//AND flag indicating Fetch calls not yet triggered
-		if (	global_portfolio_filtered.length > 0 && 
+		//Greater than 1 because on init there's a default portfolio item at id:0
+		if (	global_portfolio_filtered.length > 1 && 
 					local_vimeoAPIcallsTriggered === false) {
+						
+			console.log("useEffect - Content_PortfolioCollection.tsx INSIDE")
+			console.dir(global_portfolio_filtered)
 
-			vimeo_initThumbnails()
+			vimeo_initThumbnails(global_portfolio_filtered)
 			set_local_vimeoAPIcallsTriggered(true)
 
 		}
@@ -211,7 +272,7 @@ export default function Content_PortfolioCollection () {
 
 		<div 	id="portfolio" className="portfolio"
 					ref={dom_ref_me} 
-					style={{opacity:global_skillset_opacity, transform:'rotateY('+global_content_portfolio_rotateY+'deg)  translateZ('+global_content_3d_translateZ+'px)'}}>
+					style={{opacity:global_skillset_opacity, transform:'rotateY('+global_content_portfolio_rotateY+'deg) translateZ('+global_content_3d_translateZ+'px)'}}>
 
 			<div className="portfolio_content">
 
@@ -225,7 +286,7 @@ export default function Content_PortfolioCollection () {
 
 								<div className="port_item_small">
 
-									<div className="port_item_title_main">
+									<div className="port_item_img_container">
 
 										{ 
 											image_isThumbnail(item.images[0]) ?
