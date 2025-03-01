@@ -105,7 +105,7 @@ export default function Nav() {
 	////////////////////// FUNCTIONS //////////////////////
 
 	//----- UI CALCULATIONS --------
-	const calc_nav_itemHeight = () => {
+	const calc_nav_itemHeight = useCallback(() => {
 
 		if (debug) { console.log(o("calc_nav_itemHeight",LVL.function)) }
 
@@ -141,7 +141,7 @@ export default function Nav() {
 		return final_size_px
 
 
-	}//end f
+	},[debug])//end f
 
 
 	const calc_nav_openCloseHeights = useCallback(() => {

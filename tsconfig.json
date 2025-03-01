@@ -5,6 +5,13 @@
     { "path": "./tsconfig.node.json" }
   ],
 	"compilerOptions": {
-    "noImplicitAny": true,
-  }
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "types": ["vitest/globals", "node"],
+    "baseUrl": "src"
+  },
+  "include": ["src/**/*", "vitest.config.ts"]
 }

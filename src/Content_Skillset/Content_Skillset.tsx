@@ -76,7 +76,8 @@ export default function Content_Skillset() {
 		global_skillset_scale,
 		global_skills_role_current, 
 		global_role_skillsRanked,
-		global_nav_openHeight
+		global_nav_openHeight,
+		debug
 	])
 	
 
