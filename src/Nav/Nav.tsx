@@ -3,37 +3,21 @@ import { PortfolioContext } from '../Data/DataProvider'
 
 import { EVT_ENUM, LVL } from '../Data/Models'
 
-import { chalk_out } from '../Util/Output'
-
+import { chalk_out } from '../Logger/Output'
 //CSS
 import './Nav.css'
 
-
 export default function Nav() {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 
-	const o = (msg:string,l:LVL) => {
-		return chalk_out(msg,l)
+	
+	const o = (msg: string, l: LVL) => {
+		return chalk_out(msg, l)
 	}
-
-	////////////////////// REFERENCES //////////////////////
-
-	//DOM references for swapping classes on <div class="nav"> and measuring nav height
-	const dom_nav 										= useRef<HTMLDivElement>(null) //Nav Container whole
-	const dom_nav_header 							= useRef<HTMLDivElement>(null) //AS A SENIOR LEVEL:
-	const dom_nav_role_list						= useRef<HTMLDivElement>(null) //skill list container
-
-	//TODO - refactor past thgis v1
-	const refs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-	const handleRef = (key: string,ref: HTMLDivElement | null) => {
-		refs.current[key] = ref
-	}
-
+	
 
 	////////////////////// GLOBAL VARIABLES //////////////////////
-
 
 	//All skill data objects (key, title, desc, resume)
 	const {
@@ -49,6 +33,21 @@ export default function Nav() {
 		global_ui_nav_classMap,
 		ctrl_portfolio_filter_byRole
 	} = useContext(PortfolioContext)
+
+
+	////////////////////// REFERENCES //////////////////////
+
+	//DOM references for swapping classes on <div class="nav"> and measuring nav height
+	const dom_nav 										= useRef<HTMLDivElement>(null) //Nav Container whole
+	const dom_nav_header 							= useRef<HTMLDivElement>(null) //AS A SENIOR LEVEL:
+	const dom_nav_role_list						= useRef<HTMLDivElement>(null) //skill list container
+
+	//TODO - refactor past thgis v1
+	const refs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+	const handleRef = (key: string,ref: HTMLDivElement | null) => {
+		refs.current[key] = ref
+	}
 
 
 	//----------- PORTFOLIO ------------
@@ -107,7 +106,9 @@ export default function Nav() {
 	//----- UI CALCULATIONS --------
 	const calc_nav_itemHeight = useCallback(() => {
 
-		if (debug) { console.log(o("calc_nav_itemHeight",LVL.function)) }
+		if (debug) { 
+			console.log(o("calc_nav_itemHeight",LVL.function)) 
+		}
 
 		let font_size_fraction = 1.0
 		const window_width = window.innerWidth

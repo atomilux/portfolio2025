@@ -10,10 +10,10 @@ import PortfolioDetail from '../Content_PortfolioDetail/Content_PortfolioDetail'
 import Content_PortfolioCollection from '../Content_PortfolioCollection/Content_PortfolioCollection'
 import { PortfolioContext } from '../Data/DataProvider'
 
+import { chalk_out } from '../Logger/Output'
+
 /* Util, Models, Events */
 import { EVT_ENUM,LVL } from '../Data/Models'
-
-import { chalk_out } from '../Util/Output'
 
 /* SVG */
 import stevelux_logo from '../assets/logo_stevelux_logotype_940x150.svg'
@@ -26,10 +26,12 @@ export default function AppCore() {
 		return chalk_out(msg,l)
 	}
 
+	const {ee} = useContext(PortfolioContext) 
+
+
 	const [ content_width, set_content_width 	] = useState(window.outerWidth * .75)
 	const [ content_left, set_content_left		] = useState(window.outerWidth * .125)
 
-	const {ee} = useContext(PortfolioContext) 
 
 
 
@@ -81,15 +83,15 @@ export default function AppCore() {
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
-		console.log(debug && o("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event))
+		if (debug) {
+			console.log( o("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event))
+		}
 
 		//resize 
 		set_content_width(window.outerWidth * .75)
 		set_content_left(window.outerWidth * .125)
 
 	})
-
-
 
 	return (
 
@@ -101,10 +103,7 @@ export default function AppCore() {
 
 			<Nav></Nav>
 
-
 			<SubNav></SubNav>
-
-
 
 			<div className="page_content" style={{width:content_width+'px', left:content_left+'px'}}>
 

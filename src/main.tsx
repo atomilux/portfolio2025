@@ -3,9 +3,10 @@ import './index.css'
 
 import AppCore from './AppCore/AppCore'
 
-import { output_intro } from './Util/Output'
+import { output_intro } from './Logger/Output'
 
 import { PortfolioContextProvider } from './Data/DataProvider'
+
 import { StrictMode } from 'react'
 
 output_intro()

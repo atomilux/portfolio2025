@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 import _ from 'lodash'
 
-import { chalk_out } from '../Util/Output'
+import { chalk_out } from '../Logger/Output'
 
 //CSS
 import './Content_Skillset.css'
@@ -11,12 +11,11 @@ import { LVL } from '../Data/Models'
 
 export default function Content_Skillset() {
 
-		const debug:boolean = true;
-	
-		const o = (msg:string,l:LVL) => {
-			return chalk_out(msg,l)
-		}
+	const debug:boolean = true;
 
+	const o = (msg:string,l:LVL) => {
+		return chalk_out(msg,l)
+	}
 
 	////////////////////// GLOBAL VARIABLES //////////////////////
 
@@ -28,6 +27,7 @@ export default function Content_Skillset() {
 		global_skills_role_current: global_skills_role_current, 
 		global_role_skillsRanked: global_role_skillsRanked, 
 		global_nav_openHeight} 	= useContext(PortfolioContext)
+	
 
 
 
@@ -37,13 +37,12 @@ export default function Content_Skillset() {
 
 
 
-
 	////////////////////// FUNCTIONS //////////////////////
 
 
 	const search_skills = (e) => {
 
-		if (debug) { o("search_skills",LVL.function) }
+		if (debug) { console.log( o("search_skills",LVL.function)) }
 
 		const search_str = e.target.value
 
@@ -57,6 +56,9 @@ export default function Content_Skillset() {
 			}
 		})
 
+		if (debug) { console.log( o("final_arr",LVL.line), final_arr) }
+
+
 		set_local_skills(final_arr)
 	}
 
@@ -66,7 +68,10 @@ export default function Content_Skillset() {
 
 	useEffect(() => { 
 
-		if (debug) { o("Content_Skillset.tsx",LVL.effect) }
+		if (debug) { 
+			console.log( o("Content_Skillset.tsx",LVL.effect) )
+			console.log( o("- global_role_skillsRanked: ",LVL.line), global_role_skillsRanked )
+		}
 
 		set_local_skills(global_role_skillsRanked)
 

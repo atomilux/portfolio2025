@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext, useState, useEffect, useMemo, useCallback, ReactNode } from 'react'
 import portfolio_data from './siteData4.json'
 import _ from 'lodash'
@@ -7,10 +8,11 @@ import {
 	ISkills_role, Skills_role,
 	ISkills_rated, Skills_rated,
 	IAppMode, AppMode,
-	LVL
+	LVL,
+	ILogEntry
 } from './Models'
 
-import { chalk_out } from '../Util/Output'
+import { chalk_out } from '../Logger/Output'
 
 
 /* ------------ INIT CONTEXT ------------ */
@@ -105,7 +107,8 @@ export const PortfolioContext = createContext({
 	ctrl_skillsRated_get_byPortfolioID:			(_value:number):ISkills_rated[] => {return [new Skills_rated()]},
 	ee:new EventEmitter(),
 
-	global_debug:false
+	global_debug:false,
+
 });
 
 /* -------------- CONTEXT PROVIDER ----------- */
@@ -114,9 +117,13 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const debug:boolean = false;
 
-	const o = (msg:string,l:LVL) => {
+	const out = useCallback((msg:string,l:LVL) => {
+	
 		return chalk_out(msg,l)
-	}
+
+	},[])
+
+
 	
 	const [global_debug] = useState(false)
 
@@ -242,8 +249,8 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 	const ctrl_set_rotateY = (mode_str_in: string) => {
 
 		if (debug) {
-			o("ctrl_set_rotateY",LVL.function)
-			o("- mode_str_in: " + mode_str_in,LVL.line)
+			console.log(out("ctrl_set_rotateY",LVL.function))
+			console.log(out("- mode_str_in: " + mode_str_in,LVL.line))
 		}
 
 		if (mode_str_in === "overview") {
@@ -279,8 +286,8 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 	const ctrl_portfolio_filter_byRole = useCallback((role_in: string):void => {
 
 		if (debug) {
-			o("ctrl_portfolio_filter_byRole",LVL.function)
-			o("- role_in: " + role_in,LVL.line)
+			console.log(out("ctrl_portfolio_filter_byRole",LVL.function))
+			console.log(out("- role_in: " + role_in,LVL.line))
 		}
 
 		let skills_arr:string[] = [];
@@ -322,8 +329,8 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 		const matching_items_sorted = _.sortBy(matching_items,['id'],['desc']) as IPortfolio_item[]
 
 		if (debug) {
-			console.log(o("-------------- NEW PORTFOLIO --------------",LVL.line))
-			console.log(o("matching_items_sorted",LVL.line),matching_items_sorted)
+			console.log(out("-------------- NEW PORTFOLIO --------------",LVL.line))
+			console.log(out("matching_items_sorted",LVL.line),matching_items_sorted)
 		}
 
 
@@ -332,15 +339,15 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 		global_set_portfolio_filtered(matching_items_sorted)
 
 
-	},[global_portfolio,debug])//end f
+	},[global_portfolio,debug,out])//end f
 
 	
 
 	const ctrl_global_set_portfolio_item_current = (id_in: number):void => {
 
 		if (debug) {
-			console.log(o("set_global_portfolio_byID",LVL.function));
-			console.log(o("- id_in: " + id_in,LVL.line));
+			console.log(out("set_global_portfolio_byID",LVL.function));
+			console.log(out("- id_in: " + id_in,LVL.line));
 		}
 
 		let portfolio_item:IPortfolio_item = new Portfolio_item(); 
@@ -364,7 +371,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const ctrl_set_global_role_skillsData = (role_in:string):void => {
 
-		if (debug) { o("ctrl_set_global_role_skillsData",LVL.function) }
+		if (debug) { console.log(out("ctrl_set_global_role_skillsData",LVL.function)) }
 
 		portfolio_data.skills.skills_roles.forEach(
 
@@ -384,20 +391,28 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const ctrl_set_global_role_skillsRanked = (role_in:string) => {
 
-		if (debug) { o("ctrl_set_global_role_skillsRanked",LVL.function) }
+		if (debug) { 
+			console.log( out("ctrl_set_global_role_skillsRanked",LVL.function) )
+		 }
 
 		const final_skills: ISkills_rated[] = [new Skills_rated()]
+
+		console.dir(final_skills)
 
 		portfolio_data.skills.skills_rated.forEach(
 
 			(item) => {
 				if (role_in === item.category) {
-					//console.dir(item)
 					final_skills.push(item)
 				}
 			}
 
 		)//end forEach
+
+		//dirty 0 slot 
+		final_skills.splice(0,1)
+
+		if (debug) { console.log( out("ctrl_set_global_role_skillsRanked - final_skills",LVL.line),final_skills) }
 
 		set_global_role_skillsRanked(final_skills)
 	
@@ -406,7 +421,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const ctrl_skillsRated_get_byPortfolioID = useCallback((int_id:number):ISkills_rated[] => {
 
-		if (debug) { o("ctrl_skillsRated_get_byPortfolioID",LVL.function) }
+		if (debug) { console.log(out("ctrl_skillsRated_get_byPortfolioID",LVL.function)) }
 
 		//get this portfolio item
 		const portfolioItem:IPortfolio_item[] = _.filter(global_portfolio,{'id':int_id})
@@ -433,11 +448,11 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	useEffect(()=>{
 
-		if (debug) { o("DataProvider.tsx",LVL.effect) }
+		if (debug) { console.log( out("DataProvider.tsx",LVL.effect)) }
 
 		if (local_portfolioInit) { return }
 
-		if (debug) { o("DataProvider.tsx - ",LVL.line) }
+		if (debug) { console.log( out("DataProvider.tsx - ",LVL.line)) }
 
 		set_local_portfolioInit(true) 
 
@@ -446,6 +461,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 		ctrl_skillsRated_get_byPortfolioID(3)
 
 	},[
+		out,
 		local_portfolioInit,
 		ctrl_portfolio_filter_byRole,
 		ctrl_skillsRated_get_byPortfolioID,

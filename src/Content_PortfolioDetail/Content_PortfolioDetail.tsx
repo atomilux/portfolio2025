@@ -2,7 +2,8 @@ import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 import { EVT_ENUM, LVL } from '../Data/Models'
 
-import { chalk_out } from '../Util/Output'
+import { chalk_out } from '../Logger/Output'
+
 
 import './Content_PortfolioDetail.css'
 
@@ -17,6 +18,14 @@ export default function Content_PortfolioDetail() {
 	}
 
 
+	////////////////////// GLOBAL VARIABLES //////////////////////
+
+	const {
+		ee,
+		global_portfolio_item_current
+	} = useContext(PortfolioContext)
+	
+
 	////////////////////// REFERENCES //////////////////////
 
 	const ref_overlay = useRef<HTMLDivElement>(null)
@@ -24,12 +33,6 @@ export default function Content_PortfolioDetail() {
 
 
 
-	////////////////////// GLOBAL VARIABLES //////////////////////
-
-	const {
-		ee,
-		global_portfolio_item_current
-	} = useContext(PortfolioContext)
 
 
 
@@ -378,6 +381,13 @@ export default function Content_PortfolioDetail() {
 				: null
 				}
 
+			</div>
+
+			<div className="item_skills">
+				<div className="item_skills_marketing">
+					{}
+				</div>
+				
 			</div>
 	
 	

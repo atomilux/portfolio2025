@@ -2,7 +2,9 @@ import { useContext, useEffect, useRef, useState, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 
 import { EVT_ENUM, LVL } from '../Data/Models'
-import { chalk_out } from '../Util/Output'
+
+import { chalk_out } from '../Logger/Output'
+
 
 //CSS
 import './SubNav.css'
@@ -10,11 +12,26 @@ import './SubNav.css'
 
 export default function SubNav() {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)
 	}
+
+
+	////////////////////// GLOBAL VARIABLES //////////////////////
+
+	const {
+		ee,
+		out,
+		ctrl_set_rotateY,
+		global_subnav_opacity,
+		global_subnav_scale,
+		global_skills_role_current: global_skills_role_current, global_portfolio_mode, 
+		global_set_portfolio_mode: global_set_portfolio_mode,
+		global_nav_isOpen
+	} = useContext(PortfolioContext)
+
 
 
 	////////////////////// REFERENCES //////////////////////
@@ -33,17 +50,7 @@ export default function SubNav() {
 
 
 
-	////////////////////// GLOBAL VARIABLES //////////////////////
 
-	const {
-		ee,
-		ctrl_set_rotateY,
-		global_subnav_opacity,
-		global_subnav_scale,
-		global_skills_role_current: global_skills_role_current, global_portfolio_mode, 
-		global_set_portfolio_mode: global_set_portfolio_mode,
-		global_nav_isOpen
-	} = useContext(PortfolioContext)
 
 
 
@@ -180,13 +187,18 @@ export default function SubNav() {
 
 		if (debug) { console.log(  o("ui_stick_calcs",LVL.function) ) }
 
+		if (dom_ref_stick_container.current) {
+			console.log("Asking for offsetWidth - forces window calcs to update: " + dom_ref_stick_container.current.offsetWidth)
+		}
+
 		const overview_rect 						= dom_ref_overview.current ?					 	dom_ref_overview.current.getBoundingClientRect() : 0
 
 		const skillset_rect 						= dom_ref_skillset.current ? 						dom_ref_skillset.current.getBoundingClientRect() : 0
 
 		const portfolio_rect 						= dom_ref_portfolio.current ? 					dom_ref_portfolio.current.getBoundingClientRect() : 0
 
-		const stick_parent_rect 				= dom_ref_stick_container.current ? 		dom_ref_stick_container.current.getBoundingClientRect() : 0
+		const stick_parent_rect 				= dom_ref_stick_container.current ? 		dom_ref_stick_container.current.getBoundingClientRect() : 0 	
+	
 
 
 		if (debug) { 

@@ -4,26 +4,20 @@ import { PortfolioContext } from '../Data/DataProvider'
 import './Content_PortfolioCollection.css'
 import { IPortfolio_item, Portfolio_item, EVT_ENUM, LVL } from '../Data/Models'
 
-import { chalk_out } from '../Util/Output'
+import { chalk_out } from '../Logger/Output'
 
 import play_icon from '../assets/play_icon.svg'
 
 
 export default function Content_PortfolioCollection () {
 
-		const debug:boolean = false;
+	const debug:boolean = false;
+
+	const o = (msg:string,l:LVL) => {
+		return chalk_out(msg,l)
+	}
+
 	
-		const o = (msg:string,l:LVL) => {
-			return chalk_out(msg,l)
-		}
-
-
-	////////////////////// REFERENCES //////////////////////
-
-	const dom_ref_me = useRef<HTMLDivElement>(null) 
-
-
-
 	////////////////////// GLOBAL VARIABLES //////////////////////
 
 	const {
@@ -38,6 +32,14 @@ export default function Content_PortfolioCollection () {
 	ee.on(EVT_ENUM.NAV_CLICK,()=>{
 		dom_ref_me.current?.scrollTo(0,0)
 	})
+
+
+
+
+
+	////////////////////// REFERENCES //////////////////////
+
+	const dom_ref_me = useRef<HTMLDivElement>(null) 
 
 
 
@@ -137,6 +139,7 @@ export default function Content_PortfolioCollection () {
 		})//enf forEach
 
 	},[
+		o,
 		global_portfolio_filtered,
 		debug,
 		image_isVimeo

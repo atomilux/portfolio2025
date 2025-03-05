@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import Nav from './Nav';
 import { PortfolioContext } from '../Data/DataProvider';
 import { EVT_ENUM, Portfolio_item_link } from '../Data/Models';
-import { EventEmitter } from '../EVENTS/EventEmitter'
+import EventEmitter from '../EVENTS/EventEmitter'
 
 // Mock the event emitter (ee)
 /*

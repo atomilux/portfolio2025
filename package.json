@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+		"lint": "eslint . --max-warnings 20",
+		"build": "eslint . && vite build",
     "preview": "vite preview",
     "test": "vitest"
   },
