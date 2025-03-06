@@ -51,7 +51,10 @@ export default function Content_PortfolioDetail() {
 			right:'50vw',
 			bottom:'50vw',
 			left:'50vw',
-			opacity:0
+			opacity:0,
+			width:'0',
+			height:'0',
+			overflow:'auto'
 		}
 	)
 
@@ -268,6 +271,9 @@ export default function Content_PortfolioDetail() {
 		}
 
 		let css = {
+			width:'auto',
+			height:'auto',
+			overflow:'auto',
 			top:'0',
 			right:'0',
 			bottom:'0',
@@ -277,10 +283,13 @@ export default function Content_PortfolioDetail() {
 
 		if (showMe_in === false) {
 			css = {
-				top:'50vw',
-				right:'50vw',
-				bottom:'50vw',
-				left:'50vw',
+				width:'0',
+				height:'0',
+				overflow:'hidden',
+				top:'0',
+				right:'0',
+				bottom:'0',
+				left:'0',
 				opacity:0
 			}
 		}

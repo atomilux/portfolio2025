@@ -5,14 +5,14 @@
 	position:absolute;
 	top:0;
 	transition: all 0.5s ease-in-out;
-	height:500px;
+	height:70vh;
 	overflow-y:scroll;
 	overflow-x:hidden;
 	background:rgba(0,0,0,1);
 	border:1px solid #333;
 	padding:2vw 0 0 0;
 	margin:4vw 0 0 0;
-	width:70vw;
+	width:75vw;
 }
 
 .portfolio_content {
@@ -79,3 +79,36 @@
 	width:1vw;
 }
 
+/* ----------- MOBILE ------------ */
+@media only screen and (max-width: 420px) {
+
+	/* ------- PORTFOLIO TAB -------- */
+
+	.port_item {
+		width:80%;
+		padding:0 0 4vw 0;
+	}
+
+	.port_item_small {
+		text-align:center;
+	}
+
+	.port_thumbnail {
+		width:100%;
+		height:100%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	.port_item_title {
+		font-size:5vw;
+		font-weight:300;
+		line-height:5vw;
+		padding:0 0 1vw 0;
+	}
+
+	.port_item_stat {
+    width: 2.5vw;
+	}
+
+}

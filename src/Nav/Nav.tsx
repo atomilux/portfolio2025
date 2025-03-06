@@ -9,7 +9,7 @@ import './Nav.css'
 
 export default function Nav() {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 
 	
 	const o = (msg: string, l: LVL) => {
@@ -24,7 +24,7 @@ export default function Nav() {
 		ee,
 		global_skills_roles, 
 		anim_sequence_subnav_click,
-		global_set_content_3d_translateZ: global_set_content_3d_translateZ,
+		global_set_content_3d_translateZ,
 		global_nav_isOpen, 
 		global_set_nav_isOpen,
 		global_skills_role_current,

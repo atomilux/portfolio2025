@@ -12,7 +12,7 @@ import './SubNav.css'
 
 export default function SubNav() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)

@@ -4,9 +4,9 @@
 
 	position:absolute;
 	top:0;
-	height:500px;
+	height:70vh;
 
-	width:70vw;
+	width:75vw;
 
 	transition:all 0.5s ease-in-out;
 	background:rgba(0,0,0,1);
@@ -107,7 +107,7 @@
 @media only screen and (max-width: 1024px) {
 	.skill_row {
 		width:100%;
-		font-size:1.6vw;
+		font-size:2vw;
 		height:5vw
 	}
 }
@@ -195,7 +195,10 @@
 
 	/* ------- SKILLS TAB -------- */
 	.content_subnav_item {
-		font-size:6vw;
+		padding: 1vw 3vw 0 3vw !important;
+		font-size:5vw;
+		letter-spacing:.4vw;
+		font-weight:300;
 	}
 
 	.skills_desc {
@@ -226,40 +229,28 @@
 		padding-right:2vw;
 	}
 
+	.skills_fuelBars {
+		margin:14vw 0 0 0;
+	}
+
+	.skill_row {
+		display: flex;
+		flex-direction: column;
+		align-items:baseline;
+		padding: 0 0 7vw 0;
+	}
 	
 
 	.skill_row_title {
+		font-size:4vw;
 		line-height:4vw;
+		width:100%;
+		text-align:left;
+		margin:0 0 2vw 0;
 	}
 
 	.skill_row_fuelBar {
 		width:70%;
-	}
-
-
-	/* ------- PORTFOLIO TAB -------- */
-
-	.port_item {
-		width:100%;
-	}
-
-	.port_item_small {
-		text-align:center;
-	}
-
-	.port_thumbnail {
-		width:80vw;
-		height:80vw;
-		margin-left:auto;
-		margin-right:auto;
-	}
-
-	.port_item_title {
-		font-size:6vw;
-	}
-
-	.port_item_stat {
-    width: 2.5vw;
 	}
 
 }

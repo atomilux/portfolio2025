@@ -9,7 +9,6 @@ import {
 	ISkills_rated, Skills_rated,
 	IAppMode, AppMode,
 	LVL,
-	ILogEntry
 } from './Models'
 
 import { chalk_out } from '../Logger/Output'
