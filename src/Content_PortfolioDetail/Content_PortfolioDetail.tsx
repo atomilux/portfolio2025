@@ -11,7 +11,7 @@ import './Content_PortfolioDetail.css'
 
 export default function Content_PortfolioDetail() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)
@@ -88,7 +88,10 @@ export default function Content_PortfolioDetail() {
 
 	const render_links_title = () => {
 
-		console.log(debug && o("render_links_title",LVL.function))
+		if (debug) {
+			console.log(o("render_links_title",LVL.function))
+		}
+		
 
 		if (global_portfolio_item_current.links && 
 				global_portfolio_item_current.links.length > 0) {
@@ -103,7 +106,10 @@ export default function Content_PortfolioDetail() {
 
 	const render_links = () => {
 
-		console.log(debug && o("render_links",LVL.function))
+		if (debug) {
+			console.log( o("render_links",LVL.function))
+		}
+		
 
 		//sometimes obj isn't initialized properly - checks
 		if (global_portfolio_item_current.links && 
@@ -139,8 +145,10 @@ export default function Content_PortfolioDetail() {
 
 	const render_solutions = () => {
 
-		console.log(debug && o("render_solutions",LVL.function))
-
+		if (debug) {
+			console.log( o("render_solutions",LVL.function))
+		}
+		
 		if (global_portfolio_item_current.solution && 
 				global_portfolio_item_current.solution.length > 0) {
 
@@ -160,7 +168,9 @@ export default function Content_PortfolioDetail() {
 
 	const render_imagesAndVideos = () => {
 
-		console.log(debug && o("render_imagesAndVideos",LVL.function))
+		if (debug) {
+			console.log( o("render_imagesAndVideos",LVL.function))
+		}
 
 		if (global_portfolio_item_current.images && 
 				global_portfolio_item_current.images.length > 0) {
@@ -204,7 +214,9 @@ export default function Content_PortfolioDetail() {
 
 	const videoHeight = ():number => {
 
-		console.log(debug && o("videoHeight",LVL.function))
+		if (debug) {
+			console.log( o("videoHeight",LVL.function))
+		}
 
 		let h:number = window.screen.width * .5
 		
@@ -221,7 +233,9 @@ export default function Content_PortfolioDetail() {
 
 	const image_isVimeo = (str_url:string):boolean => {
 
-		console.log(debug && o("image_isVimeo",LVL.function))
+		if (debug) {
+			console.log( o("image_isVimeo",LVL.function))
+		}
 
 		return str_url.includes('vimeo')
 
@@ -249,7 +263,9 @@ export default function Content_PortfolioDetail() {
 
 	const render_inlineCSS = useCallback((showMe_in:boolean) => {
 
-		console.log(debug && o("render_inlineCSS",LVL.function))
+		if (debug) {
+			console.log( o("render_inlineCSS",LVL.function))
+		}
 
 		let css = {
 			top:'0',
@@ -271,7 +287,7 @@ export default function Content_PortfolioDetail() {
 
 		set_local_css(css)
 
-	},[])//end f
+	},[debug])//end f
 
 
 
@@ -280,7 +296,9 @@ export default function Content_PortfolioDetail() {
 
 	useEffect(()=>{
 
-		console.log(debug && o("Content_PortfolioCollection.tsx",LVL.effect))
+		if (debug) {
+			console.log( o("Content_PortfolioCollection.tsx",LVL.effect))
+		}
 
 		if (local_firstRun) { 
 			render_inlineCSS(false)

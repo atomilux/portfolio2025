@@ -9,7 +9,7 @@ import './Nav.css'
 
 export default function Nav() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	
 	const o = (msg: string, l: LVL) => {

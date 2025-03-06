@@ -23,7 +23,6 @@ export default function SubNav() {
 
 	const {
 		ee,
-		out,
 		ctrl_set_rotateY,
 		global_subnav_opacity,
 		global_subnav_scale,
@@ -234,123 +233,59 @@ export default function SubNav() {
 
 	////////////////////// EFFECTS //////////////////////
 
+	
 	useEffect(()=>{
 
 		if (debug) { console.log( o("SubNav.tsx",LVL.effect) ) }
 
-		if (local_firstRun) {
-			ui_stick_calcs()
-			set_local_firstRun(false)
-		}
-
-		if(local_stick_move) {
-
-			if (debug) { console.log( o("SubNav.tsx - useEffect - local_stick_move:true",LVL.line) ) }
-
-			ui_stick_move()
-
-			set_local_stick_move(false)
-
-		}
-
-	},[
-		local_stick_move,
-		local_firstRun,
-		ui_stick_calcs,
-		global_subnav_opacity,
-		global_subnav_scale,
-		global_nav_isOpen, 
-		local_stick_x, 
-		set_local_stick_x, 
-		global_portfolio_mode,
-		ui_stick_move,
-		ee_assigned,
-		set_ee_assigned,
-		debug
-	])
-
-
-
-	////////////////////// EVENTS //////////////////////
-
-	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
-
-		if (debug) { console.log( o("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event) ) }
+		if (debug) { console.log( o("SubNav.tsx - useEffect - local_firstRun:true",LVL.line) ) }
 
 		ui_stick_calcs()
+		set_local_firstRun(false)
 
-		ee.delay500(()=>{
-
-			ui_stick_move()
-
-		})
-
-		/*
-		if (local_resize_move === true) { return }
-
-
-		console.log("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE - run calcs")
-
-		ui_stick_calcs()
-
-		ee.delay1000(()=>{
-
-			ui_stick_move()
-
-			set_local_resize_move(true)
-
-		})
-
-		*/
-		
-		if (debug) { 
-			console.log( o("local_stick_x_overview: " + local_stick_x_overview,LVL.line) )
-			console.log( o("local_stick_x_skillset: " + local_stick_x_skillset,LVL.line) )
-			console.log( o("local_stick_x_portfolio: " + local_stick_x_portfolio,LVL.line) )
-		}
-
-		/*
-
-		ee.delay500(()=>{
-
-			console.log("DELAY 1")
-			console.log("local_stick_x_overview: " + local_stick_x_overview)
-			console.log("local_stick_x_skillset: " + local_stick_x_skillset)
-			console.log("local_stick_x_portfolio: " + local_stick_x_portfolio)
-
-			ui_stick_calcs()
-			ui_stick_move()
-
-			ee.delay500(()=>{
-
-				console.log("DELAY 2")
-				console.log("local_stick_x_overview: " + local_stick_x_overview)
-				console.log("local_stick_x_skillset: " + local_stick_x_skillset)
-				console.log("local_stick_x_portfolio: " + local_stick_x_portfolio)
-
-				//ui_stick_calcs()
-				ui_stick_move()	
-
-				ee.delay500(()=>{
-
-					console.log("DELAY 3")
-					console.log("local_stick_x_overview: " + local_stick_x_overview)
-					console.log("local_stick_x_skillset: " + local_stick_x_skillset)
-					console.log("local_stick_x_portfolio: " + local_stick_x_portfolio)
-
-					//ui_stick_calcs()
-					ui_stick_move()	
-
-					set_local_stick_move(false)
-
-				})
-
-			})
-
-		})
-			*/
-		
 	})
+
+
+	//--------- Initialize and assign the resize listener -----------
+
+	useEffect(() => {
+
+		if (debug) {
+			console.log(o("SubNav.tsx - Setting up WINDOW_RESIZE listener", LVL.effect));
+		}
+	
+		const handleResize = () => {
+			if (debug) {
+				console.log(o("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE", LVL.event));
+			}
+			ui_stick_calcs();
+		};
+	
+		ee.on(EVT_ENUM.WINDOW_RESIZE, handleResize);
+	
+		return () => {
+			if (debug) {
+				console.log(o("SubNav.tsx - Cleaning up WINDOW_RESIZE listener", LVL.effect));
+			}
+			ee.off(EVT_ENUM.WINDOW_RESIZE, handleResize);
+		};
+	}, [ui_stick_calcs, debug]);
+
+
+	//--------- When to move the stick -----------
+	
+	useEffect(() => {
+		if (debug) {
+			console.log(o("SubNav.tsx - State changed, moving stick", LVL.effect));
+		}
+		ui_stick_move();
+	}, [
+		local_stick_x_overview, 
+		local_stick_x_skillset, 
+		local_stick_x_portfolio, 
+		ui_stick_move, 
+		debug]);
+
 
 
 
