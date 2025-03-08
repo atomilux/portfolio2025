@@ -176,7 +176,7 @@ a:hover:after {
 }
 
 /* ----------- MOBILE ------------ */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 430px) {
 	#header img {
 		width:100%;
 	}

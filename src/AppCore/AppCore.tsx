@@ -20,7 +20,7 @@ import stevelux_logo from '../assets/logo_stevelux_logotype_940x150.svg'
 
 export default function AppCore() {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 
 	const o = (msg:string,l:LVL) => {
 		return chalk_out(msg,l)

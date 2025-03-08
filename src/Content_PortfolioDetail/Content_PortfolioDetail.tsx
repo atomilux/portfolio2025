@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
-import { EVT_ENUM, LVL } from '../Data/Models'
+import { EVT_ENUM, ISkills_rated, LVL } from '../Data/Models'
 
 import { chalk_out } from '../Logger/Output'
 
@@ -22,7 +22,8 @@ export default function Content_PortfolioDetail() {
 
 	const {
 		ee,
-		global_portfolio_item_current
+		global_portfolio_item_current,
+		ctrl_skillsRated_get_byPortfolioID
 	} = useContext(PortfolioContext)
 	
 
@@ -45,6 +46,8 @@ export default function Content_PortfolioDetail() {
 
 	const [local_firstRun, set_local_firstRun] 	= useState(true)
 
+	const [local_col_count, set_local_col_count] = useState(0)
+
 	const [local_css, set_local_css] 						= useState(
 		{
 			top:'50vw',
@@ -52,9 +55,7 @@ export default function Content_PortfolioDetail() {
 			bottom:'50vw',
 			left:'50vw',
 			opacity:0,
-			width:'0',
-			height:'0',
-			overflow:'auto'
+			overflowY:'auto'
 		}
 	)
 
@@ -169,6 +170,190 @@ export default function Content_PortfolioDetail() {
 
 	}//end f
 
+	/*
+	const calc_column_count = () => {
+
+		const local_skills = ctrl_skillsRated_get_byPortfolioID(global_portfolio_item_current.id);
+
+		if (local_skills.length === 0) { return; }
+
+		const skills_marketing:ISkills_rated[] 	= []
+		const skills_uiux:ISkills_rated[] 			= []
+		const skills_webDev:ISkills_rated[] 		= []
+		const skills_gameDev:ISkills_rated[] 			= []
+
+		let col_count = 0;
+
+		if (skills_marketing.length) col_count++
+		if (skills_uiux.length) col_count++
+		if (skills_webDev.length) col_count++
+		if (skills_gameDev.length) col_count++
+
+		//update local state
+		set_local_col_count("col_count_"+col_count)
+
+	}
+		*/
+
+	const render_skills = () => {
+
+		const local_skills = ctrl_skillsRated_get_byPortfolioID(global_portfolio_item_current.id);
+
+		if (local_skills.length === 0) { return; }
+
+		const skills_marketing:ISkills_rated[] 	= []
+		const skills_uiux:ISkills_rated[] 			= []
+		const skills_webDev:ISkills_rated[] 		= []
+		const skills_gameDev:ISkills_rated[] 			= []
+
+		local_skills.forEach((item) => {
+
+			switch (item.category) {
+				case "skills_marketing":
+					skills_marketing.push(item)
+					break;
+				case "skills_uiux":
+					skills_uiux.push(item)
+					break;
+				case "skills_webDev":
+					skills_webDev.push(item)
+					break;
+				case "skills_gameDev":
+					skills_gameDev.push(item)
+					break;
+				default:
+					break;
+			}
+		})
+
+		let col_count = 0;
+
+		if (skills_marketing.length) col_count++
+		if (skills_uiux.length) col_count++
+		if (skills_webDev.length) col_count++
+		if (skills_gameDev.length) col_count++
+
+		if (col_count !== local_col_count) {
+			set_local_col_count(col_count)
+		}
+
+		return (
+			<>
+
+				{
+					/* ----------- MARKETING ------------- */
+
+					skills_marketing.length > 0 && 
+					(
+						<div className={"porItem_skills_category col_count_"+col_count}>
+							<h3>MARKETING</h3>
+							{
+								skills_marketing.map (
+									(item,i) =>{
+										return (
+											<div className="skill_row" key={i}>
+												<div className="skill_row_title">{ item.title }</div>
+												<div className="skill_row_fuelBar skill_bar_horizontal">
+													<div className={"skill_bar_horizontal_fuel type_" + item.category + " bar_width"+item.strength}></div>
+												</div>
+											</div>
+										)
+									}
+								)
+							}
+						</div>
+					)
+				}
+
+
+
+				{
+
+					/* ----------- MARKETING ------------- */
+
+					skills_uiux.length > 0 &&
+					(
+						<div className={"porItem_skills_category col_count_"+col_count}>
+							<h3>UI/UX</h3>
+							{
+								skills_uiux.map (
+									(item,i) =>{
+										return (
+											<div className="skill_row" key={i}>
+												<div className="skill_row_title">{ item.title }</div>
+												<div className="skill_row_fuelBar skill_bar_horizontal">
+													<div className={"skill_bar_horizontal_fuel type_" + item.category + " bar_width"+item.strength}></div>
+												</div>
+											</div>
+										)
+									}
+								)
+							}
+						</div>
+					)
+				}
+				
+
+
+				{
+
+					/* ----------- WEB DEV ------------- */
+
+					skills_webDev.length > 0 &&
+					(
+						<div className={"porItem_skills_category col_count_"+col_count}>
+							<h3>Web Developer</h3>
+							{
+								skills_webDev.map (
+									(item,i) =>{
+										return (
+											<div className="skill_row" key={i}>
+												<div className="skill_row_title">{ item.title }</div>
+												<div className="skill_row_fuelBar skill_bar_horizontal">
+													<div className={"skill_bar_horizontal_fuel type_" + item.category + " bar_width"+item.strength}></div>
+												</div>
+											</div>
+										)
+									}
+								)
+							}
+						</div>
+					)
+				}
+
+
+				{
+
+					/* ----------- GAME DEV ------------- */
+
+					skills_gameDev.length > 0 &&
+					(
+						<div className={"porItem_skills_category col_count_"+col_count}>
+							<h3>Game Developer</h3>
+							{
+								skills_gameDev.map (
+									(item,i) =>{
+										return (
+											<div className="skill_row" key={i}>
+												<div className="skill_row_title">{ item.title }</div>
+												<div className="skill_row_fuelBar skill_bar_horizontal">
+													<div className={"skill_bar_horizontal_fuel type_" + item.category + " bar_width"+item.strength}></div>
+												</div>
+											</div>
+										)
+									}
+								)
+							}
+						</div>
+					)
+
+				}
+
+			</>
+		)
+
+	}
+
 	const render_imagesAndVideos = () => {
 
 		if (debug) {
@@ -271,9 +456,7 @@ export default function Content_PortfolioDetail() {
 		}
 
 		let css = {
-			width:'auto',
-			height:'auto',
-			overflow:'auto',
+			overflowY:'scroll',
 			top:'0',
 			right:'0',
 			bottom:'0',
@@ -283,13 +466,11 @@ export default function Content_PortfolioDetail() {
 
 		if (showMe_in === false) {
 			css = {
-				width:'0',
-				height:'0',
-				overflow:'hidden',
+				overflowY:'hidden',
 				top:'0',
 				right:'0',
 				bottom:'0',
-				left:'0',
+				left:'10000px',
 				opacity:0
 			}
 		}
@@ -317,6 +498,7 @@ export default function Content_PortfolioDetail() {
 		if (global_portfolio_item_current.links && global_portfolio_item_current.links.length > 0) {
 			set_local_links(true)
 		}
+
 	},[
 		local_firstRun,
 		render_inlineCSS,
@@ -409,14 +591,10 @@ export default function Content_PortfolioDetail() {
 				}
 
 			</div>
-
-			<div className="item_skills">
-				<div className="item_skills_marketing">
-					{}
-				</div>
-				
-			</div>
 	
+			<div className={"portItem_skills_cont col_count_" + local_col_count}>
+				{ render_skills() }
+			</div>
 	
 			{/* ----------------- PORTFOLIO ITEM: MEDIA ---------------- */}
 

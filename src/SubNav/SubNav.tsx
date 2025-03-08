@@ -27,8 +27,7 @@ export default function SubNav() {
 		global_subnav_opacity,
 		global_subnav_scale,
 		global_skills_role_current: global_skills_role_current, global_portfolio_mode, 
-		global_set_portfolio_mode: global_set_portfolio_mode,
-		global_nav_isOpen
+		global_set_portfolio_mode: global_set_portfolio_mode
 	} = useContext(PortfolioContext)
 
 
@@ -57,13 +56,12 @@ export default function SubNav() {
 	////////////////////// LOCAL VARIABLES //////////////////////
 
 	const [local_firstRun, set_local_firstRun] 										= useState(true)
-	const [local_stick_move, set_local_stick_move] 								= useState(false)
+	//const [local_stick_move, set_local_stick_move] 								= useState(false)
 	//const [local_resize_move, set_local_resize_move]							= useState(false)
 	const [local_stick_x, set_local_stick_x] 											= useState(0)
 	const [local_stick_x_overview, set_local_stick_x_overview] 		= useState(0)
 	const [local_stick_x_skillset, set_local_stick_x_skillset] 		= useState(0)
 	const [local_stick_x_portfolio, set_local_stick_x_portfolio] 	= useState(0)
-	const [ee_assigned, set_ee_assigned] 													= useState(false)
 
 
 
@@ -110,7 +108,7 @@ export default function SubNav() {
 
 		if (debug) { console.log( o("ui_click_overview",LVL.function) ) }
 
-		set_local_stick_move(true)
+		//set_local_stick_move(true)
 
 		global_set_portfolio_mode("overview")
 		ui_stick_move()
@@ -125,7 +123,7 @@ export default function SubNav() {
 
 		if (debug) { console.log( o("ui_click_skillset",LVL.function) ) }
 
-		set_local_stick_move(true)
+		//set_local_stick_move(true)
 
 		global_set_portfolio_mode("skillset")
 		ui_stick_move()
@@ -140,7 +138,7 @@ export default function SubNav() {
 
 		if (debug) { console.log(  o("ui_click_portfolio",LVL.function) ) }
 
-		set_local_stick_move(true)
+		//(true)
 
 		global_set_portfolio_mode("portfolio")
 		ui_stick_move()
@@ -186,9 +184,11 @@ export default function SubNav() {
 
 		if (debug) { console.log(  o("ui_stick_calcs",LVL.function) ) }
 
+		/*
 		if (dom_ref_stick_container.current) {
 			console.log("Asking for offsetWidth - forces window calcs to update: " + dom_ref_stick_container.current.offsetWidth)
 		}
+			*/
 
 		const overview_rect 						= dom_ref_overview.current ?					 	dom_ref_overview.current.getBoundingClientRect() : 0
 

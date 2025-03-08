@@ -110,7 +110,9 @@ export default function Content_PortfolioCollection () {
 
 		if (global_portfolio_filtered.length === 0) { return }
 
-		console.log(debug && o("init_vimeoThumbnails - running ...",LVL.line))
+		if (debug) {
+			console.log( o("init_vimeoThumbnails - running ...",LVL.line))
+		}
 
 		//loop through the images
 		global_portfolio_filtered.forEach((item)=>{
@@ -250,8 +252,8 @@ export default function Content_PortfolioCollection () {
 		if (	global_portfolio_filtered.length > 1 && 
 					local_vimeoAPIcallsTriggered === false) {
 						
-			console.log("useEffect - Content_PortfolioCollection.tsx INSIDE")
-			console.dir(global_portfolio_filtered)
+			//console.log("useEffect - Content_PortfolioCollection.tsx INSIDE")
+			//console.dir(global_portfolio_filtered)
 
 			vimeo_initThumbnails(global_portfolio_filtered)
 			set_local_vimeoAPIcallsTriggered(true)
@@ -315,7 +317,7 @@ export default function Content_PortfolioCollection () {
 												{
 
 													ctrl_skillsRated_get_byPortfolioID(item.id).map (
-
+														
 														(item_skill,j) => (
 
 															<div className="port_item_stat" key={j}>

@@ -39,22 +39,25 @@ export default function Content_SkillOverview() {
 		
 		let final_url = "";
 
+
+		//TODO - these need to be pulled from Context
+
 		switch(role_in) {
 
 			case "skills_marketing": 
-				final_url = "resumes/resume_SteveLux_Marketing_2023.pdf"
+				final_url = "./resumes/resume_SteveLux_Marketing_2024.pdf"
 				break
 
 			case "skills_uiux":
-				final_url = "resumes/resume_SteveLux_UIUX_2023.pdf"
+				final_url = "./resumes/resume_SteveLux_UIUX_2023.pdf"
 				break
 
 			case "skills_webDev":
-				final_url = "resumes/resume_SteveLux_UnityDev_2023.pdf"
+				final_url = "./resumes/resume_SteveLux_UnityDev_2023.pdf"
 				break
 
 			case "skills_gameDev":
-				final_url = "resumes/resume_SteveLux_webDev_2023.pdf"
+				final_url = "./resumes/resume_SteveLux_webDev_2024.pdf"
 				break
 
 			default:

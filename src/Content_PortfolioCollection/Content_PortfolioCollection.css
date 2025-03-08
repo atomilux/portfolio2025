@@ -12,7 +12,7 @@
 	border:1px solid #333;
 	padding:2vw 0 0 0;
 	margin:4vw 0 0 0;
-	width:75vw;
+	width:70vw;
 }
 
 .portfolio_content {
@@ -48,7 +48,6 @@
 
 .port_item_img_container {
 	position:relative;
-	border:1px sold red;
 }
 
 .port_videoIcon {
@@ -80,12 +79,12 @@
 }
 
 /* ----------- MOBILE ------------ */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 430px) {
 
 	/* ------- PORTFOLIO TAB -------- */
 
 	.port_item {
-		width:80%;
+		width:60vw;
 		padding:0 0 4vw 0;
 	}
 
@@ -109,6 +108,12 @@
 
 	.port_item_stat {
     width: 2.5vw;
+	}
+
+	.port_videoIcon {
+		width: 24vw;
+    left: 18.25vw;
+    top: 5vw;
 	}
 
 }

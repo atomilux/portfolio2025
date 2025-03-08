@@ -7,7 +7,7 @@
 				"desc":"Decades of successful creative and marketing initiatives have led to roles as Creative Director and VP Marketing. Startup experience honed my ability to quickly generate marketing that is compelling, extols value, clears objections and creates tribal loyalty. Successful marketing is timeless, iconic and is a measurable asset on a balance sheet.",
 				"skill_labels":"Marketing Strategy, Content Strategy, Social Media Strategy, Brand Strategy, Creative Direction, Product Design, Lead Generation,Logotype Design, Graphic Design, Photoshop, Illustrator, InDesign, Audition, AfterEffects, Premiere Pro, Acrobat, Copywriting",
 				"skill_keys":"marketing_campaigns,content_strategy,social_media_campaigns,brand_building,creative_direction,product_design,product_positioning,lead_generation,logo_design,graphic_design,photoshop,illustrator,indesign,audition,after_effects,premiere_pro,acrobat_pro,copywriting,typography,photography,extendscript,illustration",
-				"resume":"./resumes/resume_SteveLux_Marketing_2023.pdf"
+				"resume":"./resumes/resume_SteveLux_Marketing_2024.pdf"
 			},
 
 			{
@@ -25,15 +25,15 @@
 				"desc":"I’m a prooduct driven Full Stack Web Developer with 25+ years of experience. Agile DevOps, DB, Back End, APIs and Front End dev in multiple platforms and languages are part of my skillset. I've built products from concept to hardened completion.",
 				"skill_labels":"HTML, CSS, SCSS, CSS-in-JS, JavaScript, TypeScript, JSX, jQuery, webpack, Angular, React, Vue, Unit Testing, GraphQL, API integration, API authoring, MySQL, Postgres, Firebase NoSQL, ElasticSearch, relational DB design, Python, NodeJS, Linnode, AWS (S3,EC2,CLI), Google Cloud Storage, npm, yarn, chron jobs",
 				"skill_keys":"html,css,scss,css_in_js,javascript,typescript,jsx,jquery,webpack,angular,react,vuejs,unit_testing,graphql,api_integration,api_authoring,sql,firebase_nosql,relational_db_design,python,nodejs,linnode,aws,google_cloud_storage,npm,yarn,chron_jobs,web_app_architecture,php,asp_net,flex,mxml,as2,as3,mxml,perl,json,soap,flash,regex,java,automation,developer_documentation,netsuite_integration",
-				"resume":"./resumes/resume_SteveLux_webDev_2023.pdf"
+				"resume":"./resumes/resume_SteveLux_webDev_2024.pdf"
 			},
 
 			{
 				"key":"skills_gameDev",
 				"title":"UNITY3D DEVELOPER",
 				"desc":"I’m a product driven Unity3d developer with 15 years of experience who has shipped titles for Fortune 500 Clients, Gaming Companies, Cyber Security Companies and Higher Education. These projects were published to WebGL, iOS and Android. Most had back end API integration.",
-				"skill_labels":"Application Architecture, Product Design, C#, .NET, Linq, MVC, Maya, 3D Modeling, UV Mapping, Shader Authoring, Unity3d, WebGL",
-				"skill_keys":"game_architecture,c_sharp,dot_net,linq,mvc,maya,3d_modeling,uv_mapping,shader_authoring,unity3d,unreal,webgl_builds,mecanim,ios_builds,android_builds,scriptable_objects",
+				"skill_labels":"Augmented Reality, Application Architecture, Product Design, C#, .NET, Linq, MVC, Maya, 3D Modeling, UV Mapping, Shader Authoring, Unity3d, WebGL",
+				"skill_keys":"ar,game_architecture,c_sharp,dot_net,linq,mvc,maya,3d_modeling,uv_mapping,shader_authoring,unity3d,unreal,webgl_builds,mecanim,ios_builds,android_builds,scriptable_objects",
 				"resume":"./resumes/resume_SteveLux_UnityDev_2023.pdf"
 			}
 		],
@@ -46,15 +46,15 @@
 			{"title":"Product Design", 					"strength":"7", "key":"product_design", 				"category":"skills_marketing"},
 			{"title":"Product Positioning", 		"strength":"7", "key":"product_positioning", 		"category":"skills_marketing"},
 			{"title":"Lead Generation", 				"strength":"5", "key":"lead_generation", 				"category":"skills_marketing"},
-			{"title":"Logo Design", 		"strength":"10", "key":"logo_design", 		"category":"skills_marketing"},
-			{"title":"Graphic Design", 	"strength":"10", "key":"graphic_design", 	"category":"skills_marketing"},
-			{"title":"Photoshop", 			"strength":"9", "key":"photoshop", 				"category":"skills_marketing"},
-			{"title":"Illustrator", 		"strength":"10", "key":"illustrator", 		"category":"skills_marketing"},
-			{"title":"InDesign", 				"strength":"8", "key":"indesign", 				"category":"skills_marketing"},
-			{"title":"Audition", 				"strength":"6", "key":"audution", 				"category":"skills_marketing"},
-			{"title":"After Effects",		"strength":"7", "key":"after_effects", 		"category":"skills_marketing"},
-			{"title":"Premiere Pro", 		"strength":"6", "key":"premiere_pro", 		"category":"skills_marketing"},
-			{"title":"Acrobat Pro", 		"strength":"5", "key":"acrobat_pro", 			"category":"skills_marketing"},
+			{"title":"Logo Design", 						"strength":"10", "key":"logo_design", 					"category":"skills_marketing"},
+			{"title":"Graphic Design", 					"strength":"10", "key":"graphic_design", 				"category":"skills_marketing"},
+			{"title":"Adobe Photoshop", 			"strength":"9", "key":"photoshop", 				"category":"skills_marketing"},
+			{"title":"Adobe Illustrator", 		"strength":"10", "key":"illustrator", 		"category":"skills_marketing"},
+			{"title":"Adobe InDesign", 				"strength":"8", "key":"indesign", 				"category":"skills_marketing"},
+			{"title":"Adobe Audition", 				"strength":"6", "key":"audition", 				"category":"skills_marketing"},
+			{"title":"Adobe After Effects",		"strength":"7", "key":"after_effects", 		"category":"skills_marketing"},
+			{"title":"Adobe Premiere Pro", 		"strength":"6", "key":"premiere_pro", 		"category":"skills_marketing"},
+			{"title":"Adobe Acrobat Pro", 		"strength":"5", "key":"acrobat_pro", 			"category":"skills_marketing"},
 			{"title":"Copywriting", 		"strength":"8", "key":"copywriting", 			"category":"skills_marketing"},
 			{"title":"Typography", 			"strength":"10", "key":"typography", 			"category":"skills_marketing"},
 			{"title":"Photography", 		"strength":"8", "key":"photography", 			"category":"skills_marketing"},
@@ -62,7 +62,7 @@
 			{"title":"Illustration", 		"strength":"9", "key":"illustration", 		"category":"skills_marketing"},
 
 			
-			{"title":"Usability Testing", 				"strength":"8", "key":"usability_testing", 			"category":"skills_uiux"},
+			{"title":"Usability Testing", 				"strength":"9", "key":"usability_testing", 			"category":"skills_uiux"},
 
 			{"title":"UX customer research", 			"strength":"9", "key":"ux_customer_research", 		"category":"skills_uiux"},
 			{"title":"Competitive Audit", 				"strength":"10", "key":"competitive_audit", 			"category":"skills_uiux"},
@@ -126,6 +126,7 @@
 
 
 
+			{"title":"Augmented Reality", 				"strength":"6", "key":"ar", 											"category":"skills_gameDev"},
 			{"title":"Game Architecture", 				"strength":"6", "key":"game_architecture", 				"category":"skills_gameDev"},
 			{"title":"C#", 												"strength":"6", "key":"c_sharp", 									"category":"skills_gameDev"},
 			{"title":".NET", 											"strength":"9", "key":"dot_net", 									"category":"skills_gameDev"},
@@ -170,7 +171,9 @@
 				"images/_HYBRID/elcerrito_journal_assignment.png",
 				"images/_HYBRID/elcerrito_satellite.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":1,
@@ -192,7 +195,9 @@
 				"images/_HYBRID/linac1.png",
 				"images/_HYBRID/linac2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":2,
@@ -221,7 +226,8 @@
 				"images/_HYBRID/DTW/dtw_ads.png"
 			],
 			"links":[
-				{"title":"YOUTUBE CHANNEL","url":"https://www.youtube.com/channel/UCtzUCBK4Msvly1qjKB3lWeQ"}
+				{"title":"YOUTUBE CHANNEL","url":"https://www.youtube.com/channel/UCtzUCBK4Msvly1qjKB3lWeQ"},
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
 			]
 		},
 
@@ -248,7 +254,9 @@
 				"./images/_HYBRID/tagspire_v1/tagspire4.png",
 				"./images/_HYBRID/tagspire_v1/tagspire5.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 
 		{
@@ -265,7 +273,8 @@
 				"./images/_HYBRID/rhinotees.png"
 			],
 			"links":[
-				{"title":"LIVE SITE","url":"http://rhinotees.com/"}
+				{"title":"LIVE SITE","url":"http://rhinotees.com/"},
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
 			]
 		},
 		{
@@ -283,7 +292,9 @@
 				"./images/_HYBRID/joneswight.jpg",
 				"./images/_HYBRID/joneswight2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":6,
@@ -303,7 +314,9 @@
 				"images/_TECH/dragdrop2.png",
 				"images/_TECH/dragdrop3.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":7,
@@ -321,7 +334,9 @@
 			"images":[
 				"images/_TECH/goodwill1.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":8,
@@ -336,7 +351,9 @@
 			"images":[
 				"images/_TECH/mckenna1.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":9,
@@ -349,7 +366,9 @@
 			"images":[
 				"images/_CREATIVE/UAL_design1.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":10,
@@ -364,7 +383,9 @@
 				"images/_CREATIVE/id_software1.png",
 				"images/_CREATIVE/id_software2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":11,
@@ -380,7 +401,9 @@
 				"images/_CREATIVE/bcweb_design1_nav2.jpg",
 				"images/_CREATIVE/bcweb_design2_nav2.jpg"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":12,
@@ -396,7 +419,9 @@
 			"images":[
 				"images/_HYBRID/illustration_port.jpg"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":13,
@@ -417,7 +442,9 @@
 				"images/_HYBRID/bldg.png",
 				"images/_HYBRID/bldg2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":14,
@@ -434,7 +461,9 @@
 			"images":[
 				"images/_HYBRID/cpc.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":15,
@@ -452,7 +481,9 @@
 			"images":[
 				"images/_HYBRID/justfurme.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":16,
@@ -469,7 +500,9 @@
 			"images":[
 				"images/_HYBRID/donbmcdonald.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":17,
@@ -484,7 +517,9 @@
 			"images":[
 				"images/_HYBRID/davidHill1.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":18,
@@ -503,7 +538,9 @@
 			"images":[
 				"images/_HYBRID/bigPrometheum.jpg"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":19,
@@ -520,7 +557,9 @@
 			"images":[
 				"images/_HYBRID/iridium.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 
 		{
@@ -544,7 +583,9 @@
 				"./images/_HYBRID/prevailion_platform_seeker.png",
 				"./images/_HYBRID/prevailion_platform_detail.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 
 		{
@@ -583,7 +624,9 @@
 				"images/_CREATIVE/prevailion_brandGuide_4.png",
 				"images/_CREATIVE/prevailion_brandGuide_5.png"				
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":22,
@@ -609,7 +652,9 @@
 				"./images/_HYBRID/prevailion_platform_seeker.png",
 				"./images/_HYBRID/prevailion_platform_detail.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":23,
@@ -637,7 +682,8 @@
 				{
 					"title":"PDF Logo Study",
 					"url":"/pdfs/MooreMedia_logos_v1.pdf"
-				}
+				},
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
 			]
 		},
 		{
@@ -653,7 +699,9 @@
 			"images":[
 				"images/_CREATIVE/logoWellvana.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},		
 		{
 			"id":25,
@@ -673,7 +721,9 @@
 				"images/_CREATIVE/BRAND/AIG/12tips_cover.png",
 				"images/_CREATIVE/BRAND/AIG/12tips_spread.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":26,
@@ -689,7 +739,9 @@
 				"images/_CREATIVE/BRAND/ITSmikeSpear.png",
 				"images/_CREATIVE/BRAND/ITStaxCreditFlier.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":27,
@@ -708,7 +760,9 @@
 				"images/_CREATIVE/eyedog_haverford4.png"
 
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":28,
@@ -723,7 +777,9 @@
 				"images/_CREATIVE/wired1.png",
 				"images/_CREATIVE/wired2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},		
 		{
 			"id":29,
@@ -736,11 +792,13 @@
 			"images":[
 				"images/_CREATIVE/corbittLaw1.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":30,
-			"title":"GRIND ETHIC",
+			"title":"GRIND ETHIC - OCTOPUS",
 			"objective":"Digest the creative brief and produce an ironic and iconic illustration to match the series. Eric Hines invited me to contribute to his iconic new brand, Grind Ethic. His concept is underdogs with a dash of irony and humor. Showing an Octopus fishing for the fishermen was another in a series of clever and legendary concepts.",
 			"solution":[
 				"Iconic",
@@ -753,10 +811,16 @@
 			],
 			"skillset":"creative_direction,graphic_design,illustration,illustrator",
 			"images":[
-				"images/_CREATIVE/honestbros_octopus.png"
+				"images/_CREATIVE/honestbros_octopus.png",
+				"images/_CREATIVE/grindethic_octopus_detail0.png",
+				"images/_CREATIVE/grindethic_octopus_detail1.png",
+				"images/_CREATIVE/grindethic_octopus_detail2.png",
+				"images/_CREATIVE/grindethic_octopus_detail3.png",
+				"images/_CREATIVE/grindethic_octopus_detail4.png"
 			],
 			"links":[
-				{"title":"GRIND ETHIC SITE", "url":"https://grindethic.com/"}
+				{"title":"GRIND ETHIC SITE", "url":"https://grindethic.com/"},
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
 			]
 		},
 		{
@@ -777,7 +841,9 @@
 				"images/_CREATIVE/prevailion_ARKTOS_WHITE_ON_BLACK.png"
 
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":32,
@@ -798,7 +864,9 @@
 				"images/_CREATIVE/Prevailion-IntelligenceOnePager_v5-01.png",
 				"images/_CREATIVE/Prevailion-IntelligenceOnePager_v5-02.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":33,
@@ -828,7 +896,9 @@
 				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE4.png",
 				"images/_CREATIVE/Prevailion_ADS_linkedin_carouselads_1080x1080_IMAGE5.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":34,
@@ -864,7 +934,9 @@
 				"images/_CREATIVE/Prevailion_cardGame_virusSQLinjection.png",
 				"images/_CREATIVE/Prevailion_cardGame_virusWateringHole.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":35,
@@ -891,7 +963,9 @@
 				"images/_CREATIVE/Prevailion_MEME_particular_set_of_skills.png",
 				"images/_CREATIVE/Prevailion_MEME_unleash_hell.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":36,
@@ -921,7 +995,9 @@
 				"images/_CREATIVE/Prevailion_illustration_TA505_FinalBanner.png",
 				"images/_CREATIVE/Prevailion_illustration_WordPressIllustration.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":37,
@@ -944,7 +1020,9 @@
 				"https://player.vimeo.com/video/375960058",
 				"https://player.vimeo.com/video/375958964?h=8e6a67b009"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":38,
@@ -970,7 +1048,9 @@
 				"https://player.vimeo.com/video/796648629?h=03b8b63215",
 				"https://player.vimeo.com/video/796648461?h=6e22a12686"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":39,
@@ -988,7 +1068,9 @@
 				"images/_CREATIVE/Prevailion_diagram_NISTrelevance.png",
 				"images/_CREATIVE/Prevailion_diagram_timeIsOfTheEssence_v3.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":40,
@@ -1007,7 +1089,9 @@
 				"images/_CREATIVE/prevailion_mobileApp_expanded1.png",
 				"images/_CREATIVE/prevailion_mobileApp_expanded2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":41,
@@ -1028,7 +1112,9 @@
 				"images/_CREATIVE/prevailion_protoUI_seeker.png",
 				"images/_CREATIVE/prevailion_protoUI_seeker2.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":42,
@@ -1051,7 +1137,9 @@
 				"./images/_HYBRID/prevailion_platform_seeker.png",
 				"./images/_HYBRID/prevailion_platform_detail.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
 		},
 		{
 			"id":43,
@@ -1078,7 +1166,130 @@
 				"images/_CREATIVE/Prevailion_Heimdall_DNS_BrandingGuide.png",
 				"images/_CREATIVE/Prevailion_Heimdall_OrgLogo_BrandingGuide.png"
 			],
-			"links":[]
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
+		},
+		{
+			"id":44,
+			"title":"STARTUP - ARVELOUS",
+			"objective":"Reinvent greeting cards to be interactive collectible connectors for all generations of family and friends. This ground up project is a solo effort wielding the depths of my startup toolbox including marketing, branding, product brands, game development and web development. Prototypes are still under devleopment and product market fit is currently ongoing.",
+			"solution":[
+				"Iconic",
+				"Innovative",
+				"Impactful",
+				"Augmented Reality",
+				"Gaming",
+				"Multiple Products",
+				"Startup"
+			],
+			"skillset":"marketing_campaigns,content_strategy,social_media_campaigns,brand_building,creative_direction,product_design,product_positioning,lead_generation,logo_design,graphic_design,photoshop,illustrator,audition,premiere_pro,acrobat_pro,copywriting,typography,photography,extendscript,illustration,ux_customer_research,competitive_audit,information_architecture,journey_mapping,wireframes,prototyping,ui_design,ux_design,data_visualization,animation,web_design,user_documentation,user_training,html,css,javascript,typescript,unit_testing,api_integration,api_authoring,sql,firebase_nosql,relational_db_design,python,nodejs,linnode,aws,google_cloud_storage,npm,web_app_architecture,json,regex,automation,developer_documentation,ar,game_architecture,c_sharp,dot_net,linq,mvc,maya,3d_modeling,uv_mapping,shader_authoring,unity3d,unreal,webgl_builds,mecanim,ios_builds,android_builds,scriptable_objects",
+			"images":[
+				"images/_STARTUP/arvelous_banner.png",
+				"images/_STARTUP/arvelous_hauntedCastle_1.png",
+				"images/_STARTUP/arvelous_hauntedCastle_2.png",
+				"images/_STARTUP/arvelous_hauntedCastle_3.png",
+				"images/_STARTUP/arvelous_hauntedCastle_4.png",
+				"images/_STARTUP/arvelous_hauntedCastle_5.png",
+				"images/_STARTUP/arvelous_hauntedCastle_6.png",
+				"images/_STARTUP/arvelous_hauntedCastle_7.png",
+				"images/_STARTUP/arvelous_hauntedCastle_8.png",
+				"images/_STARTUP/arvelous_alienInvaders_1.png",
+				"images/_STARTUP/arvelous_alienInvaders_2.png",
+				"images/_STARTUP/arvelous_alienInvaders_3.png",
+				"images/_STARTUP/arvelous_alienInvaders_4.png"
+			],
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
+		},
+		{
+			"id":45,
+			"title":"GRIND ETHIC - KANGAROO",
+			"objective":"Eric Hines approached me for another epic Grind Ethic illustration. The irony of this concept was nature conquering man with nature's ultimate boxing contendor, the Kangaroo.",
+			"solution":[
+				"Iconic",
+				"Adheres to Existing Brand",
+				"Impactful",
+				"Memorable",
+				"Unique",
+				"Clever",
+				"Creative"
+			],
+			"skillset":"creative_direction,graphic_design,illustration,illustrator",
+			"images":[
+				"images/_CREATIVE/grindethic_boxerRoo0.png",
+				"images/_CREATIVE/grindethic_boxerRoo1.png",
+				"images/_CREATIVE/grindethic_boxerRoo2.png",
+				"images/_CREATIVE/grindethic_boxerRoo3.png"
+			],
+			"links":[
+				{"title":"GRIND ETHIC SITE", "url":"https://grindethic.com/"}
+			]
+		},
+		{
+			"id":46,
+			"title":"GRIND ETHIC - MONKEY",
+			"objective":"Another Grind Ethic illustration where the Monkeys are scientists observing humans in the lab we know as an office space.",
+			"solution":[
+				"Iconic",
+				"Adheres to Existing Brand",
+				"Impactful",
+				"Memorable",
+				"Unique",
+				"Clever",
+				"Creative"
+			],
+			"skillset":"creative_direction,graphic_design,illustration,illustrator",
+			"images":[
+				"images/_CREATIVE/grindethic_monkey0.png",
+				"images/_CREATIVE/grindethic_monkey5.png",
+				"images/_CREATIVE/grindethic_monkey6.png",
+				"images/_CREATIVE/grindethic_monkey1.png",
+				"images/_CREATIVE/grindethic_monkey2.png",
+				"images/_CREATIVE/grindethic_monkey3.png",
+				"images/_CREATIVE/grindethic_monkey4.png"
+			],
+			"links":[
+				{"title":"GRIND ETHIC SITE", "url":"https://grindethic.com/"}
+			]
+		},
+		{
+			"id":47,
+			"title":"STARTUP - CYLIGENCE",
+			"objective":"Reposition cyber recon tooling for the M&A and MSSP markets. Attack surface scans yield PDF reports containing executive level overview and detailed analyst level content. We also offer AI co-authored generated remediation guides. Alpha features include AI analysis of M&A target SEC filings and complete attack surface recon of targeet organization's full supply chain. Full stack with AI, SVG server. Proprietary scoring algorithm and white label configs give us per customer and per job configurations.",
+			"solution":[
+				"Cyber security",
+				"PDF gen",
+				"M&A and MSSP focus",
+				"OSINT recon",
+				"Detailed diagrams",
+				"Remediation Guide",
+				"Startup"
+			],
+			"skillset":"brand_building,creative_direction,product_design,product_positioning,lead_generation,graphic_design,photoshop,illustrator,copywriting,typography,illustration,ux_customer_research,competitive_audit,information_architecture,prototyping,ui_design,ux_design,data_visualization,web_design,user_documentation,user_training,html,css,javascript,typescript,unit_testing,api_integration,api_authoring,python,nodejs,aws,npm,web_app_architecture,json,regex,automation,developer_documentation",
+			"images":[
+				"images/_STARTUP/CYLIGENCE_terminal1.png",
+				"images/_STARTUP/CYLIGENCE_terminal2.png",
+				"images/_STARTUP/CYLIGENCE_terminal3.png",
+				"images/_STARTUP/CYLIGENCE1.png",
+				"images/_STARTUP/CYLIGENCE2.png",
+				"images/_STARTUP/CYLIGENCE3.png",
+				"images/_STARTUP/CYLIGENCE4.png",
+				"images/_STARTUP/CYLIGENCE5.png",
+				"images/_STARTUP/CYLIGENCE6.png",
+				"images/_STARTUP/CYLIGENCE7.png",
+				"images/_STARTUP/CYLIGENCE8.png",
+				"images/_STARTUP/CYLIGENCE7.png",
+				"images/_STARTUP/CYLIGENCE9.png",
+				"images/_STARTUP/CYLIGENCE_remediation1.png",
+				"images/_STARTUP/CYLIGENCE_remediation2.png",
+				"images/_STARTUP/CYLIGENCE_whiteLabel1.png",
+				"images/_STARTUP/CYLIGENCE_whiteLabel2.png"
+			],
+			"links":[
+				{"title":"steve.luxe@cyligence.com", "url":"mailto:steve.lux@cyligence.com"}
+			]
 		}
 
 	]

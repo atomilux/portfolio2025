@@ -10,7 +10,6 @@ import './Nav.css'
 export default function Nav() {
 
 	const debug:boolean = true;
-
 	
 	const o = (msg: string, l: LVL) => {
 		return chalk_out(msg, l)
@@ -115,21 +114,25 @@ export default function Nav() {
 
 		//mobile
 		if (window_width < 510){
+			console.log('MOBILE')
 			font_size_fraction = .08
 		}
 
 		//tablet
 		if (window_width >= 510 && window_width <= 768){
+			console.log('TABLET')
 			font_size_fraction = .06
 		}	
 
 		//laptop	
 		if (window_width >= 768 && window_width <= 1024) {
+			console.log('LAPTOP')
 			font_size_fraction = .04
 		}
 
 		//desktop
 		if (window_width > 1024){
+			console.log('DESKTOP')
 			font_size_fraction = .03
 		}
 

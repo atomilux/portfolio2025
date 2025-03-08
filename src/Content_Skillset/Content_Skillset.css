@@ -6,7 +6,7 @@
 	top:0;
 	height:70vh;
 
-	width:75vw;
+	width:70vw;
 
 	transition:all 0.5s ease-in-out;
 	background:rgba(0,0,0,1);
@@ -30,7 +30,7 @@
 	flex-wrap:wrap;
 	overflow-y:scroll;
 	overflow-x:hidden;
-	height:400px;
+	height:50vh;
 	margin:4vw 0 0 4vw;
 	align-content:baseline;
 }
@@ -191,7 +191,7 @@
 
 
 /* ----------- MOBILE ------------ */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 430px) {
 
 	/* ------- SKILLS TAB -------- */
 	.content_subnav_item {
@@ -222,6 +222,7 @@
 		text-align:center;
 		justify-content:center;
 		padding:3vw 0 3vw 0;
+		font-size:4vw;
 	}
 
 	.acrobat_icon {
@@ -231,6 +232,7 @@
 
 	.skills_fuelBars {
 		margin:14vw 0 0 0;
+		height:60vh;
 	}
 
 	.skill_row {

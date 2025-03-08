@@ -42,7 +42,56 @@
 
 .portItem_detailPanel h3 {
 	font-size:2vw;
-	
+}
+
+.portItem_skills_cont {
+	display:flex;
+	flex-direction:row;
+	justify-content: space-evenly;
+	width:75vw;
+	margin:auto;
+	padding: 2vw 0 4vw 0;
+}
+
+
+.portItem_skills_cont.col_count_4 {
+	flex-wrap: wrap;
+}
+
+.porItem_skills_category {
+	width:60vw;
+}
+
+.porItem_skills_category.col_count_4 { 
+	width:33vw;
+}
+
+.porItem_skills_category.col_count_3 {
+	width:20vw;
+}
+
+.porItem_skills_category.col_count_2 {
+	width:30vw;
+}
+
+.porItem_skills_category .skill_row {
+	display:block;
+	text-align:left;
+	width:100%;
+}
+
+.porItem_skills_category .skill_row .skill_row_title {
+	text-align:left;
+	width:100%;
+	padding: 0 0 1vw 0;
+}
+
+.porItem_skills_category .skill_row .skill_row_fuelBar {
+	width:100%;
+}
+
+.porItem_skills_category .skill_row .skill_row_fuelBar {
+	padding:0;
 }
 
 .port_detail_nav {
@@ -112,9 +161,8 @@
 }
 
 .link_icon {
-	width:1.5vw !important; 
+	width:1.5vw; 
 	padding-right:.5vw;
-	width:90%;
 	padding:5%;
 }
 
@@ -123,8 +171,10 @@
 	text-decoration:none;
 	letter-spacing:.25vw;
 	padding-left:.5vw;
+	display:flex;
 }
 .link:hover {
+	color:white;
 	text-decoration:underline;
 }
 
@@ -138,7 +188,7 @@
 /* ----------- MOBILE ------------ */
 
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 431px) { 
 
 	.port_detail {
     top: 20px !important;
@@ -199,6 +249,20 @@
 	.port_detail_title .close {
 		padding: 3vw 3vw 0 0;
 		font-size:5vw;
+	}
+
+	.link {
+		color:white;
+		text-decoration:none;
+		letter-spacing:.25vw;
+		padding-left:0;
+		display:flex;
+		justify-content:center;
+	}
+
+	.link_icon {
+		width:5vw;
+		margin:0 2vw 0 0;
 	}
 
 }

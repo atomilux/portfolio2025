@@ -114,7 +114,7 @@ export const PortfolioContext = createContext({
 
 export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 
 	const out = useCallback((msg:string,l:LVL) => {
 	
@@ -377,7 +377,6 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 			(item) => {
 
 				if (role_in === item.key) {
-					console.dir(item)
 					global_set_skills_role_current(item)
 					global_set_skills_role_current_skills(item.skill_keys.split(','))
 				}
@@ -395,8 +394,6 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 		 }
 
 		const final_skills: ISkills_rated[] = [new Skills_rated()]
-
-		console.dir(final_skills)
 
 		portfolio_data.skills.skills_rated.forEach(
 
