@@ -20,15 +20,13 @@ import stevelux_logo from '../assets/logo_stevelux_logotype_940x150.svg'
 
 export default function AppCore() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
-	/*
 	const o = (msg:string,l:LVL) => {
 		return style_out(msg,l)
 	}
-	*/
 
-	console.log("AppCore.tsx - INIT",LVL.effect)
+	console.log(o("AppCore.tsx - INIT",LVL.effect))
 
 	const {ee} = useContext(PortfolioContext) 
 
@@ -89,7 +87,7 @@ export default function AppCore() {
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
 		if (debug) {
-			console.log("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event)
+			console.log(o("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event))
 		}
 
 		//resize 
@@ -107,9 +105,6 @@ export default function AppCore() {
 			</div>
 
 			<Nav></Nav>
-
-			{/* 
-
 
 			<SubNav></SubNav>
 
@@ -133,8 +128,6 @@ export default function AppCore() {
 
 
 			<PortfolioDetail/>
-
-*/}
 
 		</>
 

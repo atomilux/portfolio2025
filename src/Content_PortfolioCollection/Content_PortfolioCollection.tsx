@@ -231,8 +231,8 @@ export default function Content_PortfolioCollection () {
 		
 		return(
 		<>
-			<img className="port_videoIcon" src={play_icon} />
-			<img className="port_thumbnail" src={image_path_str} data-key={item_obj.id} key={item_obj.id+"_thumb"}/>
+			<img className="port_videoIcon" src={play_icon} alt="play icon"/>
+			<img className="port_thumbnail" src={image_path_str} data-key={item_obj.id} key={item_obj.id+"_thumb"} alt={`portfolio thumbnail ${item_obj.id}`}/>
 		</>)
 	}//end f
 
@@ -275,7 +275,9 @@ export default function Content_PortfolioCollection () {
 
 	return (
 
-		<div 	id="portfolio" className="portfolio"
+		<div 	id="portfolio" 
+					data-testid="portfolio-collection"
+					className="portfolio"
 					ref={dom_ref_me} 
 					style={{opacity:global_skillset_opacity, transform:'rotateY('+global_content_portfolio_rotateY+'deg) translateZ('+global_content_3d_translateZ+'px)'}}>
 
@@ -295,7 +297,7 @@ export default function Content_PortfolioCollection () {
 
 										{ 
 											image_isThumbnail(item.images[0]) ?
-											<img className="port_thumbnail" src={item.images[0]} data-key={item.id} key={item.id+"_thumb"}/> : null
+											<img className="port_thumbnail" src={item.images[0]} data-key={item.id} key={item.id+"_thumb"} alt={`portfolio thumbnail ${item.id.toString()}`} /> : null
 										}
 
 										{

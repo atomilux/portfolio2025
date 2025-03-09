@@ -134,6 +134,7 @@ export default function Content_SkillOverview() {
 	return (
 		
 		<div 	id="skillset_overview" 
+					data-testid="skillset-overview"
 					style={{
 						opacity:global_skillset_opacity, 
 						transform: 	'rotateY('+global_content_overview_rotateY+'deg) ' + 

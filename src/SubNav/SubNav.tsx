@@ -242,6 +242,7 @@ export default function SubNav() {
 
 		ui_stick_calcs()
 		set_local_firstRun(false)
+		ui_stick_move()
 
 	})
 
@@ -258,7 +259,8 @@ export default function SubNav() {
 			if (debug) {
 				console.log(o("SubNav.tsx - EVT_ENUM.WINDOW_RESIZE", LVL.event));
 			}
-			ui_stick_calcs();
+			ui_stick_calcs()
+			ui_stick_move()
 		};
 	
 		ee.on(EVT_ENUM.WINDOW_RESIZE, handleResize);
@@ -284,6 +286,7 @@ export default function SubNav() {
 		local_stick_x_skillset, 
 		local_stick_x_portfolio, 
 		ui_stick_move, 
+		global_portfolio_mode,
 		debug]);
 
 
@@ -293,7 +296,10 @@ export default function SubNav() {
 
 	return (
 					
-		<div id="subnav_category" className={"subnav subnav_" + global_skills_role_current.key} style={{opacity:global_subnav_opacity, transform:'scale('+global_subnav_scale+')'}}>
+		<div 	id="subnav_category" 
+					data-testid="subnav"
+					className={"subnav subnav_" + global_skills_role_current.key} 
+					style={{opacity:global_subnav_opacity, transform:'scale('+global_subnav_scale+')'}}>
 
 			<div className="content_subnav">
 
@@ -343,7 +349,10 @@ export default function SubNav() {
 			</div>
 
 			<div className="subnav_stick_row" ref={dom_ref_stick_container}>
-				<div className="subnav_stick" ref={dom_ref_stick} style={{left:local_stick_x+"px"}}></div>
+				<div 	className="subnav_stick"
+							data-testid="subnav-stick" 
+							ref={dom_ref_stick} 
+							style={{left:local_stick_x+"px"}}></div>
 			</div>
 		</div>
 

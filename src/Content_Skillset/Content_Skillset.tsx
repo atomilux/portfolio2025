@@ -91,7 +91,9 @@ export default function Content_Skillset() {
 
 	return (
 
-		<div 	id="skillset" className="skills" 
+		<div 	id="skillset" 
+					data-testid="skillset"
+					className="skills" 
 					style={{
 						opacity:global_skillset_opacity, 
 						transform:'rotateY('+global_content_skillset_rotateY+'deg) translateZ('+global_content_3d_translateZ+'px)'}}>
@@ -99,7 +101,13 @@ export default function Content_Skillset() {
 		<div className="skills_header">
 			<div className="skills_search_title">{global_skills_role_current.title} Skills ({global_role_skillsRanked.length})</div>
 			<div className="skills_search_input">
-				<input type="text" id="skills_search_input" name="fname" placeholder='Search' onChange={search_skills}/>
+				<input 
+					type="text" 
+					id="skills_search_input" 
+					data-testid="skills-search-input"  // Added this
+					name="fname" 
+					placeholder='Search' 
+					onChange={search_skills}/>
 			</div>
 		</div>
 

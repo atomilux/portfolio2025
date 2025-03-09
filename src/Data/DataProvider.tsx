@@ -114,7 +114,7 @@ export const PortfolioContext = createContext({
 
 export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 
 	const out = useCallback((msg:string,l:LVL) => {
 	
@@ -135,6 +135,8 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const anim_sequence_subnav_click = () => {
 
+		if (debug) console.log(out("anim_sequence_subnav_click",LVL.function))
+
 		set_global_subnav_opacity(0)
 		set_global_subnav_scale(.8)
 
@@ -146,6 +148,8 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 			()=>{
 
+				if (debug) console.log(out("anim_sequence_subnav_click - delay500",LVL.line))
+
 				//NAV - set opacity to 1 (transition anim)
 				set_global_subnav_opacity(1)	
 				set_global_subnav_scale(1)			
@@ -153,6 +157,9 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 				//fade in skillset
 				ee.delay500(
 					() => {
+
+						if (debug) console.log(out("anim_sequence_subnav_click - SECOND delay500",LVL.line))
+
 						set_global_skillset_opacity(1)
 						set_global_skillset_scale(1)
 					}
@@ -287,6 +294,12 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 		if (debug) {
 			console.log(out("ctrl_portfolio_filter_byRole",LVL.function))
 			console.log(out("- role_in: " + role_in,LVL.line))
+		}
+
+		if (!role_in) {
+			console.log(out('Role not found:' + role_in,LVL.line));
+			//set_global_portfolio_filtered([]);
+			return;
 		}
 
 		let skills_arr:string[] = [];

@@ -130,7 +130,7 @@ export default function Content_PortfolioDetail() {
 						return(
 							<div className="link" key={"link_"+i}>
 								<div>
-									<img className="link_icon" src={ link_icon(item.url) }/>
+									<img className="link_icon" src={ link_icon(item.url) } alt="link_icon"/>
 								</div>
 								<div>
 									<a href={item.url} target="_blank" className="link">
@@ -172,30 +172,6 @@ export default function Content_PortfolioDetail() {
 
 	}//end f
 
-	/*
-	const calc_column_count = () => {
-
-		const local_skills = ctrl_skillsRated_get_byPortfolioID(global_portfolio_item_current.id);
-
-		if (local_skills.length === 0) { return; }
-
-		const skills_marketing:ISkills_rated[] 	= []
-		const skills_uiux:ISkills_rated[] 			= []
-		const skills_webDev:ISkills_rated[] 		= []
-		const skills_gameDev:ISkills_rated[] 			= []
-
-		let col_count = 0;
-
-		if (skills_marketing.length) col_count++
-		if (skills_uiux.length) col_count++
-		if (skills_webDev.length) col_count++
-		if (skills_gameDev.length) col_count++
-
-		//update local state
-		set_local_col_count("col_count_"+col_count)
-
-	}
-		*/
 
 	const render_skills = () => {
 
@@ -374,7 +350,8 @@ export default function Content_PortfolioDetail() {
 							<div className="port_detail_item" key={"image_"+i}>
 								<iframe title="vimeo-player"
 								 				src={item+"&transparent=0"} 
-												width="100%" height={videoHeight()} 
+												width="100%" 
+												height={videoHeight()} 
 												style={{border:0, background:"black"}} 
 												allowFullScreen={true}>
 								</iframe>
@@ -383,7 +360,7 @@ export default function Content_PortfolioDetail() {
 					} else {
 						return (
 							<div className="port_detail_item" key={"image_"+i}>
-								<img src={item}/>
+								<img src={item} alt="portfolio item"/>
 							</div>
 						)
 					}
@@ -555,7 +532,12 @@ export default function Content_PortfolioDetail() {
 
 	return (
 
-		<div id="portItem_media" className="portItem_detailPanel" style={{...local_css}} ref={ref_overlay}>
+		<div 
+			id="portItem_media" 
+			data-testid="portfolio-detail" 
+			className="portItem_detailPanel" 
+			style={{...local_css}} 
+			ref={ref_overlay}>
 
 
 			{/* ----------------- PORTFOLIO ITEM: TITLE ---------------- */}
