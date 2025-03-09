@@ -5,13 +5,15 @@
     { "path": "./tsconfig.node.json" }
   ],
 	"compilerOptions": {
+		"lib": ["DOM", "ESNext"], // DOM includes Error, Window
     "target": "ESNext",
     "module": "ESNext",
     "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "types": ["vitest/globals", "node"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+		"composite": true
   },
   "include": ["src/**/*", "vitest.config.ts"]
 }

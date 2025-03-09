@@ -114,7 +114,7 @@ export const PortfolioContext = createContext({
 
 export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 
 	const out = useCallback((msg:string,l:LVL) => {
 	
@@ -354,7 +354,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 		global_portfolio.forEach((item) => {
 
 			if(item.id === id_in) {
-				console.dir(item);
+				if (debug) { console.dir(item); }
 				portfolio_item = item;
 			}
 

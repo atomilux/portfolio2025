@@ -143,7 +143,7 @@ export default function Content_SkillOverview() {
 			<div className="column col1">
 				<div className="skills_desc">{ global_skills_role_current.desc }</div>
 				<div className="skills_link">
-					<img className="acrobat_icon" src="/icon_acrobat.svg"/>
+					<img className="acrobat_icon" src="./images/icon_acrobat.svg"/>
 					<a href={ local_resume_url_byRole } target="_blank">{ local_resume_label_byRole }</a>
 				</div>				
 			</div>

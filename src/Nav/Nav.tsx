@@ -9,7 +9,7 @@ import './Nav.css'
 
 export default function Nav() {
 
-	const debug:boolean = true;
+	const debug:boolean = false;
 	
 	const o = (msg: string, l: LVL) => {
 		return chalk_out(msg, l)
@@ -77,7 +77,7 @@ export default function Nav() {
 	//DOM height storage for inline CSS height/animations to work
 	const [
 		local_nav_heightOpenDOMready, 
-		local_set_nav_heightOpenDOMready] = useState(0)
+		local_set_nav_heightOpenDOMready] = useState(10)
 
 	//DOM - swappable CSS styling class for skillset
 	const [
@@ -114,25 +114,21 @@ export default function Nav() {
 
 		//mobile
 		if (window_width < 510){
-			console.log('MOBILE')
 			font_size_fraction = .08
 		}
 
 		//tablet
 		if (window_width >= 510 && window_width <= 768){
-			console.log('TABLET')
 			font_size_fraction = .06
 		}	
 
 		//laptop	
 		if (window_width >= 768 && window_width <= 1024) {
-			console.log('LAPTOP')
 			font_size_fraction = .04
 		}
 
 		//desktop
 		if (window_width > 1024){
-			console.log('DESKTOP')
 			font_size_fraction = .03
 		}
 
@@ -163,6 +159,11 @@ export default function Nav() {
 
 		const skillHeight = nav_cont_height + nav_header_height
 		const skillHeightClose = nav_header_height + nav_firstItem_height
+
+		if (debug) { 
+			console.log(o("skillHeight:"+skillHeight,LVL.line)) 
+			console.log(o("skillHeightClose:"+skillHeightClose,LVL.line)) 
+		}
 
 		return {
 			skillHeight,
@@ -335,11 +336,24 @@ export default function Nav() {
 		if (debug) { console.log(o("Nav.tsx",LVL.effect)) }
 
 		//for some reason it takes a few cycles for setState to catch up ... fkn React
-		if (dom_nav.current && dom_nav.current.getBoundingClientRect().height === 0) { return; }
+		if (dom_nav.current && dom_nav.current.getBoundingClientRect().height === 0) { 
+			
+			if (debug) { 
+
+				console.dir(dom_nav.current);
+				console.dir(dom_nav.current.getBoundingClientRect())
+				console.log(o("- return",LVL.line)) 
+
+			}
+
+			return; 
+		
+		}
 
 		//trigger init calcs
 		if (local_nav_isFirstLoad) { 
 
+			if (debug) { console.log(o("- local_nav_isFirstLoad",LVL.line)) }
 
 			//----------- OPEN/CLOSE ----------
 
@@ -358,6 +372,7 @@ export default function Nav() {
 
 					//STATE - updates multiple state vars
 					//NOTE - state still thinks its the oppisite of what we is going to be set, hence the !
+
 					local_set_heightsData(heights_obj,global_nav_isOpen)
 
 				}

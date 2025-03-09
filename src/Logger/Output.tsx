@@ -100,3 +100,28 @@ export const output_intro = () => {
 
 	);
 };
+
+/*
+
+// Overwrite console.log
+const originalConsoleLog = console.log;
+console.log = (...args) => {
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Err = (window as any).Error || Error; // Fallback to global
+	const stack = new Err().stack!.split('\n')[2];
+  const match = stack.match(/at\s+(.*)\s+\((.*):(\d+):(\d+)\)/) || stack.match(/at\s+(.*):(\d+):(\d+)/);
+  let caller = 'unknown';
+  if (match) {
+    const [_, funcName, file, line] = match;
+    caller = `${file}:${line}${funcName ? ` (${funcName})` : ''}`;
+  }
+
+  // Default to LVL.line, or infer from args/context if you want
+  const level = LVL.line; // Static for now—tweak later
+  const styledMsg = chalk_out(`[${caller}] ${args.join(' ')}`, level);
+
+  originalConsoleLog(styledMsg);
+};
+
+*/

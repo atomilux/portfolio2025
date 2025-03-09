@@ -208,9 +208,8 @@
     width: 100% !important;
 	}
 
-	.portItem_detailPanel {
-		top:14vw !important;
-
+	#portItem_media {
+		padding-top:14vw;
 	}
 
 	.port_detail_description {

@@ -55,7 +55,9 @@ export default function Content_PortfolioDetail() {
 			bottom:'50vw',
 			left:'50vw',
 			opacity:0,
-			overflowY:'auto'
+			overflowY:'auto',
+			width:'auto',
+			height:'auto'
 		}
 	)
 
@@ -73,8 +75,8 @@ export default function Content_PortfolioDetail() {
 
 		const r_pdf = /.pdf/;
 
-		const str_linkIcon = "/images/icon_newWindow_256x256.svg";
-		const str_pdfIcon = "/images/icon_acrobat.svg";
+		const str_linkIcon = "./images/icon_newWindow_256x256.svg";
+		const str_pdfIcon = "./images/icon_acrobat.svg";
 
 		let str_finalIconURL:string = str_linkIcon;
 
@@ -443,6 +445,8 @@ export default function Content_PortfolioDetail() {
 
 		render_inlineCSS(false)
 
+		document.body.style.overflow = '';
+
 	}//end f
 
 
@@ -455,23 +459,29 @@ export default function Content_PortfolioDetail() {
 			console.log( o("render_inlineCSS",LVL.function))
 		}
 
+		//show
 		let css = {
 			overflowY:'scroll',
 			top:'0',
 			right:'0',
 			bottom:'0',
 			left:'0',
-			opacity:1
+			opacity:1,
+			width:'auto',
+			height:'auto'
 		}
 
+		//hide
 		if (showMe_in === false) {
 			css = {
 				overflowY:'hidden',
 				top:'0',
 				right:'0',
 				bottom:'0',
-				left:'10000px',
-				opacity:0
+				left:'0',
+				opacity:0,
+				width:'0',
+				height:'0'
 			}
 		}
 
@@ -521,11 +531,21 @@ export default function Content_PortfolioDetail() {
 			console.log(o("ref_overlay.current: ",LVL.line),ref_overlay.current)
 		}
 
+		//scroll page up or the overlay won't fully render to page edges
+		const root = document.getElementById('root');
+
+		// Try scrolling
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+		if (root) root.scrollTo({ top: 0, behavior: 'smooth' });
+		
+
 		render_inlineCSS(true)
 
+		//scroll overlay up
 		if (ref_overlay.current) {
-			ref_overlay.current.scrollTo(0,0)
+			ref_overlay.current.scrollTo({ top: 0, behavior: 'smooth' })
 		}
+
 
 	})
 
