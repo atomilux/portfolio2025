@@ -3,7 +3,7 @@ import { PortfolioContext } from '../Data/DataProvider'
 
 import { EVT_ENUM, LVL } from '../Data/Models'
 
-import { chalk_out } from '../Logger/Output'
+import { style_out } from '../Logger/Output'
 
 
 //CSS
@@ -15,7 +15,7 @@ export default function SubNav() {
 	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
-		return chalk_out(msg,l)
+		return style_out(msg,l)
 	}
 
 

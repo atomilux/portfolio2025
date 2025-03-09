@@ -3,18 +3,19 @@ import { PortfolioContext } from '../Data/DataProvider'
 
 import { EVT_ENUM, LVL } from '../Data/Models'
 
-import { chalk_out } from '../Logger/Output'
+//import { style_out } from '../Logger/Output'
 //CSS
 import './Nav.css'
 
 export default function Nav() {
 
-	const debug:boolean = false;
+	const debug:boolean = true;
 	
+	/*
 	const o = (msg: string, l: LVL) => {
-		return chalk_out(msg, l)
+		return style_out(msg, l)
 	}
-	
+	*/
 
 	////////////////////// GLOBAL VARIABLES //////////////////////
 
@@ -105,9 +106,7 @@ export default function Nav() {
 	//----- UI CALCULATIONS --------
 	const calc_nav_itemHeight = useCallback(() => {
 
-		if (debug) { 
-			console.log(o("calc_nav_itemHeight",LVL.function)) 
-		}
+		if (debug) console.log("calc_nav_itemHeight",LVL.function)
 
 		let font_size_fraction = 1.0
 		const window_width = window.innerWidth
@@ -146,7 +145,7 @@ export default function Nav() {
 
 	const calc_nav_openCloseHeights = useCallback(() => {
 
-		if (debug) { console.log(o("calc_nav_openCloseHeights",LVL.function)) }
+		if (debug) console.log("calc_nav_openCloseHeights",LVL.function)
 
 		//const nav_cont_height = calc_get_nav_height()
 		const nav_cont_height = dom_nav_role_list.current ? dom_nav_role_list.current.getBoundingClientRect().height : 0
@@ -160,10 +159,10 @@ export default function Nav() {
 		const skillHeight = nav_cont_height + nav_header_height
 		const skillHeightClose = nav_header_height + nav_firstItem_height
 
-		if (debug) { 
-			console.log(o("skillHeight:"+skillHeight,LVL.line)) 
-			console.log(o("skillHeightClose:"+skillHeightClose,LVL.line)) 
-		}
+		if (debug)
+			console.log("skillHeight:"+skillHeight,LVL.line)
+			console.log("skillHeightClose:"+skillHeightClose,LVL.line)
+		
 
 		return {
 			skillHeight,
@@ -178,21 +177,21 @@ export default function Nav() {
 	//---- STATE ------
 	const local_set_heightsData = useCallback((heights_obj:HeightsObject, setOpen_bool:boolean) => {
 
-		if (debug) {
-			console.log( o("local_set_heightsData",				LVL.function)						) 					
-			console.log( o("heights_obj: ",								LVL.line), heights_obj	)	
-			console.log( o("setOpen_bool:"+setOpen_bool,	LVL.line)								) 							
-		}
+		if (debug) 
+			console.log( "local_set_heightsData",				LVL.function						) 					
+			console.log( "heights_obj: ",								LVL.line, heights_obj		)	
+			console.log( "setOpen_bool:"+setOpen_bool,	LVL.line								) 							
+		
 
 		//toggling DOM height
 		if (setOpen_bool === true) {
-			if (debug) { console.log(o("local_set_heightsData() - set to OPEN height",LVL.line)) }
+			if (debug) console.log("local_set_heightsData() - set to OPEN height",LVL.line)
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeight)
 			return;
 		}
 
 		if (setOpen_bool === false) {
-			if (debug) { console.log(o("local_set_heightsData() - set to CLOSED height",LVL.line)) }
+			if (debug) console.log("local_set_heightsData() - set to CLOSED height",LVL.line)
 			local_set_nav_heightOpenDOMready(heights_obj.skillHeightClose)
 		}
 
@@ -202,7 +201,7 @@ export default function Nav() {
 	//---- UI STYLING ------
 	const ui_bold_nav = (skillset_in:string):string => {
 
-		if(debug) { console.log(o("ui_bold_nav",LVL.function)) }
+		if(debug) console.log("ui_bold_nav",LVL.function)
 
 		if (global_skills_role_current.key === skillset_in) {
 			return "nav_role_item_active"
@@ -215,7 +214,7 @@ export default function Nav() {
 
 	const ui_switch_navSkillsetCSS = (skillset_in:string):string => {
 
-		if (debug) { console.log(o("ui_switch_navSkillsetCSS",LVL.function)) }
+		if (debug) console.log("ui_switch_navSkillsetCSS",LVL.function)
 		
 		if (skillset_in in global_ui_nav_classMap) {
 			return global_ui_nav_classMap[skillset_in as keyof typeof global_ui_nav_classMap]
@@ -227,7 +226,7 @@ export default function Nav() {
 
 	const ui_switch_navOrdering = (skillset_in:string) => {
 
-		if (debug) { console.log(o("ui_click_skill",LVL.function)) }
+		if (debug) console.log("ui_click_skill",LVL.function)
 
 		if (refs.current["skills_marketing"]) {
 			refs.current["skills_marketing"].classList.remove("textBold","orderMinus1")
@@ -256,7 +255,7 @@ export default function Nav() {
 	//---- CLICK ------
 	const ui_click_skill = (e: React.MouseEvent<HTMLDivElement>) => {
 
-		if (debug) { console.log(o("ui_click_skill",LVL.function)) }
+		if (debug) console.log("ui_click_skill",LVL.function)
 
 		//scope the data-key attribute
 		const role:string = (e.target as HTMLDivElement).dataset.key || ''
@@ -333,18 +332,15 @@ export default function Nav() {
 	
 	useEffect(()=>{
 
-		if (debug) { console.log(o("Nav.tsx",LVL.effect)) }
+		if (debug) console.log("Nav.tsx",LVL.effect)
 
 		//for some reason it takes a few cycles for setState to catch up ... fkn React
 		if (dom_nav.current && dom_nav.current.getBoundingClientRect().height === 0) { 
 			
-			if (debug) { 
-
+			if (debug) 
 				console.dir(dom_nav.current);
 				console.dir(dom_nav.current.getBoundingClientRect())
-				console.log(o("- return",LVL.line)) 
-
-			}
+				console.log("- return",LVL.line)
 
 			return; 
 		
@@ -353,7 +349,7 @@ export default function Nav() {
 		//trigger init calcs
 		if (local_nav_isFirstLoad) { 
 
-			if (debug) { console.log(o("- local_nav_isFirstLoad",LVL.line)) }
+			if (debug) { console.log("- local_nav_isFirstLoad",LVL.line) }
 
 			//----------- OPEN/CLOSE ----------
 
@@ -410,7 +406,7 @@ export default function Nav() {
 
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
-		if (debug) { console.log(o("Nav.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event)) }
+		if (debug) console.log("Nav.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event); 
 
 		ee.delay1000(
 

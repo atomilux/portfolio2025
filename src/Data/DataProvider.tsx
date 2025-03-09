@@ -11,7 +11,7 @@ import {
 	LVL,
 } from './Models'
 
-import { chalk_out } from '../Logger/Output'
+import { style_out } from '../Logger/Output'
 
 
 /* ------------ INIT CONTEXT ------------ */
@@ -118,7 +118,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
 	const out = useCallback((msg:string,l:LVL) => {
 	
-		return chalk_out(msg,l)
+		return style_out(msg,l)
 
 	},[])
 

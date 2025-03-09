@@ -10,7 +10,7 @@ import PortfolioDetail from '../Content_PortfolioDetail/Content_PortfolioDetail'
 import Content_PortfolioCollection from '../Content_PortfolioCollection/Content_PortfolioCollection'
 import { PortfolioContext } from '../Data/DataProvider'
 
-import { chalk_out } from '../Logger/Output'
+import { style_out } from '../Logger/Output'
 
 /* Util, Models, Events */
 import { EVT_ENUM,LVL } from '../Data/Models'
@@ -22,11 +22,16 @@ export default function AppCore() {
 
 	const debug:boolean = true;
 
+	/*
 	const o = (msg:string,l:LVL) => {
-		return chalk_out(msg,l)
+		return style_out(msg,l)
 	}
+	*/
+
+	console.log("AppCore.tsx - INIT",LVL.effect)
 
 	const {ee} = useContext(PortfolioContext) 
+
 
 
 	const [ content_width, set_content_width 	] = useState(window.outerWidth * .75)
@@ -84,7 +89,7 @@ export default function AppCore() {
 	ee.on(EVT_ENUM.WINDOW_RESIZE,()=>{
 
 		if (debug) {
-			console.log( o("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event))
+			console.log("AppCore.tsx - EVT_ENUM.WINDOW_RESIZE",LVL.event)
 		}
 
 		//resize 
@@ -102,6 +107,9 @@ export default function AppCore() {
 			</div>
 
 			<Nav></Nav>
+
+			{/* 
+
 
 			<SubNav></SubNav>
 
@@ -125,6 +133,8 @@ export default function AppCore() {
 
 
 			<PortfolioDetail/>
+
+*/}
 
 		</>
 

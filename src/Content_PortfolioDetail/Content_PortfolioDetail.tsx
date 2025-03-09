@@ -2,7 +2,7 @@ import { useContext, useEffect, useState, useRef, useCallback } from 'react'
 import { PortfolioContext } from '../Data/DataProvider'
 import { EVT_ENUM, ISkills_rated, LVL } from '../Data/Models'
 
-import { chalk_out } from '../Logger/Output'
+import { style_out } from '../Logger/Output'
 
 
 import './Content_PortfolioDetail.css'
@@ -14,7 +14,7 @@ export default function Content_PortfolioDetail() {
 	const debug:boolean = false;
 
 	const o = (msg:string,l:LVL) => {
-		return chalk_out(msg,l)
+		return style_out(msg,l)
 	}
 
 
