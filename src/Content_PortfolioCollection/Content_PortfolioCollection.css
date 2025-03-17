@@ -1,5 +1,5 @@
 
-/* ================== PORTFOLIO ==================  */
+/* ================== PORTFOLIO COLLECTION ==================  */
 
 .portfolio {
 	position:absolute;
@@ -72,6 +72,8 @@
 .port_item_stats {
 	display:flex;
 	justify-content:center;
+	display:block;
+	text-align:center;
 }
 
 .port_item_stat {

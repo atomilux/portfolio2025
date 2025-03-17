@@ -10,6 +10,7 @@ import PortfolioDetail from '../Content_PortfolioDetail/Content_PortfolioDetail'
 import Content_PortfolioCollection from '../Content_PortfolioCollection/Content_PortfolioCollection'
 import { PortfolioContext } from '../Data/DataProvider'
 
+/* Logging and Console styling */
 import { style_out } from '../Logger/Output'
 
 /* Util, Models, Events */
@@ -17,6 +18,20 @@ import { EVT_ENUM,LVL } from '../Data/Models'
 
 /* SVG */
 import stevelux_logo from '../assets/logo_stevelux_logotype_940x150.svg'
+
+
+//--------------- AUGMENT WINDOW OBJECT -----------------
+
+interface CustomWindow extends Window {
+	port_isAwaiting_resize_timeout: boolean;
+	port_resizeTimeout: ReturnType<typeof setTimeout>;
+}
+
+declare let window: CustomWindow;
+
+
+
+//--------------- COMPONENT -----------------
 
 export default function AppCore() {
 

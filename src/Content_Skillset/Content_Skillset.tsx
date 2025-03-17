@@ -6,7 +6,7 @@ import { style_out } from '../Logger/Output'
 
 //CSS
 import './Content_Skillset.css'
-import { LVL } from '../Data/Models'
+import { ISkills_rated, LVL } from '../Data/Models'
 
 
 export default function Content_Skillset() {
@@ -33,14 +33,14 @@ export default function Content_Skillset() {
 
 	////////////////////// LOCAL VARIABLES //////////////////////
 
-	const [local_skills, set_local_skills] = useState([])
+	const [local_skills, set_local_skills] = useState<ISkills_rated[]>([])
 
 
 
 	////////////////////// FUNCTIONS //////////////////////
 
 
-	const search_skills = (e) => {
+	const search_skills = (e: { target: { value: string } }) => {
 
 		if (debug) { console.log( o("search_skills",LVL.function)) }
 
@@ -48,12 +48,10 @@ export default function Content_Skillset() {
 
 		const raw_arr = global_role_skillsRanked;
 
-		let final_arr = []
+		let final_arr:ISkills_rated[] = []
 
-		final_arr = _.filter(raw_arr,(item)=>{
-			if (item.title.toLowerCase().includes(search_str.toLowerCase())) {
-				return item;
-			}
+		final_arr = _.filter(raw_arr, (item): item is ISkills_rated => {
+			return item.title.toLowerCase().includes(search_str.toLowerCase());
 		})
 
 		if (debug) { console.log( o("final_arr",LVL.line), final_arr) }
