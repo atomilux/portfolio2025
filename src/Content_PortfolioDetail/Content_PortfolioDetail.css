@@ -142,23 +142,12 @@
 	margin:0 auto 3vw auto;
 }
 
-.port_detail_copy {
-	display:flex;
-	justify-content:center;
-}
-
-
 .port_detail_solution li {
 	text-align:left
 }
 
 .port_detail img {
 	width:100%;
-}
-
-
-.link_item {
-	display:flex;
 }
 
 .link_icon {
@@ -170,7 +159,6 @@
 .link {
 	color:white;
 	text-decoration:none;
-	letter-spacing:.25vw;
 	padding-left:.5vw;
 	display:flex;
 }
@@ -178,12 +166,6 @@
 	color:white;
 	text-decoration:underline;
 }
-
-.col_60 { width:60%; }
-
-.col_40 { width:40%; }
-
-.col_20 { width:20%; }
 
 
 /* ----------- MOBILE ------------ */
@@ -254,7 +236,6 @@
 	.link {
 		color:white;
 		text-decoration:none;
-		letter-spacing:.25vw;
 		padding-left:0;
 		display:flex;
 		justify-content:center;
@@ -265,14 +246,4 @@
 		margin:0 2vw 0 0;
 	}
 
-}
-
-/* ================== PORTFOLIO ITEM MEDIA ==================  */
-
-.portItem_image {
-	padding-bottom:2vw;
-}
-
-.portItem_image img {
-	border:1px solid rgb(66, 66, 66);
 }
