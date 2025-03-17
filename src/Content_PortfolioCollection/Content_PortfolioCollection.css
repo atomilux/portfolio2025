@@ -28,13 +28,14 @@
 	margin:0 1vw 4vw 1vw;
 }
 
-
+/*
 .port_thumbnail_shell {
 	overflow:hidden;
 	width:100%;
 	height:25%;
-	
 }
+*/
+
 .port_thumbnail {
 	width:20vw;
 	height:20vw;
@@ -69,12 +70,14 @@
 	justify-content:center;
 }
 
+/*
 .port_item_stats {
 	display:flex;
 	justify-content:center;
 	display:block;
 	text-align:center;
 }
+	*/
 
 .port_item_stat {
 	width:1vw;
