@@ -3,7 +3,7 @@ import { describe, beforeEach, it, expect, vi } from 'vitest';
 import '@testing-library/jest-dom';
 import Nav from './Nav';
 import { PortfolioContext } from '../Data/DataProvider';
-import { EVT_ENUM, Portfolio_item_link } from '../Data/Models';
+import { Portfolio_item_link } from '../Data/Models';
 import { useState } from 'react';
 
 // Mock EventEmitter

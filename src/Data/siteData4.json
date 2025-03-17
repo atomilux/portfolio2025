@@ -1269,9 +1269,12 @@
 			],
 			"skillset":"brand_building,creative_direction,product_design,product_positioning,lead_generation,graphic_design,photoshop,illustrator,copywriting,typography,illustration,ux_customer_research,competitive_audit,information_architecture,prototyping,ui_design,ux_design,data_visualization,web_design,user_documentation,user_training,html,css,javascript,typescript,unit_testing,api_integration,api_authoring,python,nodejs,aws,npm,web_app_architecture,json,regex,automation,developer_documentation",
 			"images":[
+				"images/_STARTUP/CYLIGENCE_UI_v1.png",
 				"images/_STARTUP/CYLIGENCE_terminal1.png",
 				"images/_STARTUP/CYLIGENCE_terminal2.png",
 				"images/_STARTUP/CYLIGENCE_terminal3.png",
+				"images/_STARTUP/CYLIGENCE_recon_enrichment.png",
+				"images/_STARTUP/CYLIGENCE_server_schema.png",
 				"images/_STARTUP/CYLIGENCE1.png",
 				"images/_STARTUP/CYLIGENCE2.png",
 				"images/_STARTUP/CYLIGENCE3.png",
@@ -1289,6 +1292,97 @@
 			],
 			"links":[
 				{"title":"steve.luxe@cyligence.com", "url":"mailto:steve.lux@cyligence.com"}
+			]
+		},
+		{
+			"id":48,
+			"title":"STARTUP - SILENTIUM",
+			"objective":"Build atypical AI that wields our proprietary technoogy from Vigilocity and Cyligence in orchesration with security servies. The brand creation was driven by hallmarks of global contractors and their ethos.",
+			"solution":[
+				"Iconic",
+				"Adheres to Existing Brand",
+				"Impactful",
+				"Memorable",
+				"Unique",
+				"Clever",
+				"Creative"
+			],
+			"skillset":"brand_building,creative_direction,graphic_design,illustration,illustrator",
+			"images":[
+				"images/_STARTUP/silentium_home_draft_2_english.jpg",
+				"images/_STARTUP/silentium_logo_dark_horiz_900x256.png",
+				"images/_STARTUP/silentium_logo_dark_circle_512x512.png",
+				"images/_STARTUP/silentium_logo_dark_square_512x512.png",
+				"images/_STARTUP/silentium_logo_inverted_circle_512x512.png"
+			],
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
+		},
+		{
+			"id":49,
+			"title":"STARTUP - LUMINOS",
+			"objective":"Build an automation suite that controls headless browsing to automate tecious search and documentation of fraud laden 'Do Not Close' businesses, individuals and properties and delivers contents into a concise PDF report to mitigate Title Industry risk.",
+			"solution":[
+				"Risk Mitigation",
+				"Title Industry",
+				"AWS EC2",
+				"Memorable",
+				"Puppeteer",
+				"Node+Angular",
+				"PDFkit"
+			],
+			"skillset":"brand_building,creative_direction,product_design,product_positioning,lead_generation,graphic_design,photoshop,illustrator,copywriting,typography,illustration,ux_customer_research,competitive_audit,information_architecture,prototyping,ui_design,ux_design,data_visualization,web_design,user_documentation,user_training,html,css,javascript,typescript,unit_testing,api_integration,api_authoring,python,nodejs,aws,npm,web_app_architecture,json,regex,automation,developer_documentation",
+			"images":[
+				"images/_STARTUP/luminos_UI.png",
+				"images/_STARTUP/luminos_terminal1.png",
+				"images/_STARTUP/luminos_terminal2.png",
+				"images/_STARTUP/luminos_report1.png",
+				"images/_STARTUP/luminos_report2.png",
+				"images/_STARTUP/luminos_report3.png"
+
+			],
+			"links":[
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
+			]
+		},
+		{
+			"id":50,
+			"title":"STARTUP - SLAPPY WARES",
+			"objective":"Take a joke t-shirt idea for a friend who got molested by a dolphin and extrapolate it into a full fledged Dad Joke E-Commerce drop-shipping empire",
+			"solution":[
+				"Dad Joke Gold",
+				"Iconic Brand",
+				"Shopify",
+				"Liquid API",
+				"Print on Demand",
+				"Pranks",
+				"Startup"
+			],
+			"skillset":"brand_building,creative_direction,product_design,product_positioning,lead_generation,graphic_design,photoshop,illustrator,copywriting,typography,illustration",
+			"images":[
+				"images/_STARTUP/slappywares_site1.png",
+				"images/_STARTUP/slappywares_quote1.png",
+				"images/_STARTUP/slappywares_site2.png",
+				"images/_STARTUP/slappywares_site3.png",
+				"images/_STARTUP/slappywares_site4.png",
+				"images/_STARTUP/slappywares_yell_logo_banner_1650x600.jpg",
+				"images/_STARTUP/slappywares_logo_purpleCircleCrop_768x768.png",
+				"images/_STARTUP/slappywares_ad1.png",
+				"images/_STARTUP/slappywares_ad2.png",
+				"images/_STARTUP/slappywares_promoCard_front.png",
+				"images/_STARTUP/slappywares_promoCard_back.png",
+				"images/_STARTUP/slappywares_pinterest1.png",
+				"images/_STARTUP/slappywares_shirt_manTitsMcGee.png",
+				"images/_STARTUP/slappywares_shirt_drBeetus.png",
+				"images/_STARTUP/slappywares_shirt_taunTaunSanta.png",
+				"images/_STARTUP/slappywares_shirt_signsOfAging.png",
+				"images/_STARTUP/slappywares_prankGenerators.png",
+				"images/_STARTUP/slappywares_prankGenerators_manBoobs.png"
+			],
+			"links":[
+				{"title":"slappywares.com", "url":"https://www.slappywares.com"},
+				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
 			]
 		}
 

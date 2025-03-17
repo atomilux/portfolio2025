@@ -180,7 +180,7 @@ export default function Content_PortfolioCollection () {
 				
 		const int_id = vimeo_getID(str)
 		
-		const url = 'http://vimeo.com/api/v2/video/' + int_id + '.json';
+		const url = 'https://vimeo.com/api/v2/video/' + int_id + '.json';
 
 		//grab a copy of state
 		const tmp_thumbPaths_obj = local_vimeoThumbnailURLs
