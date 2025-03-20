@@ -564,7 +564,7 @@
 
 		{
 			"id":20,
-			"title":"Prevailion v2",
+			"title":"PREVAILION v2",
 			"objective":"Visualize complex cyber security data into corporate friendly business intelligence.",
 			"solution":[
 				"Human centered, C-Suite UX",
@@ -1095,7 +1095,7 @@
 		},
 		{
 			"id":41,
-			"title":"PREVAILION PROTOTYPE",
+			"title":"PREVAILION v4 PROTOTYPE",
 			"objective":"This prototype design pushed the envelope further than our existing Apex platform. It was meant to be visually striking with strong differentiation while retaining its simple and clean UI from its predecessor.",
 			"solution":[
 				"Innovative UI",
@@ -1118,9 +1118,10 @@
 		},
 		{
 			"id":42,
-			"title":"PREVAILION APEX V2",
+			"title":"PREVAILION APEX V3",
 			"objective":"Visualize complex cyber security data into corporate friendly business intelligence.",
 			"solution":[
+				"Timeline Scrubber UI",
 				"Human centered, C-Suite UX",
 				"Clean and simple UI",
 				"Brand requirements: Professional, High Tech, Ominous, Serious",
@@ -1133,9 +1134,10 @@
 			],
 			"skillset":"brand_building,ui_design,ux_design,react,javascript,jquery,jsx,html,scss,css,unit_testing",
 			"images":[
-				"./images/_HYBRID/prevailion_platform_home.png",
-				"./images/_HYBRID/prevailion_platform_seeker.png",
-				"./images/_HYBRID/prevailion_platform_detail.png"
+				"./images/_HYBRID/prevailion_v3UI_home.png",
+				"./images/_HYBRID/prevailion_v3UI_search.png",
+				"./images/_HYBRID/prevailion_v3UI_Org.png",
+				"./images/_HYBRID/prevailion_v3UI_IP.png"
 			],
 			"links":[
 				{"title":"steveo@atomilux.com", "url":"mailto:steveo@atomilux.com"}
